@@ -289,12 +289,14 @@ function dslc_ajax_display_module_options( $atts ) {
 
 		// Tabs.
 		$tabs = array();
+		$group_id = false;
 
 		ob_start();
 
 		// Go through each option, generate the option HTML and append to output.
 		foreach ( $module_options as $module_option ) {
 
+			$group_id = empty( $module_option['group_id'] ) ? false : $module_option['group_id'];
 			$curr_value = $module_option['std'];
 
 			if ( isset( $_POST[ $module_option['id'] ] ) ) {
@@ -463,6 +465,22 @@ function dslc_ajax_display_module_options( $atts ) {
 			if ( isset( $module_option['dependent_controls'] ) ) {
 				$dep = ' data-dep="' . base64_encode( wp_json_encode( $module_option['dependent_controls'] ) ) . '"';
 			}
+
+			// Render option group closer.
+			if (
+				( false !== $group_id && empty( $module_option['group_id'] ) ) ||
+				( false !== $group_id && $module_option['group_id'] !== $group_id )
+			 ) {
+				?></div><?php
+			}
+
+			// Render option group MAYBE!
+			if ( ! empty( $module_option['group_id'] ) && ( false === $group_id || ( false !== $group_id && $module_option['group_id'] !== $group_id ) ) ) {
+
+				?><div class='lc-group lc-group-'<?php echo esc_attr( $group_id )?> data-option-group-type="<?php echo esc_attr( $module_option['group_type'] )?>" ><?php
+			}
+
+			$group_id = empty( $module_option['group_id'] ) ? false : $module_option['group_id'];
 
 			?>
 
@@ -755,6 +773,10 @@ function dslc_ajax_display_module_options( $atts ) {
 						<?php endif; ?>
 
 					<?php endif; ?>
+
+					<?php if ( $group_id !== false ) {?>
+						</div>
+					<?php } ?>
 
 				</div><!-- .dslc-module-edit-option -->
 

@@ -872,13 +872,15 @@ function dslc_module_front( $atts, $settings_raw = null ) {
 		// not as ajax repsonse on creation/editing
 		$settings['module_render_nonajax'] = true;
 
-		// Start output fetching
-		ob_start();
 
 		// Fixing the options array
 		global $dslc_var_image_option_bckp;
 		$dslc_var_image_option_bckp = array();
 		$all_opts = $module_instance->options();
+
+
+		// Start output fetching
+		ob_start();
 
 		foreach ( $all_opts as $all_opt ) {
 
