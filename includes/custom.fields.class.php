@@ -50,7 +50,30 @@ class LC_Custom_Settings_Fields {
 	static public function custom_groups_definition( $group_def ) {
 
 		$groups_list = array(
+			/**
+			 * Margin group definition
+			 * array(
+				'label' => __( 'Group margin H6', 'live-composer-page-builder' ),
+				'id' => 'first_group',
+				'type' => 'group_margin',
+				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-button'
+			),
+			 */
 			'group_margin' => array(
+				array(
+					'label' => __( 'Margin', 'live-composer-page-builder' ),
+					'id' => 'margin',
+					'min' => -1000,
+					'max' => 1000,
+					'increment' => 1,
+					'std' => '15',
+					'type' => 'slider',
+					'refresh_on_change' => false,
+					'affect_on_change_rule' => 'margin',
+					'ext' => 'px',
+				),
 				array(
 					'label' => __( 'Margin Top', 'live-composer-page-builder' ),
 					'id' => 'margin_top',

@@ -1029,18 +1029,10 @@ class DSLC_Button extends DSLC_Module {
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 			),
-			array(
-				'label' => __( 'Group margin H6', 'live-composer-page-builder' ),
-				'id' => 'first_group',
-				'type' => 'group_margin',
-				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
-				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-button'
-			),
 		);
 
-		/*$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array('hover_opts' => false) ) );
-		$dslc_options = array_merge( $dslc_options, $this->presets_options() );*/
+		$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array('hover_opts' => false) ) );
+		$dslc_options = array_merge( $dslc_options, $this->presets_options() );
 
 		return apply_filters( 'dslc_module_options', $dslc_options, $this->module_id );
 	}

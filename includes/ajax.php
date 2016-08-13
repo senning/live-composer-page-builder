@@ -296,7 +296,6 @@ function dslc_ajax_display_module_options( $atts ) {
 		// Go through each option, generate the option HTML and append to output.
 		foreach ( $module_options as $module_option ) {
 
-			$group_id = empty( $module_option['group_id'] ) ? false : $module_option['group_id'];
 			$curr_value = $module_option['std'];
 
 			if ( isset( $_POST[ $module_option['id'] ] ) ) {
@@ -467,23 +466,21 @@ function dslc_ajax_display_module_options( $atts ) {
 			}
 
 			// Render option group closer.
-			if (
-				( false !== $group_id && empty( $module_option['group_id'] ) ) ||
-				( false !== $group_id && $module_option['group_id'] !== $group_id )
-			 ) {
+			if ( false !== $group_id &&	( empty( $module_option['group_id'] ) || $module_option['group_id'] !== $group_id ) ) {
+
 				?></div><?php
 			}
 
-			// Render option group MAYBE!
-			if ( ! empty( $module_option['group_id'] ) && ( false === $group_id || ( false !== $group_id && $module_option['group_id'] !== $group_id ) ) ) {
 
-				?><div class='lc-group lc-group-'<?php echo esc_attr( $group_id )?> data-option-group-type="<?php echo esc_attr( $module_option['group_type'] )?>" ><?php
+			// Render option group MAYBE!
+			if ( ! empty( $module_option['group_id'] ) && ( $group_id === false || ( $group_id !== false && $module_option['group_id'] !== $group_id ) ) ) {
+
+				?><div class='lc-group lc-group-<?php echo esc_attr( $module_option['group_id'] )?> lc-group-type-<?php echo esc_attr( $module_option['group_type'] )?>' ><?php
 			}
 
 			$group_id = empty( $module_option['group_id'] ) ? false : $module_option['group_id'];
 
 			?>
-
 				<div class="dslca-module-edit-option dslca-module-edit-option-<?php echo esc_attr( $module_option['type'] ); ?> dslca-module-edit-option-<?php echo esc_attr( $module_option['id'] ); ?> <?php if ( ! $visibility ) { echo 'dslca-module-edit-option-hidden'; } ?> <?php echo esc_attr( $control_with_toggle ); ?>"
 					data-id="<?php echo esc_attr( $module_option['id'] ); ?>"
 					<?php echo $dep; /* Base64 code. */ ?>
@@ -774,15 +771,13 @@ function dslc_ajax_display_module_options( $atts ) {
 
 					<?php endif; ?>
 
-					<?php if ( $group_id !== false ) {?>
-						</div>
-					<?php } ?>
 
-				</div><!-- .dslc-module-edit-option -->
-
-			<?php
-
+				</div><!-- .dslc-module-edit-option --><?php
 		}
+
+		if ( $group_id !== false ) {?>
+			</div>
+		<?php }
 
 		$output_fields = ob_get_contents();
 		ob_end_clean();
