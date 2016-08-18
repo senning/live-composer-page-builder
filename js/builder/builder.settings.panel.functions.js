@@ -472,8 +472,8 @@ function dslc_module_options_tab_filter( dslcTab ) {
 	if ( dslcTabID ) {
 
 		// Hide/Show options
-		jQuery('.dslca-module-edit-option').hide();
-		jQuery('.dslca-module-edit-option[data-tab="' + dslcTabID + '"]').show();
+		jQuery('.dslca-module-edit-option, .lc-option-group').hide();
+		jQuery('.dslca-module-edit-option[data-tab="' + dslcTabID + '"], .lc-option-group[data-tab="' + dslcTabID + '"]').show();
 
 		// Hide/Show Tabs
 		dslc_module_options_hideshow_tabs();

@@ -4014,3 +4014,100 @@ input.dslca-module-edit-field.pseudo-input {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+/** OPTION GROUP */
+.lc-option-group {
+    display: none;
+    float: left;
+    padding-top: 25px;
+}
+
+.lc-option-group .lc-group-header{position: relative;}
+.lc-option-group .dslca-module-edit-label{display: none;}
+.lc-option-group .lc-group-header .dslc-control-toggle{
+	margin-left: 12px;
+    position: relative;
+}
+
+.lc-option-group .dslca-modules-section-edit-option,
+.lc-option-group .dslca-module-edit-option{
+    padding-top: 0px;
+    width: 72px;
+    min-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    padding-right: 0px;
+}
+.dslca-container .lc-option-group .dslca-module-edit-field{
+	min-width: 0px;
+}
+.lc-option-group.lc-group-type-group_margin .dslca-module-edit-field-numeric-wrap{
+	width: 72px;
+	min-width: 0px;
+}
+.lc-option-group-margin-wrapper.group-locked{
+	width: 115px;
+}
+.lc-option-group-margin-wrapper{
+    background: #3b6fbe;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    margin-top: 10px;
+    border: 1px solid #3565ad;
+}
+.lc-option-group-margin-wrapper .dslca-modules-section-edit-option-slider:hover:after,
+.lc-option-group-margin-wrapper .dslca-module-edit-option-slider:hover:after,
+.lc-option-group-margin-wrapper .dslca-module-edit-field-numeric-ext{
+	display: none;
+}
+.dslca-container .lc-option-group-margin-wrapper .dslca-module-edit-option-slider input[type="number"]:focus,
+.dslca-container .lc-option-group-margin-wrapper .dslca-module-edit-option-slider input[type="number"]{
+    padding-right: 9px;
+    min-width: 0px;
+}
+.dslca-container div.lc-option-group-margin-locker {
+    display: table-cell!important;
+    cursor: pointer;
+    text-align: center;
+    width: 40px;
+}
+.group-margin-lock-icon{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+}
+.dslca-container .lc-option-group-margin-wrapper.group-unlocked > div.dslca-module-edit-option:first-child{
+	display: none!important;
+}
+.dslca-container .lc-option-group-margin-wrapper.group-locked > div.dslca-module-edit-option:first-child{
+	display: table-cell!important;
+	padding: 0px;
+}
+.dslca-container .lc-option-group-margin-wrapper.group-locked > div.dslca-module-edit-option{
+	display: none!important;
+}
+.lc-option-group-margin-wrapper .dslca-module-edit-option:before {
+    display: inline;
+    width: 30px;
+    height: auto;
+    position: absolute;
+    font-family: DSLCFontAwesome;
+    line-height: normal;
+    vertical-align: baseline;
+    margin-top: 10px;
+    text-align: center;
+    left: 0px;
+}
+
+.lc-option-group-margin-wrapper .group-margin-top:before {
+    content: "\F176";
+}
+.lc-option-group-margin-wrapper .group-margin-right:before {
+    content: "\F178";
+}
+.lc-option-group-margin-wrapper .group-margin-bottom:before {
+    content: "\F175";
+}
+.lc-option-group-margin-wrapper .group-margin-left:before {
+    content: "\F177";
+}

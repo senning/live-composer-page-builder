@@ -290,6 +290,7 @@ function dslc_ajax_display_module_options( $atts ) {
 		// Tabs.
 		$tabs = array();
 		$group_id = false;
+		$module_option_previous = false;
 
 		ob_start();
 
@@ -468,20 +469,36 @@ function dslc_ajax_display_module_options( $atts ) {
 			// Render option group closer.
 			if ( false !== $group_id &&	( empty( $module_option['group_id'] ) || $module_option['group_id'] !== $group_id ) ) {
 
+				if ( ! empty( $module_option_previous['postfix'] ) ) {
+
+					echo $module_option_previous['postfix'];
+				}
 				?></div><?php
 			}
 
+			$module_option_previous = $module_option;
 
 			// Render option group MAYBE!
 			if ( ! empty( $module_option['group_id'] ) && ( $group_id === false || ( $group_id !== false && $module_option['group_id'] !== $group_id ) ) ) {
 
-				?><div class='lc-group lc-group-<?php echo esc_attr( $module_option['group_id'] )?> lc-group-type-<?php echo esc_attr( $module_option['group_type'] )?>' ><?php
+				?><div class='lc-option-group lc-group-<?php echo esc_attr( $module_option['group_id'] )?> lc-group-type-<?php echo esc_attr( $module_option['group_type'] )?>' data-tab="<?php echo esc_attr( $tab_id ); ?>" >
+					<div class="lc-group-header">
+						<span class="lc-group-label"><?php echo esc_attr( $module_option['group_label'] )?></span>
+						<span class="dslc-control-toggle dslc-icon dslc-icon-"></span>
+					</div>
+
+				<?php
+
+				if ( ! empty( $module_option['prefix'] ) ) {
+
+					echo $module_option['prefix'];
+				}
 			}
 
 			$group_id = empty( $module_option['group_id'] ) ? false : $module_option['group_id'];
 
 			?>
-				<div class="dslca-module-edit-option dslca-module-edit-option-<?php echo esc_attr( $module_option['type'] ); ?> dslca-module-edit-option-<?php echo esc_attr( $module_option['id'] ); ?> <?php if ( ! $visibility ) { echo 'dslca-module-edit-option-hidden'; } ?> <?php echo esc_attr( $control_with_toggle ); ?>"
+				<div class="dslca-module-edit-option dslca-module-edit-option-<?php echo esc_attr( $module_option['type'] ); ?> dslca-module-edit-option-<?php echo esc_attr( $module_option['id'] ); ?> <?php if ( ! $visibility ) { echo 'dslca-module-edit-option-hidden'; } ?> <?php echo esc_attr( $control_with_toggle ); ?> <?php echo esc_attr( $module_option['css_class'] )?>"
 					data-id="<?php echo esc_attr( $module_option['id'] ); ?>"
 					<?php echo $dep; /* Base64 code. */ ?>
 					data-refresh-on-change="<?php echo esc_attr( $refresh_on_change ); ?>"
@@ -775,7 +792,12 @@ function dslc_ajax_display_module_options( $atts ) {
 				</div><!-- .dslc-module-edit-option --><?php
 		}
 
-		if ( $group_id !== false ) {?>
+		if ( $group_id !== false ) {
+
+			if ( ! empty( $module_option_previous['postfix'] ) ) {
+
+					esc_html_e( $module_option_previous['postfix'] );
+				}?>
 			</div>
 		<?php }
 

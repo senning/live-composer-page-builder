@@ -113,7 +113,6 @@ class DSLC_Icon extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -407,24 +406,39 @@ class DSLC_Icon extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 			),
-
-
+			array(
+				'label' => __( 'Group margin H6', 'live-composer-page-builder' ),
+				'id' => 'first_group',
+				'type' => 'group_margin',
+				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-button',
+				'values' => array(
+					'margin' => 'css_border_width',
+					'margin_top' => 'css_border_radius',
+					'margin_left' => 'post_var_id3',
+					'margin_bottom' => 'post_var_id4',
+					'margin_right' => 'post_var_id5',
+				),
+			),
 		);
 
 		$dslc_options = array_merge( $dslc_options, $this->presets_options() );
 
 		return apply_filters( 'dslc_module_options', $dslc_options, $this->module_id );
-
 	}
 
 	function output( $options ) {
 
 		global $dslc_active;
 
-		if ( $dslc_active && is_user_logged_in() && current_user_can( DS_LIVE_COMPOSER_CAPABILITY ) )
+		if ( $dslc_active && is_user_logged_in() && current_user_can( DS_LIVE_COMPOSER_CAPABILITY ) ) {
+
 			$dslc_is_admin = true;
-		else
+		} else {
+
 			$dslc_is_admin = false;
+		}
 
 		$this->module_start( $options );
 
@@ -441,7 +455,5 @@ class DSLC_Icon extends DSLC_Module {
 		/* Module output ends here */
 
 		$this->module_end( $options );
-
 	}
-
 }

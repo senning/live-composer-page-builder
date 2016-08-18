@@ -5,6 +5,13 @@
 class LC_Custom_Settings_Fields {
 
 	/**
+	 * Array contains options to be hidden
+	 *
+	 * @var array
+	 */
+	static private $hide_options = array();
+
+	/**
 	 * Init actions.
 	 * Filters methods with preg pattern, so future util
 	 * functions won't mess up with custom fields output.
@@ -12,6 +19,32 @@ class LC_Custom_Settings_Fields {
 	static public function init() {
 
 		add_filter( 'dslc_module_options', array( __CLASS__, 'filter_options_list' ), 1, 2 );
+		add_filter( 'dslc_module_options', array( __CLASS__, 'disable_changed_options' ), 2, 2 );
+	}
+
+	/**
+	 * Sets to chosen options visibility hidden
+	 *
+	 * @param  array  $module_options options.
+	 * @param  string $module_id option.
+	 *
+	 * @return array
+	 */
+	static public function disable_changed_options( $module_options, $module_id ) {
+
+		$out = array();
+
+		foreach ( $module_options as $option ) {
+
+			if ( in_array( $option['id'], self::$hide_options, true ) ) {
+
+				$option['visibility'] = 'hidden';
+			}
+
+			$out[] = $option;
+		}
+
+		return $out;
 	}
 
 	/**
@@ -49,6 +82,9 @@ class LC_Custom_Settings_Fields {
 	 */
 	static public function custom_groups_definition( $group_def ) {
 
+		// Clear options to hide.
+		self::$hide_options = array();
+
 		$groups_list = array(
 			/**
 			 * Margin group definition
@@ -58,70 +94,88 @@ class LC_Custom_Settings_Fields {
 				'type' => 'group_margin',
 				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
 				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-button'
+				'affect_on_change_el' => '.dslc-button',
+				'values' => array(
+					'margin' => 'post_var_id1'
+					'margin_top' => 'post_var_id2',
+					'margin_left' => 'post_var_id3'
+					'margin_bottom' => 'post_var_id4'
+					'margin_right' => 'post_var_id5'
+				),
+				'prefix' => {HTML code},
+				'postfix' => {HTML code}
 			),
 			 */
 			'group_margin' => array(
-				array(
-					'label' => __( 'Margin', 'live-composer-page-builder' ),
-					'id' => 'margin',
-					'min' => -1000,
-					'max' => 1000,
-					'increment' => 1,
-					'std' => '15',
-					'type' => 'slider',
-					'refresh_on_change' => false,
-					'affect_on_change_rule' => 'margin',
-					'ext' => 'px',
+				'fields' => array(
+					array(
+						'label' => __( 'Margin', 'live-composer-page-builder' ),
+						'id' => 'margin',
+						'min' => -1000,
+						'max' => 1000,
+						'increment' => 1,
+						'std' => '15',
+						'css_class' => 'group-margin-common',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'margin',
+						'ext' => 'px',
+					),
+					array(
+						'label' => __( 'Margin Top', 'live-composer-page-builder' ),
+						'id' => 'margin_top',
+						'min' => -1000,
+						'max' => 1000,
+						'increment' => 1,
+						'std' => '15',
+						'type' => 'slider',
+						'css_class' => 'group-margin-top',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'margin-top',
+						'ext' => 'px',
+					),
+					array(
+						'label' => __( 'Margin Right', 'live-composer-page-builder' ),
+						'id' => 'margin_right',
+						'min' => -1000,
+						'max' => 1000,
+						'increment' => 1,
+						'std' => '15',
+						'type' => 'slider',
+						'css_class' => 'group-margin-right',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'margin-right',
+						'ext' => 'px',
+					),
+					array(
+						'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
+						'id' => 'margin_bottom',
+						'min' => -1000,
+						'max' => 1000,
+						'increment' => 1,
+						'std' => '15',
+						'css_class' => 'group-margin-bottom',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'margin-bottom',
+						'ext' => 'px',
+					),
+					array(
+						'label' => __( 'Margin Left', 'live-composer-page-builder' ),
+						'id' => 'margin_left',
+						'min' => -1000,
+						'max' => 1000,
+						'increment' => 1,
+						'std' => '15',
+						'css_class' => 'group-margin-left',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'margin-left',
+						'ext' => 'px',
+					),
 				),
-				array(
-					'label' => __( 'Margin Top', 'live-composer-page-builder' ),
-					'id' => 'margin_top',
-					'min' => -1000,
-					'max' => 1000,
-					'increment' => 1,
-					'std' => '15',
-					'type' => 'slider',
-					'refresh_on_change' => false,
-					'affect_on_change_rule' => 'margin-top',
-					'ext' => 'px',
-				),
-				array(
-					'label' => __( 'Margin Right', 'live-composer-page-builder' ),
-					'id' => 'margin_right',
-					'min' => -1000,
-					'max' => 1000,
-					'increment' => 1,
-					'std' => '15',
-					'type' => 'slider',
-					'refresh_on_change' => false,
-					'affect_on_change_rule' => 'margin-right',
-					'ext' => 'px',
-				),
-				array(
-					'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
-					'id' => 'margin_bottom',
-					'min' => -1000,
-					'max' => 1000,
-					'increment' => 1,
-					'std' => '15',
-					'type' => 'slider',
-					'refresh_on_change' => false,
-					'affect_on_change_rule' => 'margin-bottom',
-					'ext' => 'px',
-				),
-				array(
-					'label' => __( 'Margin Left', 'live-composer-page-builder' ),
-					'id' => 'margin_left',
-					'min' => -1000,
-					'max' => 1000,
-					'increment' => 1,
-					'std' => '15',
-					'type' => 'slider',
-					'refresh_on_change' => false,
-					'affect_on_change_rule' => 'margin-left',
-					'ext' => 'px',
-				),
+				'postfix' => '<div class="lc-option-group-margin-locker"><i class="group-margin-lock-icon dslc-icon-unlock" aria-hidden="true"></i></div></div>',
+				'prefix' => '<div class="lc-option-group-margin-wrapper group-unlocked">',
 			),
 		);
 
@@ -131,7 +185,22 @@ class LC_Custom_Settings_Fields {
 
 			$group = $groups_list[ $group_def['type'] ];
 
-			foreach ( $group as $option ) {
+			foreach ( $group['fields'] as $option ) {
+
+				if ( ! is_array( $option ) ) {
+
+					continue;
+				}
+
+				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] )
+					&& ! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+				 )  {
+
+					$_POST[ $option['id'] . '_' . $group_def['id'] ] = $_POST[ $group_def['values'][ $option['id'] ] ];
+					$_POST[ $group_def['values'][ $option['id'] ] ] = '';
+				}
+
+				self::$hide_options[] = $group_def['values'][ $option['id'] ];
 
 				$option['id'] = $option['id'] . '_' . $group_def['id'];
 				$option['tab'] = $group_def['tab'];
@@ -140,6 +209,8 @@ class LC_Custom_Settings_Fields {
 				$option['group_id'] = $group_def['id'];
 				$option['group_type'] = $group_def['type'];
 				$option['affect_on_change_el'] = $group_def['affect_on_change_el'];
+				$option['prefix'] = isset( $group['prefix'] ) ? $group['prefix'] : '';
+				$option['postfix'] = isset( $group['postfix'] ) ? $group['postfix'] : '';
 
 				$out_group[] = $option;
 			}
