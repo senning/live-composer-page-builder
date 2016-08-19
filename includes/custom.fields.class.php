@@ -36,7 +36,7 @@ class LC_Custom_Settings_Fields {
 
 			foreach ( self::$hide_options as $new_id => $old_id ) {
 
-				if ( isset( $options_values[ $old_id ] ) ) {
+				if ( ! empty( $options_values[ $old_id ] ) ) {
 
 					$options_values[ $new_id ] = $options_values[ $old_id ];
 					$options_values[ $old_id ] = '';
