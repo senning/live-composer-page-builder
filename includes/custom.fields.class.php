@@ -193,8 +193,10 @@ class LC_Custom_Settings_Fields {
 				}
 
 				if ( (
-						! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) ||
-						! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+						! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) || (
+							isset( $group_def['values'] ) && isset( $group_def['values'][ $option['id'] ] ) &&
+							! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+							)
 						) &&
 					isset( $group_def['values'] ) &&
 					! empty( $group_def['values'][ $option['id'] ] )
@@ -204,7 +206,10 @@ class LC_Custom_Settings_Fields {
 					$_POST[ $group_def['values'][ $option['id'] ] ] = '';
 				}
 
-				self::$hide_options[] = $group_def['values'][ $option['id'] ];
+				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] ) ) {
+
+					self::$hide_options[] = $group_def['values'][ $option['id'] ];
+				}
 
 				$option['id'] = $option['id'] . '_' . $group_def['id'];
 				$option['tab'] = $group_def['tab'];
