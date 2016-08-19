@@ -248,7 +248,7 @@ class LC_Custom_Settings_Fields {
 	 * @param  array $group_def defines group.
 	 * @param  array $option  defines option array.
 	 */
-	private function move_values_post( $group_def, $option ) {
+	static public function move_values_post( $group_def, $option ) {
 
 		if ( (
 				! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) || (
