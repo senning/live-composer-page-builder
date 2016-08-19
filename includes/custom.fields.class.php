@@ -20,6 +20,31 @@ class LC_Custom_Settings_Fields {
 
 		add_filter( 'dslc_module_options', array( __CLASS__, 'filter_options_list' ), 1, 2 );
 		add_filter( 'dslc_module_options', array( __CLASS__, 'disable_changed_options' ), 2, 2 );
+		add_filter( 'dslc_filter_settings', array( __CLASS__, 'move_options_values' ), 1, 1 );
+	}
+
+	/**
+	 * Set dependencies of group options & values
+	 *
+	 * @param  array $options_values option values.
+	 *
+	 * @return array
+	 */
+	static public function move_options_values( $options_values ) {
+
+		if ( ! empty( self::$hide_options ) ) {
+
+			foreach ( self::$hide_options as $new_id => $old_id ) {
+
+				if ( isset( $options_values[ $old_id ] ) ) {
+
+					$options_values[ $new_id ] = $options_values[ $old_id ];
+					$options_values[ $old_id ] = '';
+				}
+			}
+		}
+
+		return $options_values;
 	}
 
 	/**
@@ -192,23 +217,12 @@ class LC_Custom_Settings_Fields {
 					continue;
 				}
 
-				if ( (
-						! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) || (
-							isset( $group_def['values'] ) && isset( $group_def['values'][ $option['id'] ] ) &&
-							! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
-							)
-						) &&
-					isset( $group_def['values'] ) &&
-					! empty( $group_def['values'][ $option['id'] ] )
-				 )  {
-
-					$_POST[ $option['id'] . '_' . $group_def['id'] ] = $_POST[ $group_def['values'][ $option['id'] ] ];
-					$_POST[ $group_def['values'][ $option['id'] ] ] = '';
-				}
+				// Change old & new values.
+				self::move_values_post( $group_def, $option );
 
 				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] ) ) {
 
-					self::$hide_options[] = $group_def['values'][ $option['id'] ];
+					self::$hide_options[ $option['id'] . '_' . $group_def['id'] ] = $group_def['values'][ $option['id'] ];
 				}
 
 				$option['id'] = $option['id'] . '_' . $group_def['id'];
@@ -226,6 +240,29 @@ class LC_Custom_Settings_Fields {
 		}
 
 		return $out_group;
+	}
+
+	/**
+	 * Move option values in POST-array
+	 *
+	 * @param  array $group_def defines group.
+	 * @param  array $option  defines option array.
+	 */
+	private function move_values_post( $group_def, $option ) {
+
+		if ( (
+				! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) || (
+					isset( $group_def['values'] ) && isset( $group_def['values'][ $option['id'] ] ) &&
+					! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+					)
+				) &&
+			isset( $group_def['values'] ) &&
+			! empty( $group_def['values'][ $option['id'] ] )
+		 )  {
+
+			$_POST[ $option['id'] . '_' . $group_def['id'] ] = $_POST[ $group_def['values'][ $option['id'] ] ];
+			$_POST[ $group_def['values'][ $option['id'] ] ] = '';
+		}
 	}
 
 	/**

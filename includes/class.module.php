@@ -2201,19 +2201,22 @@ class DSLC_Module {
 
 
 					} else {
+
 						dslc_generate_custom_css( $options_arr, $options, true );
 						$googlefonts_output = '';
 						foreach ( $dslc_googlefonts_array as $googlefont ) {
+
 							if ( in_array( $googlefont, $dslc_all_googlefonts_array ) ) {
+
 								$googlefont = str_replace( ' ', '+', $googlefont );
 								if ( $googlefont != '' ) {
+
 									$googlefonts_output .= '@import url("//fonts.googleapis.com/css?family=' . $googlefont . ':100,200,300,400,500,600,700,800,900&subset=latin,latin-ext"); ';
 								}
 							}
 						}
 						echo $googlefonts_output;
 						echo $dslc_css_style;
-
 					}
 
 				?></style>
