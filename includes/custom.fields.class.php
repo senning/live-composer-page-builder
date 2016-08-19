@@ -114,7 +114,7 @@ class LC_Custom_Settings_Fields {
 						'min' => -1000,
 						'max' => 1000,
 						'increment' => 1,
-						'std' => '15',
+						'std' => 0,
 						'css_class' => 'group-margin-common',
 						'type' => 'slider',
 						'refresh_on_change' => false,
@@ -127,7 +127,7 @@ class LC_Custom_Settings_Fields {
 						'min' => -1000,
 						'max' => 1000,
 						'increment' => 1,
-						'std' => '15',
+						'std' => 0,
 						'type' => 'slider',
 						'css_class' => 'group-margin-top',
 						'refresh_on_change' => false,
@@ -140,7 +140,7 @@ class LC_Custom_Settings_Fields {
 						'min' => -1000,
 						'max' => 1000,
 						'increment' => 1,
-						'std' => '15',
+						'std' => 0,
 						'type' => 'slider',
 						'css_class' => 'group-margin-right',
 						'refresh_on_change' => false,
@@ -153,7 +153,7 @@ class LC_Custom_Settings_Fields {
 						'min' => -1000,
 						'max' => 1000,
 						'increment' => 1,
-						'std' => '15',
+						'std' => 0,
 						'css_class' => 'group-margin-bottom',
 						'type' => 'slider',
 						'refresh_on_change' => false,
@@ -166,7 +166,7 @@ class LC_Custom_Settings_Fields {
 						'min' => -1000,
 						'max' => 1000,
 						'increment' => 1,
-						'std' => '15',
+						'std' => 0,
 						'css_class' => 'group-margin-left',
 						'type' => 'slider',
 						'refresh_on_change' => false,
@@ -192,8 +192,12 @@ class LC_Custom_Settings_Fields {
 					continue;
 				}
 
-				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] )
-					&& ! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+				if ( (
+						! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) ||
+						! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+						) &&
+					isset( $group_def['values'] ) &&
+					! empty( $group_def['values'][ $option['id'] ] )
 				 )  {
 
 					$_POST[ $option['id'] . '_' . $group_def['id'] ] = $_POST[ $group_def['values'][ $option['id'] ] ];

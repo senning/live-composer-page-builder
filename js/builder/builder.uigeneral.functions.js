@@ -763,6 +763,15 @@ jQuery(document).ready(function($){
 		dslc_toogle_control ( control_id );
 	});
 
+	// Toggle group toggles
+	jQuery(document).on( 'click', '.lc-option-group .lc-group-header .dslc-control-toggle', function(e){
+
+		jQuery(this).closest('.lc-group-header').toggleClass('dslca-option-off');
+
+		e.preventDefault();
+		jQuery(this).closest('.lc-option-group').find('.dslca-module-edit-option .dslc-control-toggle').click();
+	});
+
 
 	// Disable Toggle If the Control Focused
 	jQuery(document).on( 'mousedown', '.dslca-module-edit-option', function(e){
