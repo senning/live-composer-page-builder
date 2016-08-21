@@ -407,7 +407,7 @@ class DSLC_Icon extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 			),
 			array(
-				'label' => __( 'Group margin H6', 'live-composer-page-builder' ),
+				'label' => __( 'Margin', 'live-composer-page-builder' ),
 				'id' => 'first_group',
 				'type' => 'group_margin',
 				'tab' => __( 'Some thing', 'live-composer-page-builder' ),

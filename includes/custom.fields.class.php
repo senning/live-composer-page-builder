@@ -134,7 +134,7 @@ class LC_Custom_Settings_Fields {
 			'group_margin' => array(
 				'fields' => array(
 					array(
-						'label' => __( 'Margin', 'live-composer-page-builder' ),
+						'label' => __( 'All Sides', 'live-composer-page-builder' ),
 						'id' => 'margin',
 						'min' => -1000,
 						'max' => 1000,
@@ -147,7 +147,7 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 					array(
-						'label' => __( 'Margin Top', 'live-composer-page-builder' ),
+						'label' => __( 'Top', 'live-composer-page-builder' ),
 						'id' => 'margin_top',
 						'min' => -1000,
 						'max' => 1000,
@@ -160,7 +160,7 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 					array(
-						'label' => __( 'Margin Right', 'live-composer-page-builder' ),
+						'label' => __( 'Right', 'live-composer-page-builder' ),
 						'id' => 'margin_right',
 						'min' => -1000,
 						'max' => 1000,
@@ -173,7 +173,7 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 					array(
-						'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
+						'label' => __( 'Bottom', 'live-composer-page-builder' ),
 						'id' => 'margin_bottom',
 						'min' => -1000,
 						'max' => 1000,
@@ -186,7 +186,7 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 					array(
-						'label' => __( 'Margin Left', 'live-composer-page-builder' ),
+						'label' => __( 'Left', 'live-composer-page-builder' ),
 						'id' => 'margin_left',
 						'min' => -1000,
 						'max' => 1000,
@@ -199,8 +199,8 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 				),
-				'postfix' => '<div class="lc-option-group-margin-locker"><i class="group-margin-lock-icon dslc-icon-unlock" aria-hidden="true"></i></div></div>',
-				'prefix' => '<div class="lc-option-group-margin-wrapper group-unlocked">',
+				'prefix' => '<div class="lc-option-group-margin-wrapper group-unlocked"><div class="lc-option-group-icon"><i class="dslc-icon-cube"></i></div><div class="lc-option-group-margin-locker"><i class="group-margin-lock-icon dslc-icon-unlock" aria-hidden="true"></i></div>',
+				'postfix' => '</div>',
 			),
 		);
 

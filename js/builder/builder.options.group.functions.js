@@ -24,8 +24,8 @@ jQuery(document).ready(function(){
 					group.find('.group-margin-common input').val('').trigger('change');
 
 					jQuery(this).children().eq(0)
-						.removeClass('dslc-icon-lock')
-						.addClass('dslc-icon-unlock');
+						.removeClass('dslc-icon-link')
+						.addClass('dslc-icon-unlink');
 
 					group.removeClass('group-locked')
 						.addClass('group-unlocked');
@@ -44,8 +44,8 @@ jQuery(document).ready(function(){
 					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
 
 					jQuery(this).children().eq(0)
-						.removeClass('dslc-icon-unlock')
-						.addClass('dslc-icon-lock');
+						.removeClass('dslc-icon-unlink')
+						.addClass('dslc-icon-link');
 
 					group.removeClass('group-unlocked')
 						.addClass('group-locked');

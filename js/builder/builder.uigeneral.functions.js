@@ -763,10 +763,17 @@ jQuery(document).ready(function($){
 		dslc_toogle_control ( control_id );
 	});
 
+
+	// Click on controls group enable/disable group
+	jQuery(document).on( 'click', '.lc-option-group .lc-option-group-icon', function(e){
+		jQuery('.lc-option-group .lc-group-header .dslc-control-toggle').trigger('click');
+	});
+
 	// Toggle group toggles
 	jQuery(document).on( 'click', '.lc-option-group .lc-group-header .dslc-control-toggle', function(e){
 
 		jQuery(this).closest('.lc-group-header').toggleClass('dslca-option-off');
+		jQuery(this).closest('.lc-option-group').toggleClass('dslca-group-off');
 
 		e.preventDefault();
 		jQuery(this).closest('.lc-option-group').find('.dslca-module-edit-option .dslc-control-toggle').click();
