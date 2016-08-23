@@ -4031,6 +4031,7 @@ input.dslca-module-edit-field.pseudo-input {
 
 /** OPTION GROUP */
 .lc-option-group {
+	margin-right: 20px;
     display: none;
     float: left;
     padding-top: 8px;
