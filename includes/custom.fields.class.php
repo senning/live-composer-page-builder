@@ -133,23 +133,21 @@ class LC_Custom_Settings_Fields {
 			 */
 			'group_margin' => array(
 				'fields' => array(
+
+					/**
+					 * Hardcoded values - closed & collapsed.
+					 */
 					array(
 						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
 						'id' => 'show_ext_margins',
-						'std' => false,
+						'std' => 'true',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
 
-							'false' => 'margin_left, margin_bottom, margin_right, margin_top',
-							'true' => 'margin',
+							'true' => 'margin_left, margin_bottom, margin_right, margin_top',
+							'false' => 'margin',
 						),
 						'refresh_on_change' => false,
-						'choices' => array(
-							array(
-								'label' => __( 'Opened', 'live-composer-page-builder' ),
-								'value' => 'opened',
-							),
-						),
 					),
 					array(
 						'label' => __( 'All Sides', 'live-composer-page-builder' ),

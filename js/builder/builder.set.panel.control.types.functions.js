@@ -18,7 +18,6 @@ jQuery(function(){
 				if ( checked ) {
 
 					jQuery('input', this)[0].checked = false;
-					jQuery('input', this).val(false);
 
 					lock.addClass('dslc-icon-link')
 						.removeClass('dslc-icon-unlink');
@@ -26,7 +25,6 @@ jQuery(function(){
 				} else {
 
 					jQuery('input', this)[0].checked = true;
-					jQuery('input', this).val(true);
 
 					lock.removeClass('dslc-icon-link')
 						.addClass('dslc-icon-unlink');

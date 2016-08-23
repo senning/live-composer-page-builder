@@ -308,17 +308,13 @@ jQuery(document).ready(function($){
 
 			if ( parsed ) {
 
-				var handler = function(){
+				var changeHandler = function(){
 
 					var optElem = this;
 					var localDep = {};
 					var groupId = '';
 
-					if ( ( optElem.type == 'radio' || optElem.type == 'checkbox' ) && dep[ optElem.value ] == undefined ) {
-
-						return false;
-					}
-
+					// Set dependecies data
 					if ( ! jQuery(optElem).hasClass('toggle_controls') && optElem.type == 'checkbox' && dep[ optElem.value ] != undefined ) {
 
 						localDep[ optElem.value ] = dep[ optElem.value ];
@@ -327,50 +323,94 @@ jQuery(document).ready(function($){
 						localDep = dep;
 					}
 
+					// If control in group
 					if ( jQuery(optElem.closest('.lc-option-group')).length > 0 ) {
 
 						groupId = '_' + jQuery(optElem.closest('.lc-option-group')).data('group-id');
 					}
 
+					// Loop through every setted value dep
 					Object.keys(localDep).forEach(function(opt_val){
 
-						localDep[ opt_val ].split(',').forEach(function(item){
-
-							var opt_wrap = $(".dslca-module-edit-option-" + item.trim() + groupId).closest('.dslca-module-edit-option');
-							var checkedCheckbox = true;
-
-							if ( optElem.type == 'radio' || optElem.type == 'checkbox' ) {
-
-								checkedCheckbox = $(optElem).is(":checked");
-							}
-
-							if ( optElem.value == opt_val && checkedCheckbox ) {
-
-								opt_wrap.show();
-							} else {
-
-								opt_wrap.hide();
-							}
-
-							dslc_scroller_init();
-						});
+						oneValueHandler( opt_val );
 					});
+
+					/**
+					 * Handle one concrete value
+					 */
+					function oneValueHandler( opt_val ) {
+
+						// Create selector for select option controls
+						var selector = localDep[ opt_val ].replace(/ /gi, '').split(',').map(function(item){
+
+							return '.dslca-module-edit-option-' + item + groupId;
+						}).join(',');
+
+						var optElemValue = getOptElemValue( optElem );
+
+						if ( opt_val == optElemValue ) {
+
+							jQuery(selector).show().removeClass('force-hide');
+						} else {
+
+							jQuery(selector).hide().addClass('force-hide');
+						}
+
+						dslc_scroller_init()
+					}
+
+					/**
+					 * Get input value including dep engine requirings
+					 *
+					 * @param {DOM element} input DOM element
+					 * @return {string} input value
+					 */
+					function getOptElemValue( input ) {
+
+						// If toggle controls value has no matter
+						if ( jQuery(optElem).hasClass('toggle_controls') ) {
+
+							if( jQuery(optElem).data('value') != '' ) {
+
+								var val = $(optElem).data("value").toString();
+								$(optElem).data("value", "");
+
+								return val;
+							}
+
+							return $(optElem).is(":checked").toString();
+						}
+
+						// If element is checkbox
+						if ( optElem.type == 'checkbox' && $(optElem).is(":checked") ) {
+
+							return optElem.value;
+						}
+
+						// If element is radio
+						if ( optElem.type == 'radio' && $(optElem).is(":checked") ) {
+
+							return optElem.value;
+						}
+
+						return jQuery(optElem).val();
+					}
 				}
 
-				$(document).on('change dslc-init-deps', '.dslca-module-edit-option *[data-id="' + $(this).data('id') + '"]', handler);
-				LiveComposer.Builder.Helpers.depsHandlers.push( handler );
+				$(document).on('change dslc-init-deps', '.dslca-module-edit-option *[data-id="' + $(this).data('id') + '"]', changeHandler);
+				LiveComposer.Builder.Helpers.depsHandlers.push( changeHandler );
 			}
 		});
 
-		$(".dslca-module-edit-option input, .dslca-module-edit-option select").trigger('dslc-init-deps');
+		$(".dslca-module-edit-option[data-dep] input, .dslca-module-edit-option[data-dep] select").trigger('change');
 	}
 
 	LiveComposer.Builder.UI.unloadOptionsDeps = function() {
 
-		LiveComposer.Builder.Helpers.depsHandlers.forEach(function(handler){
+		LiveComposer.Builder.Helpers.depsHandlers.forEach(function(changeHandler){
 
-			$(document).unbind( 'change', handler );
-			$(document).unbind( 'dslc-init-deps', handler );
+			$(document).unbind( 'change', changeHandler );
+			$(document).unbind( 'dslc-init-deps', changeHandler );
 		});
 
 		LiveComposer.Builder.Helpers.depsHandlers = [];
@@ -442,7 +482,7 @@ function dslc_module_options_section_filter( sectionID ) {
 	jQuery('.dslca-module-edit-option').hide();
 
 	// Show options for current section
-	jQuery('.dslca-module-edit-option[data-section="' + sectionID + '"]').show();
+	jQuery('.dslca-module-edit-option[data-section="' + sectionID + '"]').not('.force-hide').show();
 
 	// Recall module options tab
 	dslc_module_options_tab_filter();
@@ -479,7 +519,7 @@ function dslc_module_options_tab_filter( dslcTab ) {
 
 		// Hide/Show options
 		jQuery('.dslca-module-edit-option, .lc-option-group').hide();
-		jQuery('.dslca-module-edit-option[data-tab="' + dslcTabID + '"], .lc-option-group[data-tab="' + dslcTabID + '"]').show();
+		jQuery('.dslca-module-edit-option[data-tab="' + dslcTabID + '"], .lc-option-group[data-tab="' + dslcTabID + '"]').not('.force-hide').show();
 
 		// Hide/Show Tabs
 		dslc_module_options_hideshow_tabs();

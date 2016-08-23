@@ -563,30 +563,22 @@ function dslc_ajax_display_module_options( $atts ) {
 						<?php
 
 						// Current Value Array.
-						if ( empty( $curr_value ) ) {
-
-							$curr_value = array();
-						} else {
-
-							$curr_value = explode( ' ', trim( $curr_value ) );
-						}
-
-						$checked = in_array( $checkbox_option['value'], $curr_value, true );
+						$curr_value = trim( $curr_value );
+						$collapsed = (bool)($curr_value == 'true');
 
 						?>
 
-						<div class="dslca-module-edit-option-checkbox-wrapper <?php echo $checked === false ? 'toggle-controls-closed' : ''; ?>">
-							<?php foreach ( $module_option['choices'] as  $checkbox_option ) : ?>
-								<div class="dslca-module-edit-option-checkbox-single">
-									<?php if ( $checked ) {?>
-										<i class="dslc-icon dslc-icon-unlink"></i>
-									<?php } else {?>
+						<div class="dslca-module-edit-option-checkbox-wrapper">
+							<div class="dslca-module-edit-option-checkbox-single">
+								<?php if ( $collapsed ) {?>
 
-										<i class="dslc-icon dslc-icon-link"></i>
-									<?php } ?>
-									<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox toggle_controls" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" value="<?php echo $checkbox_option['value']; ?>" <?php if ( $checked === true ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
-								</div><!-- .dslca-module-edit-option-checkbox-single -->
-							<?php endforeach; ?>
+									<i class="dslc-icon dslc-icon-unlink"></i>
+								<?php } else { ?>
+
+									<i class="dslc-icon dslc-icon-link"></i>
+								<?php } ?>
+								<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox toggle_controls" value='true' data-value="<?php echo ! $collapsed ? 'false' : 'true';?>" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" <?php if ( $collapsed ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
+							</div><!-- .dslca-module-edit-option-checkbox-single -->
 						</div><!-- .dslca-module-edit-option-checkbox-wrapper -->
 
 					<?php elseif ( $module_option['type'] == 'checkbox' ) : ?>

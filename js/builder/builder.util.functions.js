@@ -626,7 +626,7 @@ jQuery(document).ready(function($) {
 			 * Update option
 			 */
 
-			jQuery( '.dslca-module-option-front[data-id="' + dslcOptionID + '"]', dslcModule ).val( dslcAffectOnChangeValOrig );
+			jQuery( '.dslca-module-option-front[data-id="' + dslcOptionID + '"]', dslcModule ).val( dslcAffectOnChangeValOrig || dslcOptionValueOrig );
 
 			LiveComposer.Utils.publish( 'moduleChanged', {
 
