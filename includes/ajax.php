@@ -439,6 +439,11 @@ function dslc_ajax_display_module_options( $atts ) {
 				'resize_height',
 			);
 
+			$control_types_without_toggle = array(
+
+				'toggle_controls',
+			);
+
 			$control_with_toggle = '';
 
 			$sections_with_toggle = array(
@@ -451,10 +456,15 @@ function dslc_ajax_display_module_options( $atts ) {
 			/**
 			 * Display styling control toggle [On/Off]
 			 */
-			if ( ! in_array( $module_option['id'], $controls_without_toggle, true ) && in_array( $module_option['section'], $sections_with_toggle, true ) ) {
+			if ( ! in_array( $module_option['type'], $control_types_without_toggle ) &&
+					! in_array( $module_option['id'], $controls_without_toggle, true ) &&
+					in_array( $module_option['section'], $sections_with_toggle, true )
+				) {
+
 				$control_with_toggle = 'dslca-option-with-toggle';
 
 				if ( '' === stripslashes( $curr_value ) ) {
+
 					$control_with_toggle .= ' dslca-option-off';
 				}
 			}
@@ -481,12 +491,13 @@ function dslc_ajax_display_module_options( $atts ) {
 			// Render option group MAYBE!
 			if ( ! empty( $module_option['group_id'] ) && ( $group_id === false || ( $group_id !== false && $module_option['group_id'] !== $group_id ) ) ) {
 
-				?><div class='lc-option-group lc-group-<?php echo esc_attr( $module_option['group_id'] )?> lc-group-type-<?php echo esc_attr( $module_option['group_type'] )?>' data-tab="<?php echo esc_attr( $tab_id ); ?>" >
+				?><div class='lc-option-group lc-group-<?php echo esc_attr( $module_option['group_id'] )?> lc-group-type-<?php echo esc_attr( $module_option['group_type'] )?>' data-tab="<?php echo esc_attr( $tab_id ); ?>" 
+				data-group-id="<?php echo esc_attr( $module_option['group_id'] )?>" >
 					<div class="lc-group-header">
 						<span class="lc-group-label"><?php echo esc_attr( $module_option['group_label'] )?></span>
 						<span class="dslc-control-toggle dslc-icon dslc-icon-"></span>
 					</div>
-
+					<div class="lc-option-group-icon"><i class="dslc-icon-<?php echo esc_attr( $module_option['group_icon'] )?>"></i></div>
 				<?php
 
 				if ( ! empty( $module_option['prefix'] ) ) {
@@ -515,7 +526,10 @@ function dslc_ajax_display_module_options( $atts ) {
 						/**
 						 * Display styling control toggle [On/Off]
 						 */
-						if ( ! in_array( $module_option['id'], $controls_without_toggle, true ) && in_array( $module_option['section'], $sections_with_toggle, true ) && ! stristr( $module_option['id'], 'css_res_' ) ) {
+						if ( ! in_array( $module_option['id'], $controls_without_toggle, true ) &&
+							! in_array( $module_option['type'], $control_types_without_toggle ) &&
+							in_array( $module_option['section'], $sections_with_toggle, true ) &&
+							! stristr( $module_option['id'], 'css_res_' ) ) {
 							echo'<span class="dslc-control-toggle dslc-icon dslc-icon-"></span>';
 						}
 						?>
@@ -543,6 +557,37 @@ function dslc_ajax_display_module_options( $atts ) {
 							<?php endforeach; ?>
 						</select>
 						<span class="dslca-icon dslc-icon-caret-down"></span>
+
+					<?php elseif ( $module_option['type'] == 'toggle_controls' ) : ?>
+
+						<?php
+
+						// Current Value Array.
+						if ( empty( $curr_value ) ) {
+
+							$curr_value = array();
+						} else {
+
+							$curr_value = explode( ' ', trim( $curr_value ) );
+						}
+
+						$checked = in_array( $checkbox_option['value'], $curr_value, true );
+
+						?>
+
+						<div class="dslca-module-edit-option-checkbox-wrapper <?php echo $checked === false ? 'toggle-controls-closed' : ''; ?>">
+							<?php foreach ( $module_option['choices'] as  $checkbox_option ) : ?>
+								<div class="dslca-module-edit-option-checkbox-single">
+									<?php if ( $checked ) {?>
+										<i class="dslc-icon dslc-icon-unlink"></i>
+									<?php } else {?>
+
+										<i class="dslc-icon dslc-icon-link"></i>
+									<?php } ?>
+									<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox toggle_controls" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" value="<?php echo $checkbox_option['value']; ?>" <?php if ( $checked === true ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
+								</div><!-- .dslca-module-edit-option-checkbox-single -->
+							<?php endforeach; ?>
+						</div><!-- .dslca-module-edit-option-checkbox-wrapper -->
 
 					<?php elseif ( $module_option['type'] == 'checkbox' ) : ?>
 

@@ -312,13 +312,14 @@ jQuery(document).ready(function($){
 
 					var optElem = this;
 					var localDep = {};
+					var groupId = '';
 
 					if ( ( optElem.type == 'radio' || optElem.type == 'checkbox' ) && dep[ optElem.value ] == undefined ) {
 
 						return false;
 					}
 
-					if ( optElem.type == 'checkbox' && dep[ optElem.value ] != undefined ) {
+					if ( ! jQuery(optElem).hasClass('toggle_controls') && optElem.type == 'checkbox' && dep[ optElem.value ] != undefined ) {
 
 						localDep[ optElem.value ] = dep[ optElem.value ];
 					} else {
@@ -326,11 +327,16 @@ jQuery(document).ready(function($){
 						localDep = dep;
 					}
 
+					if ( jQuery(optElem.closest('.lc-option-group')).length > 0 ) {
+
+						groupId = '_' + jQuery(optElem.closest('.lc-option-group')).data('group-id');
+					}
+
 					Object.keys(localDep).forEach(function(opt_val){
 
 						localDep[ opt_val ].split(',').forEach(function(item){
 
-							var opt_wrap = $(".dslca-module-edit-option-" + item.trim()).closest('.dslca-module-edit-option');
+							var opt_wrap = $(".dslca-module-edit-option-" + item.trim() + groupId).closest('.dslca-module-edit-option');
 							var checkedCheckbox = true;
 
 							if ( optElem.type == 'radio' || optElem.type == 'checkbox' ) {
@@ -352,7 +358,7 @@ jQuery(document).ready(function($){
 				}
 
 				$(document).on('change dslc-init-deps', '.dslca-module-edit-option *[data-id="' + $(this).data('id') + '"]', handler);
-				self.Helpers.depsHandlers.push( handler );
+				LiveComposer.Builder.Helpers.depsHandlers.push( handler );
 			}
 		});
 
@@ -361,13 +367,13 @@ jQuery(document).ready(function($){
 
 	LiveComposer.Builder.UI.unloadOptionsDeps = function() {
 
-		self.Helpers.depsHandlers.forEach(function(handler){
+		LiveComposer.Builder.Helpers.depsHandlers.forEach(function(handler){
 
 			$(document).unbind( 'change', handler );
 			$(document).unbind( 'dslc-init-deps', handler );
 		});
 
-		self.Helpers.depsHandlers = [];
+		LiveComposer.Builder.Helpers.depsHandlers = [];
 	}
 
 	/**

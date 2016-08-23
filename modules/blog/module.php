@@ -24,19 +24,19 @@ class DSLC_Blog extends DSLC_Module {
 
 	function options() {
 
-		// Get categories
+		// Get categories.
 		$cats = get_categories();
 		$cats_choices = array();
 
-		// Generate usable array of categories
+		// Generate usable array of categories.
 		foreach ( $cats as $cat ) {
 			$cats_choices[] = array(
 				'label' => $cat->name,
-				'value' => $cat->cat_ID
+				'value' => $cat->cat_ID,
 			);
 		}
 
-		// Options
+		// Options.
 		$dslc_options = array(
 			array(
 				'label' => __( 'Type', 'live-composer-page-builder' ),
@@ -46,17 +46,17 @@ class DSLC_Blog extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Grid', 'live-composer-page-builder' ),
-						'value' => 'grid'
+						'value' => 'grid',
 					),
 					array(
 						'label' => __( 'Masonry Grid', 'live-composer-page-builder' ),
-						'value' => 'masonry'
+						'value' => 'masonry',
 					),
 					array(
 						'label' => __( 'Carousel', 'live-composer-page-builder' ),
-						'value' => 'carousel'
-					)
-				)
+						'value' => 'carousel',
+					),
+				),
 			),
 			array(
 				'label' => __( 'Orientation', 'live-composer-page-builder' ),
@@ -66,13 +66,13 @@ class DSLC_Blog extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Vertical', 'live-composer-page-builder' ),
-						'value' => 'vertical'
+						'value' => 'vertical',
 					),
 					array(
 						'label' => __( 'Horizontal', 'live-composer-page-builder' ),
-						'value' => 'horizontal'
-					)
-				)
+						'value' => 'horizontal',
+					),
+				),
 			),
 			array(
 				'label' => __( 'Posts Per Page', 'live-composer-page-builder' ),
@@ -116,7 +116,7 @@ class DSLC_Blog extends DSLC_Module {
 				'id' => 'categories',
 				'std' => '',
 				'type' => 'checkbox',
-				'choices' => $cats_choices
+				'choices' => $cats_choices,
 			),
 			array(
 				'label' => __( 'Categories Operator', 'live-composer-page-builder' ),
@@ -137,7 +137,7 @@ class DSLC_Blog extends DSLC_Module {
 						'label' => __( 'NOT IN', 'live-composer-page-builder' ),
 						'value' => 'NOT IN',
 					),
-				)
+				),
 			),
 			array(
 				'label' => __( 'Order By', 'live-composer-page-builder' ),

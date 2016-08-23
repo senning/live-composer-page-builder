@@ -4187,3 +4187,31 @@ input.dslca-module-edit-field.pseudo-input {
     content: "\F177";
 }
 */
+.lc-option-group .dslca-module-edit-option-toggle_controls{
+	padding: 0px;
+	width: auto;
+}
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-wrapper{
+
+	background: transparent;
+	border: 0;
+	padding: 0px;
+}
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-single {
+    width: 44px;
+    display: block;
+    text-align: center;
+}
+.dslca-module-edit-option-toggle_controls{
+	vertical-align: middle;
+}
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-label,
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-field
+{
+
+	display: none;
+}
+
+.dslca-module-edit-option-toggle_controls .dslc-icon {
+    font-size: 21px;
+}

@@ -134,6 +134,24 @@ class LC_Custom_Settings_Fields {
 			'group_margin' => array(
 				'fields' => array(
 					array(
+						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
+						'id' => 'show_ext_margins',
+						'std' => false,
+						'type' => 'toggle_controls',
+						'dependent_controls' => array(
+
+							'false' => 'margin_left, margin_bottom, margin_right, margin_top',
+							'true' => 'margin',
+						),
+						'refresh_on_change' => false,
+						'choices' => array(
+							array(
+								'label' => __( 'Opened', 'live-composer-page-builder' ),
+								'value' => 'opened',
+							),
+						),
+					),
+					array(
 						'label' => __( 'All Sides', 'live-composer-page-builder' ),
 						'id' => 'margin',
 						'min' => -1000,
@@ -199,10 +217,14 @@ class LC_Custom_Settings_Fields {
 						'ext' => 'px',
 					),
 				),
-				'prefix' => '<div class="lc-option-group-margin-wrapper group-unlocked"><div class="lc-option-group-icon"><i class="dslc-icon-cube"></i></div><div class="lc-option-group-margin-locker"><i class="group-margin-lock-icon dslc-icon-unlock" aria-hidden="true"></i></div>',
+				'icon' => 'cube',
+				'prefix' => '<div class="lc-option-group-margin-wrapper">',
 				'postfix' => '</div>',
 			),
 		);
+
+		// Add third-party groups to groups list.
+		$groups_list = apply_filters( 'dslc_filter_grouped_controls', $groups_list );
 
 		$out_group = array();
 
@@ -234,6 +256,7 @@ class LC_Custom_Settings_Fields {
 				$option['affect_on_change_el'] = $group_def['affect_on_change_el'];
 				$option['prefix'] = isset( $group['prefix'] ) ? $group['prefix'] : '';
 				$option['postfix'] = isset( $group['postfix'] ) ? $group['postfix'] : '';
+				$option['group_icon'] = $group['icon'];
 
 				$out_group[] = $option;
 			}
