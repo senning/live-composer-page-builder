@@ -139,6 +139,44 @@ jQuery(document).ready(function(){
 				}
 			});
 		},
+		border_group: function() {
+
+			// Toggle controls in border group from collapsed to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
+
+				var data = e.message.details;
+
+				if ( data.optionType != 'toggle_controls' ||
+					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
+					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_border').length == 0 )
+				 ) return false;
+
+				// Border group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_border');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
+
+					// Collapsed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-colorpicker').each(function(){
+
+						if ( this.classList.contains('dslca-option-off') && jQuery(this).data('affect-on-change-rule') != 'border-width' ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				} else {
+
+					// Closed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
+
+						if ( ! this.classList.contains('dslca-option-off') && jQuery(this).data('affect-on-change-rule') != 'border-width' ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				}
+			});
+		}
 	};
 
 	for( var i in option_group_functions ) {
