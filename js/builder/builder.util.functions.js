@@ -632,7 +632,8 @@ jQuery(document).ready(function($) {
 
 				moduleId: dslcModule[0].id,
 				optionID: dslcOptionID,
-				optionVal: dslcAffectOnChangeValOrig
+				optionVal: dslcAffectOnChangeValOrig,
+				optionType: dslcOptionWrap.data('control-type')
 			});
 		}
 	});

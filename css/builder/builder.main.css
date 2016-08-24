@@ -4047,12 +4047,6 @@ input.dslca-module-edit-field.pseudo-input {
 	padding-left: 38px;
 }
 
-.dslca-group-off .dslca-module-edit-option,
-.dslca-group-off .lc-option-group-margin-locker {
-	display: none!important;
-}
-
-
 
 /*.lc-option-group .dslca-module-edit-label{display: none;}*/
 .lc-option-group .lc-group-header .dslc-control-toggle{
@@ -4085,7 +4079,8 @@ input.dslca-module-edit-field.pseudo-input {
 .dslca-container .lc-option-group .dslca-module-edit-field{
 	min-width: 0px;
 }
-.lc-option-group.lc-group-type-group_margin .dslca-module-edit-field-numeric-wrap{
+.lc-option-group.lc-group-type-group_margin .dslca-module-edit-field-numeric-wrap,
+.lc-option-group.lc-group-type-group_padding .dslca-module-edit-field-numeric-wrap{
 	width: 72px;
 	min-width: 0px;
 }
@@ -4145,21 +4140,6 @@ input.dslca-module-edit-field.pseudo-input {
 	border-right: none;
 }
 
-.lc-option-group .dslca-module-edit-option.group-margin-common .dslc-control-toggle {
-	display: none;
-}
-
-
-
-.dslca-container .lc-option-group-margin-wrapper.group-locked > .dslca-module-edit-option:not(.group-margin-common),
-.dslca-container .lc-option-group-margin-wrapper.group-unlocked > .dslca-module-edit-option.group-margin-common {
-	display: none!important;
-}
-
-.lc-option-group:not(.dslca-group-off) .lc-option-group-margin-wrapper.group-locked > .group-margin-common,
-.lc-option-group:not(.dslca-group-off) .lc-option-group-margin-wrapper.group-locked > .dslca-module-edit-option.group-margin-common {
-	display: table-cell!important;
-}
 
 /*
 .lc-option-group-margin-wrapper .dslca-module-edit-option:before {
@@ -4208,9 +4188,7 @@ input.dslca-module-edit-field.pseudo-input {
 }
 
 .dslca-module-edit-option-toggle_controls .dslca-module-edit-label,
-.dslca-module-edit-option-toggle_controls .dslca-module-edit-field
-{
-
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-field{
 	display: none;
 }
 

@@ -13,22 +13,24 @@ jQuery(document).ready(function(){
 
 		margin_group: function(){
 
-			jQuery(document).on('click', '.lc-option-group-margin-locker', function(){
+			// Toggle controls in margin group from collapsed to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
 
-				var group = jQuery(this).closest('.lc-option-group-margin-wrapper');
+				var data = e.message.details;
 
-				if( group.hasClass('group-locked') ) {
+				if ( data.optionType != 'toggle_controls' ||
+					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
+					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_margin').length == 0 )
+				 ) return false;
+
+				// Margin group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_margin');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
 					var commonValue = group.find('.group-margin-common input').val();
 					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
 					group.find('.group-margin-common input').val('').trigger('change');
-
-					jQuery(this).children().eq(0)
-						.removeClass('dslc-icon-link')
-						.addClass('dslc-icon-unlink');
-
-					group.removeClass('group-locked')
-						.addClass('group-unlocked');
 				} else {
 
 					var commonValue = group.find('.group-margin-top input').val();
@@ -42,16 +44,10 @@ jQuery(document).ready(function(){
 
 					group.find('.group-margin-common input').val(commonValue).trigger('change');
 					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
-
-					jQuery(this).children().eq(0)
-						.removeClass('dslc-icon-unlink')
-						.addClass('dslc-icon-link');
-
-					group.removeClass('group-unlocked')
-						.addClass('group-locked');
 				}
 			});
 
+			// Copy every setting to separate controls.
 			jQuery(document).on('change', '.group-margin-common input', function(){
 
 				if ( this.value == '') return false;
@@ -59,7 +55,52 @@ jQuery(document).ready(function(){
 				var group = jQuery(this).closest('.lc-option-group-margin-wrapper');
 				group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(this.value).trigger('change');
 			});
-		}
+		},
+		padding_group: function(){
+
+			// Toggle controls in padding group from collapsed to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
+
+				var data = e.message.details;
+
+				if ( data.optionType != 'toggle_controls' ||
+					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
+					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_padding').length == 0 )
+				 ) return false;
+
+				// Margin group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_padding');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
+
+					var commonValue = group.find('.group-padding-common input').val();
+					group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(commonValue).trigger('change');
+					group.find('.group-padding-common input').val('').trigger('change');
+				} else {
+
+					var commonValue = group.find('.group-padding-top input').val();
+
+					if ( jQuery(this).closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
+
+						var bckpVal = group.find('.group-padding-top input').data('val-bckp');
+						group.find('.group-padding-common input').data('val-bckp', bckpVal );
+						group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').data('val-bckp', bckpVal);
+					}
+
+					group.find('.group-padding-common input').val(commonValue).trigger('change');
+					group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(commonValue).trigger('change');
+				}
+			});
+
+			// Copy every setting to separate controls.
+			jQuery(document).on('change', '.group-padding-common input', function(){
+
+				if ( this.value == '') return false;
+
+				var group = jQuery(this).closest('.lc-group-type-group_padding');
+				group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(this.value).trigger('change');
+			});
+		},
 	};
 
 	for( var i in option_group_functions ) {

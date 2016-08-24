@@ -135,7 +135,7 @@ class LC_Custom_Settings_Fields {
 				'fields' => array(
 
 					/**
-					 * Hardcoded values - closed & collapsed.
+					 * Hardcoded values - true & false.
 					 */
 					array(
 						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
@@ -159,7 +159,7 @@ class LC_Custom_Settings_Fields {
 						'css_class' => 'group-margin-common',
 						'type' => 'slider',
 						'refresh_on_change' => false,
-						'affect_on_change_rule' => 'margin',
+						'affect_on_change_rule' => 'norule', // Control elements rule only with separate options.
 						'ext' => 'px',
 					),
 					array(
@@ -223,7 +223,7 @@ class LC_Custom_Settings_Fields {
 				'fields' => array(
 
 					/**
-					 * Hardcoded values - closed & collapsed.
+					 * Hardcoded values - true & false.
 					 */
 					array(
 						'label' => __( 'Show extended paddings', 'live-composer-page-builder' ),
@@ -247,7 +247,7 @@ class LC_Custom_Settings_Fields {
 						'css_class' => 'group-padding-common',
 						'type' => 'slider',
 						'refresh_on_change' => false,
-						'affect_on_change_rule' => 'padding',
+						'affect_on_change_rule' => 'norule', // Control elements rule only with separate options.
 						'ext' => 'px',
 					),
 					array(

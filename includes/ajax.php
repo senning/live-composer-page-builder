@@ -335,6 +335,7 @@ function dslc_ajax_display_module_options( $atts ) {
 
 			// Force refresh on change for images ( due to the URL -> ID change ).
 			if ( 'image' === $module_option['type'] ) {
+
 				$refresh_on_change = 'active';
 			}
 
@@ -511,6 +512,7 @@ function dslc_ajax_display_module_options( $atts ) {
 			?>
 				<div class="dslca-module-edit-option dslca-module-edit-option-<?php echo esc_attr( $module_option['type'] ); ?> dslca-module-edit-option-<?php echo esc_attr( $module_option['id'] ); ?> <?php if ( ! $visibility ) { echo 'dslca-module-edit-option-hidden'; } ?> <?php echo esc_attr( $control_with_toggle ); ?> <?php echo esc_attr( $module_option['css_class'] )?>"
 					data-id="<?php echo esc_attr( $module_option['id'] ); ?>"
+					data-control-type="<?php echo esc_attr( $module_option['type'] )?>"
 					<?php echo $dep; /* Base64 code. */ ?>
 					data-refresh-on-change="<?php echo esc_attr( $refresh_on_change ); ?>"
 					data-section="<?php echo esc_attr( $section ); ?>"
