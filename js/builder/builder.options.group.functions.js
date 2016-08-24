@@ -68,7 +68,7 @@ jQuery(document).ready(function(){
 					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_padding').length == 0 )
 				 ) return false;
 
-				// Margin group only here
+				// Padding group only here
 				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_padding');
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
@@ -99,6 +99,44 @@ jQuery(document).ready(function(){
 
 				var group = jQuery(this).closest('.lc-group-type-group_padding');
 				group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(this.value).trigger('change');
+			});
+		},
+		background_group: function(){
+
+			// Toggle controls in background group from collapsed to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
+
+				var data = e.message.details;
+
+				if ( data.optionType != 'toggle_controls' ||
+					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
+					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_background').length == 0 )
+				 ) return false;
+
+				// Background group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_background');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
+
+					// Collapsed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
+
+						if ( this.classList.contains('dslca-option-off') ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				} else {
+
+					// Closed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
+
+						if ( ! this.classList.contains('dslca-option-off') ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				}
 			});
 		},
 	};

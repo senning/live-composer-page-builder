@@ -227,7 +227,7 @@ class LC_Custom_Settings_Fields {
 					 */
 					array(
 						'label' => __( 'Show extended paddings', 'live-composer-page-builder' ),
-						'id' => 'show_ext_margins',
+						'id' => 'show_ext_paddings',
 						'std' => 'true',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
@@ -301,6 +301,134 @@ class LC_Custom_Settings_Fields {
 						'refresh_on_change' => false,
 						'affect_on_change_rule' => 'padding-left',
 						'ext' => 'px',
+					),
+				),
+				'icon' => 'cube',
+				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'postfix' => '</div>',
+			),
+			'group_background' => array(
+				'fields' => array(
+
+					/**
+					 * Hardcoded values - true & false.
+					 */
+					array(
+						'label' => __( 'Show extended back', 'live-composer-page-builder' ),
+						'id' => 'show_ext_backs',
+						'std' => 'true',
+						'type' => 'toggle_controls',
+						'dependent_controls' => array(
+
+							'true' => 'css_bg_img, css_bg_img_repeat, css_bg_img_pos, css_bg_img_attch',
+						),
+						'refresh_on_change' => false,
+					),
+					array(
+						'label' => __( 'BG Color', 'live-composer-page-builder' ),
+						'id' => 'bg_color',
+						'std' => '',
+						'type' => 'color',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'background-color',
+					),
+					array(
+						'label' => __( 'BG Image', 'live-composer-page-builder' ),
+						'id' => 'css_bg_img',
+						'std' => '',
+						'type' => 'image',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'background-image',
+					),
+					array(
+						'label' => __( 'BG Image Repeat', 'live-composer-page-builder' ),
+						'id' => 'css_bg_img_repeat',
+						'std' => 'repeat',
+						'type' => 'select',
+						'choices' => array(
+							array(
+								'label' => __( 'Repeat', 'live-composer-page-builder' ),
+								'value' => 'repeat',
+							),
+							array(
+								'label' => __( 'Repeat Horizontal', 'live-composer-page-builder' ),
+								'value' => 'repeat-x',
+							),
+							array(
+								'label' => __( 'Repeat Vertical', 'live-composer-page-builder' ),
+								'value' => 'repeat-y',
+							),
+							array(
+								'label' => __( 'Do NOT Repeat', 'live-composer-page-builder' ),
+								'value' => 'no-repeat',
+							),
+						),
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'background-repeat',
+					),
+					array(
+						'label' => __( 'BG Image Attachment', 'live-composer-page-builder' ),
+						'id' => 'css_bg_img_attch',
+						'std' => 'scroll',
+						'type' => 'select',
+						'choices' => array(
+							array(
+								'label' => __( 'Scroll', 'live-composer-page-builder' ),
+								'value' => 'scroll',
+							),
+							array(
+								'label' => __( 'Fixed', 'live-composer-page-builder' ),
+								'value' => 'fixed',
+							),
+						),
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'background-attachment',
+					),
+					array(
+						'label' => __( 'BG Image Position', 'live-composer-page-builder' ),
+						'id' => 'css_bg_img_pos',
+						'std' => 'top left',
+						'type' => 'select',
+						'choices' => array(
+							array(
+								'label' => __( 'Top Left', 'live-composer-page-builder' ),
+								'value' => 'left top',
+							),
+							array(
+								'label' => __( 'Top Right', 'live-composer-page-builder' ),
+								'value' => 'right top',
+							),
+							array(
+								'label' => __( 'Top Center', 'live-composer-page-builder' ),
+								'value' => 'Center Top',
+							),
+							array(
+								'label' => __( 'Center Left', 'live-composer-page-builder' ),
+								'value' => 'left center',
+							),
+							array(
+								'label' => __( 'Center Right', 'live-composer-page-builder' ),
+								'value' => 'right center',
+							),
+							array(
+								'label' => __( 'Center', 'live-composer-page-builder' ),
+								'value' => 'center center',
+							),
+							array(
+								'label' => __( 'Bottom Left', 'live-composer-page-builder' ),
+								'value' => 'left bottom',
+							),
+							array(
+								'label' => __( 'Bottom Right', 'live-composer-page-builder' ),
+								'value' => 'right bottom',
+							),
+							array(
+								'label' => __( 'Bottom Center', 'live-composer-page-builder' ),
+								'value' => 'center bottom',
+							),
+						),
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'background-position',
 					),
 				),
 				'icon' => 'cube',

@@ -4195,3 +4195,12 @@ input.dslca-module-edit-field.pseudo-input {
 .dslca-module-edit-option-toggle_controls .dslc-icon {
     font-size: 21px;
 }
+
+/* Control groups selects */
+.lc-option-group .dslca-modules-section-edit-option-select .dslca-icon,
+.lc-option-group .dslca-module-edit-option-select .dslca-icon {
+    position: absolute;
+    right: 28px;
+    top: 43px;
+    cursor: pointer;
+}
