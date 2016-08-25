@@ -713,10 +713,27 @@ function dslc_toogle_control ( control_id ) {
 	if ( control.hasClass('dslca-option-off')) {
 		// Disable
 
-		control_value = dslc_get_control_value(control_id);
-		// Temporary backup the current value as data attribute
-		control_storage.data( 'val-bckp', control_value );
-		// control_value = dslc_combine_value_and_extension( control_value, control_data_ext);
+		if ( control_storage.length > 1 ) {
+
+			// Multiple control like chekbox
+			control_storage.each(function(){
+
+				jQuery(this).data('val-bckp', this.checked);
+
+				this.checked = false;
+				jQuery(this).trigger('change');
+			});
+		} else {
+
+			// Single control
+
+			control_value = dslc_get_control_value(control_id);
+			// Temporary backup the current value as data attribute
+			control_storage.data( 'val-bckp', control_value );
+			// control_value = dslc_combine_value_and_extension( control_value, control_data_ext);
+
+			control_storage.val('').trigger('change');
+		}
 
 		// Loop through rules (useful when there are multiple rules)
 		for ( var i = 0; i < affect_on_change_rules.length; i++ ) {
@@ -727,16 +744,43 @@ function dslc_toogle_control ( control_id ) {
 			disable_css_rule ( affect_on_change_el, affect_on_change_rules[i], module_id);
 			// PROBLEM do not work with multiply rules ex.: .dslc-text-module-content,.dslc-text-module-content p
 		}
-
-		control_storage.val('').trigger('change');
 	} else {
 		// Enable
 		var control_data_ext = control_storage.data('ext');
 
 		// Restore value of the data backup attribute
-		control_storage.val( control_storage.data('val-bckp') ).trigger('change');
-		control_value = dslc_get_control_value(control_id);
-		control_value = dslc_combine_value_and_extension( control_value, control_data_ext || '');
+		if ( control_storage.length > 1 ) {
+
+			control_value = '';
+			var borderStyle = false;
+
+			/// Check if control is border-style
+			if ( control_storage.eq(0).data('affect-on-change-rule') == 'border-style' ) {
+
+				borderStyle = true;
+			}
+
+			/// Multiple control
+			control_storage.each(function(){
+
+				this.checked = jQuery(this).data('val-bckp');
+				jQuery(this).trigger('change').data('val-bckp', '');
+
+				if ( this.checked ) {
+
+					control_value = borderStyle ? 'solid' : this.value;
+				} else {
+
+					control_value = borderStyle ? 'none' : '';
+				}
+			});
+		} else {
+
+			/// Sinlge control
+			control_storage.val( control_storage.data('val-bckp') ).trigger('change');
+			control_value = dslc_get_control_value(control_id);
+			control_value = dslc_combine_value_and_extension( control_value, control_data_ext || '');
+		}
 
 		// Loop through rules (useful when there are multiple rules)
 		for ( var i = 0; i < affect_on_change_rules.length; i++ ) {
