@@ -3642,6 +3642,14 @@ class DSLC_Html extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
 			),
+			array(
+				'label' => __( 'Lists', 'live-composer-page-builder' ),
+				'id' => 'group_lists',
+				'type' => 'group_lists',
+				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => 'ul, ol',
+			),
 		);
 
 		$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array('hover_opts' => false) ) );

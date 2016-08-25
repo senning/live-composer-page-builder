@@ -15,20 +15,21 @@ jQuery(function(){
 				var lock = jQuery('.dslc-icon', this);
 				var checked = jQuery('input', this).is(':checked');
 
+				// If control opened
 				if ( checked ) {
 
 					jQuery('input', this)[0].checked = false;
 
 					lock.addClass('dslc-icon-link')
 						.removeClass('dslc-icon-unlink');
-					// Closed
+					// Now closed
 				} else {
 
 					jQuery('input', this)[0].checked = true;
 
 					lock.removeClass('dslc-icon-link')
 						.addClass('dslc-icon-unlink');
-					// Opened
+					// Now opened
 				}
 
 				jQuery('input', this).trigger('change');
@@ -36,6 +37,7 @@ jQuery(function(){
 		}
 	};
 
+	// Fire all functions
 	for( var i in controls ) {
 
 		if ( typeof controls[i] == 'function' ) {

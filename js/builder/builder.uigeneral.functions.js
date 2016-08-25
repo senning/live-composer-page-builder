@@ -666,6 +666,7 @@ function dslc_toogle_control ( control_id ) {
 	if ( control_id === undefined) control_id = false;
 	if ( !control_id ) return;
 
+	var control_value;
 	var control        = jQuery('.dslca-module-edit-option-' + control_id );
 	var control_storage = control.find('.dslca-module-edit-field');
 
@@ -685,7 +686,7 @@ function dslc_toogle_control ( control_id ) {
 
 	var affect_on_change_el = control_storage.data('affect-on-change-el');
 
-	if ( affect_on_change_el === undefined) return;
+	if ( affect_on_change_el === undefined ) return;
 
 	var affect_on_change_elmts = affect_on_change_el.split( ',' );
 
@@ -702,11 +703,10 @@ function dslc_toogle_control ( control_id ) {
 		affect_on_change_el += responsive_prefix + '#' + module_id + ' ' + affect_on_change_elmts[i];
 	}
 
-	var affect_on_change_rule  = control_storage.data('affect-on-change-rule').replace(/ /g,'');
-	var affect_on_change_rules = affect_on_change_rule.split( ',' );
-
-	var control_value;
-	var control_data_ext = control_storage.data('ext');
+	var affect_on_change_rules = control_storage
+									.data('affect-on-change-rule')
+									.replace(/ /g,'')
+									.split( ',' );
 
 	control.toggleClass('dslca-option-off');
 
@@ -731,6 +731,7 @@ function dslc_toogle_control ( control_id ) {
 		control_storage.val('').trigger('change');
 	} else {
 		// Enable
+		var control_data_ext = control_storage.data('ext');
 
 		// Restore value of the data backup attribute
 		control_storage.val( control_storage.data('val-bckp') ).trigger('change');
@@ -766,6 +767,7 @@ jQuery(document).ready(function($){
 
 	// Click on controls group enable/disable group
 	jQuery(document).on( 'click', '.lc-option-group .lc-option-group-icon', function(e){
+
 		jQuery('.lc-option-group .lc-group-header .dslc-control-toggle').trigger('click');
 	});
 

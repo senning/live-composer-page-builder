@@ -633,10 +633,11 @@ body a:focus {
 				display: table-cell;
 				/*float: left;*/
 				padding-bottom: 20px;
-				padding-right: 30px;
+				padding-right: 0px;
 				padding-top: 30px;
 				min-width: 180px;
 				position: relative;
+				border-spacing: 0;
 			}
 
 			.dslca-module-edit-option-hidden {
@@ -3694,11 +3695,13 @@ body.page .dslca-module.dslca-origin-single[data-id="DSLC_TP_Staff_Social"] {
 .dslca-module-edit-options-wrapper {
 	display: table-cell;
 	padding: 3px 3px 20px;
+	border-spacing: 30px 0;
 }
 
 	.dslca-modules-section-edit-options-inner,
 	.dslca-module-edit-options-inner {
 		overflow-x: scroll;
+		margin: 0 -15px;
 	}
 
 /**
@@ -4031,13 +4034,11 @@ input.dslca-module-edit-field.pseudo-input {
 
 /** OPTION GROUP */
 .lc-option-group {
-	margin-right: 20px;
-    display: none;
-    float: left;
+    display: table-cell;
     padding-top: 8px;
+    border-spacing: 0;
     border: 1px solid rgba(0, 0, 0, 0.14);
     border-radius: 4px;
-    /* overflow: hidden; */
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -4076,7 +4077,8 @@ input.dslca-module-edit-field.pseudo-input {
 }
 
 
-.dslca-container .lc-option-group .dslca-module-edit-field{
+.dslca-container .lc-option-group .dslca-module-edit-field,
+.dslca-container .lc-option-group .dslca-module-edit-field:focus{
 	min-width: 0px;
 }
 .lc-option-group.lc-group-type-group_border .dslca-module-edit-field-numeric-wrap,
@@ -4085,21 +4087,21 @@ input.dslca-module-edit-field.pseudo-input {
 	width: 72px;
 	min-width: 0px;
 }
-.lc-option-group-margin-wrapper.group-locked{
+.lc-option-group-inner-wrapper.group-locked{
 	/*width: 115px;*/
 }
-.lc-option-group-margin-wrapper{
+.lc-option-group-inner-wrapper{
     /* margin-bottom: 18px; */
     margin-top: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.09);
 }
-.lc-option-group-margin-wrapper .dslca-modules-section-edit-option-slider:hover:after,
-.lc-option-group-margin-wrapper .dslca-module-edit-option-slider:hover:after,
-.lc-option-group-margin-wrapper .dslca-module-edit-field-numeric-ext{
+.lc-option-group-inner-wrapper .dslca-modules-section-edit-option-slider:hover:after,
+.lc-option-group-inner-wrapper .dslca-module-edit-option-slider:hover:after,
+.lc-option-group-inner-wrapper .dslca-module-edit-field-numeric-ext{
 	display: none;
 }
-.dslca-container .lc-option-group-margin-wrapper .dslca-module-edit-option-slider input[type="number"]:focus,
-.dslca-container .lc-option-group-margin-wrapper .dslca-module-edit-option-slider input[type="number"]{
+.dslca-container .lc-option-group-inner-wrapper .dslca-module-edit-option-slider input[type="number"]:focus,
+.dslca-container .lc-option-group-inner-wrapper .dslca-module-edit-option-slider input[type="number"]{
     padding-right: 9px;
     min-width: 0px;
 }
@@ -4129,7 +4131,7 @@ input.dslca-module-edit-field.pseudo-input {
 	font-size: 30px;
 	width: 100%;
 	justify-content: center;
-	height: 76px;
+	height: 88px;
 	align-items: center;
 }
 
@@ -4137,8 +4139,15 @@ input.dslca-module-edit-field.pseudo-input {
 	display: none;
 }
 
-.lc-option-group .dslca-module-edit-option.group-margin-common {
+.lc-option-group .dslca-module-edit-option.group-margin-common,
+.lc-option-group .dslca-module-edit-option.group-padding-common{
 	border-right: none;
+}
+
+.lc-option-group .dslca-module-edit-option-font input,
+.lc-option-group .dslca-module-edit-option-font input:focus{
+
+	width: 100px;
 }
 
 
@@ -4169,6 +4178,10 @@ input.dslca-module-edit-field.pseudo-input {
     content: "\F177";
 }
 */
+.lc-option-group.dslca-group-off .lc-option-group-inner-wrapper{
+
+	display: none;
+}
 .lc-option-group .dslca-module-edit-option-toggle_controls{
 	padding: 0px;
 	width: auto;

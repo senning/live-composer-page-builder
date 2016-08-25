@@ -99,19 +99,6 @@ class LC_Custom_Settings_Fields {
 		return $arr_out;
 	}
 
-	/** TODO multiple selector in custom group def selector
-	 *
-	 * Processing regular expression in group def selectors
-	 *
-	 * @param  string $item selector string
-	 * @return string
-	 *
-	static public function callback_for_map( $item ) {
-
-		preg_replace('/$/', $item, subject);
-
-	}*/
-
 	/**
 	 * Settings groups definition
 	 *
@@ -143,6 +130,13 @@ class LC_Custom_Settings_Fields {
 				'prefix' => {HTML code},
 				'postfix' => {HTML code}
 			),
+			 */
+			/**
+			 * If group definition selector looks like '.dslc-button' and
+			 * group control affects on '.dslc-button a', control definition
+			 * should be '$ a'.
+			 *
+			 * $ - represents group definition affect element.
 			 */
 			'group_margin' => array(
 				'fields' => array(
@@ -229,7 +223,7 @@ class LC_Custom_Settings_Fields {
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 			'group_padding' => array(
@@ -317,7 +311,7 @@ class LC_Custom_Settings_Fields {
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 			'group_background' => array(
@@ -445,7 +439,7 @@ class LC_Custom_Settings_Fields {
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 			'group_border' => array(
@@ -569,7 +563,7 @@ class LC_Custom_Settings_Fields {
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 			'group_text' => array(
@@ -603,7 +597,7 @@ class LC_Custom_Settings_Fields {
 						'type' => 'slider',
 						'refresh_on_change' => false,
 						'affect_on_change_rule' => 'font-size',
-						'ext' => 'px'
+						'ext' => 'px',
 					),
 					array(
 						'label' => __( 'Font Weight', 'live-composer-page-builder' ),
@@ -676,7 +670,7 @@ class LC_Custom_Settings_Fields {
 								'label' => __( 'Italic', 'live-composer-page-builder' ),
 								'value' => 'italic',
 							),
-						)
+						),
 					),
 					array(
 						'label' => __( 'Line Height', 'live-composer-page-builder' ),
@@ -688,7 +682,7 @@ class LC_Custom_Settings_Fields {
 						'type' => 'slider',
 						'refresh_on_change' => false,
 						'affect_on_change_rule' => 'line-height',
-						'ext' => 'px'
+						'ext' => 'px',
 					),
 					array(
 						'label' => __( 'Letter Spacing', 'live-composer-page-builder' ),
@@ -702,11 +696,11 @@ class LC_Custom_Settings_Fields {
 						'affect_on_change_rule' => 'letter-spacing',
 						'ext' => 'px',
 						'min' => -50,
-						'max' => 50
+						'max' => 50,
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 			'group_lists' => array(
@@ -719,79 +713,79 @@ class LC_Custom_Settings_Fields {
 						'choices' => array(
 							array(
 								'label' => __( 'Armenian', 'live-composer-page-builder' ),
-								'value' => 'armenian'
+								'value' => 'armenian',
 							),
 							array(
 								'label' => __( 'Circle', 'live-composer-page-builder' ),
-								'value' => 'circle'
+								'value' => 'circle',
 							),
 							array(
 								'label' => __( 'Cjk-ideographic', 'live-composer-page-builder' ),
-								'value' => 'cjk-ideographic'
+								'value' => 'cjk-ideographic',
 							),
 							array(
 								'label' => __( 'Decimal', 'live-composer-page-builder' ),
-								'value' => 'decimal'
+								'value' => 'decimal',
 							),
 							array(
 								'label' => __( 'Decimal Leading Zero', 'live-composer-page-builder' ),
-								'value' => 'decimal-leading-zero'
+								'value' => 'decimal-leading-zero',
 							),
 							array(
 								'label' => __( 'Hebrew', 'live-composer-page-builder' ),
-								'value' => 'hebrew'
+								'value' => 'hebrew',
 							),
 							array(
 								'label' => __( 'Hiragana', 'live-composer-page-builder' ),
-								'value' => 'hiragana'
+								'value' => 'hiragana',
 							),
 							array(
 								'label' => __( 'Hiragana Iroha', 'live-composer-page-builder' ),
-								'value' => 'hiragana-iroha'
+								'value' => 'hiragana-iroha',
 							),
 							array(
 								'label' => __( 'Katakana', 'live-composer-page-builder' ),
-								'value' => 'katakana'
+								'value' => 'katakana',
 							),
 							array(
 								'label' => __( 'Katakana Iroha', 'live-composer-page-builder' ),
-								'value' => 'katakana-iroha'
+								'value' => 'katakana-iroha',
 							),
 							array(
 								'label' => __( 'Lower Alpha', 'live-composer-page-builder' ),
-								'value' => 'lower-alpha'
+								'value' => 'lower-alpha',
 							),
 							array(
 								'label' => __( 'Lower Greek', 'live-composer-page-builder' ),
-								'value' => 'lower-greek'
+								'value' => 'lower-greek',
 							),
 							array(
 								'label' => __( 'Lower Latin', 'live-composer-page-builder' ),
-								'value' => 'lower-latin'
+								'value' => 'lower-latin',
 							),
 							array(
 								'label' => __( 'Lower Roman', 'live-composer-page-builder' ),
-								'value' => 'lower-roman'
+								'value' => 'lower-roman',
 							),
 							array(
 								'label' => __( 'None', 'live-composer-page-builder' ),
-								'value' => 'none'
+								'value' => 'none',
 							),
 							array(
 								'label' => __( 'Upper Alpha', 'live-composer-page-builder' ),
-								'value' => 'upper-alpha'
+								'value' => 'upper-alpha',
 							),
 							array(
 								'label' => __( 'Upper Latin', 'live-composer-page-builder' ),
-								'value' => 'upper-latin'
+								'value' => 'upper-latin',
 							),
 							array(
 								'label' => __( 'Upper Roman', 'live-composer-page-builder' ),
-								'value' => 'upper-roman'
+								'value' => 'upper-roman',
 							),
 							array(
 								'label' => __( 'Inherit', 'live-composer-page-builder' ),
-								'value' => 'inherit'
+								'value' => 'inherit',
 							),
 						),
 						'refresh_on_change' => false,
@@ -805,79 +799,79 @@ class LC_Custom_Settings_Fields {
 						'choices' => array(
 							array(
 								'label' => __( 'Armenian', 'live-composer-page-builder' ),
-								'value' => 'armenian'
+								'value' => 'armenian',
 							),
 							array(
 								'label' => __( 'Circle', 'live-composer-page-builder' ),
-								'value' => 'circle'
+								'value' => 'circle',
 							),
 							array(
 								'label' => __( 'Cjk-ideographic', 'live-composer-page-builder' ),
-								'value' => 'cjk-ideographic'
+								'value' => 'cjk-ideographic',
 							),
 							array(
 								'label' => __( 'Decimal', 'live-composer-page-builder' ),
-								'value' => 'decimal'
+								'value' => 'decimal',
 							),
 							array(
 								'label' => __( 'Decimal Leading Zero', 'live-composer-page-builder' ),
-								'value' => 'decimal-leading-zero'
+								'value' => 'decimal-leading-zero',
 							),
 							array(
 								'label' => __( 'Hebrew', 'live-composer-page-builder' ),
-								'value' => 'hebrew'
+								'value' => 'hebrew',
 							),
 							array(
 								'label' => __( 'Hiragana', 'live-composer-page-builder' ),
-								'value' => 'hiragana'
+								'value' => 'hiragana',
 							),
 							array(
 								'label' => __( 'Hiragana Iroha', 'live-composer-page-builder' ),
-								'value' => 'hiragana-iroha'
+								'value' => 'hiragana-iroha',
 							),
 							array(
 								'label' => __( 'Katakana', 'live-composer-page-builder' ),
-								'value' => 'katakana'
+								'value' => 'katakana',
 							),
 							array(
 								'label' => __( 'Katakana Iroha', 'live-composer-page-builder' ),
-								'value' => 'katakana-iroha'
+								'value' => 'katakana-iroha',
 							),
 							array(
 								'label' => __( 'Lower Alpha', 'live-composer-page-builder' ),
-								'value' => 'lower-alpha'
+								'value' => 'lower-alpha',
 							),
 							array(
 								'label' => __( 'Lower Greek', 'live-composer-page-builder' ),
-								'value' => 'lower-greek'
+								'value' => 'lower-greek',
 							),
 							array(
 								'label' => __( 'Lower Latin', 'live-composer-page-builder' ),
-								'value' => 'lower-latin'
+								'value' => 'lower-latin',
 							),
 							array(
 								'label' => __( 'Lower Roman', 'live-composer-page-builder' ),
-								'value' => 'lower-roman'
+								'value' => 'lower-roman',
 							),
 							array(
 								'label' => __( 'None', 'live-composer-page-builder' ),
-								'value' => 'none'
+								'value' => 'none',
 							),
 							array(
 								'label' => __( 'Upper Alpha', 'live-composer-page-builder' ),
-								'value' => 'upper-alpha'
+								'value' => 'upper-alpha',
 							),
 							array(
 								'label' => __( 'Upper Latin', 'live-composer-page-builder' ),
-								'value' => 'upper-latin'
+								'value' => 'upper-latin',
 							),
 							array(
 								'label' => __( 'Upper Roman', 'live-composer-page-builder' ),
-								'value' => 'upper-roman'
+								'value' => 'upper-roman',
 							),
 							array(
 								'label' => __( 'Inherit', 'live-composer-page-builder' ),
-								'value' => 'inherit'
+								'value' => 'inherit',
 							),
 						),
 						'refresh_on_change' => false,
@@ -892,13 +886,13 @@ class LC_Custom_Settings_Fields {
 						'std' => '10',
 						'type' => 'slider',
 						'refresh_on_change' => false,
-						'affect_on_change_el' => '$ li',
+						'affect_on_change_el' => '$ li', // Regular expression selector.
 						'affect_on_change_rule' => 'margin-bottom',
-						'ext' => 'px'
+						'ext' => 'px',
 					),
 				),
 				'icon' => 'cube',
-				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'prefix' => '<div class="lc-option-group-inner-wrapper">',
 				'postfix' => '</div>',
 			),
 		);
@@ -934,19 +928,23 @@ class LC_Custom_Settings_Fields {
 				$option['group_id'] = $group_def['id'];
 				$option['group_type'] = $group_def['type'];
 
-				/* TODO multiple selector in custom group def selector
+				// Handle regular selector.
+				if ( ! empty( $option['affect_on_change_el'] ) ) {
 
-					if ( ! empty( $option['affect_on_change_el'] ) ) {
+					$selectors = explode( ',', $group_def['affect_on_change_el'] ); // Multiple selectors
+					$selector_out = array();
 
-					$selectors = explode( $group_def['affect_on_change_el'], ',' );
+					foreach ( $selectors as $selector ) {
 
-					array_map(self::$, $selectors);
+						$selector_out[] = preg_replace( '/\$/', $selector, $option['affect_on_change_el'] );
+					}
+
+					$option['affect_on_change_el'] = implode( ',', $selector_out );
 				} else {
 
 					$option['affect_on_change_el'] = $group_def['affect_on_change_el'];
-				}*/
+				}
 
-				$option['affect_on_change_el'] = $group_def['affect_on_change_el'];
 				$option['prefix'] = isset( $group['prefix'] ) ? $group['prefix'] : '';
 				$option['postfix'] = isset( $group['postfix'] ) ? $group['postfix'] : '';
 				$option['group_icon'] = $group['icon'];

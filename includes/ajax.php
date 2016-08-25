@@ -484,7 +484,8 @@ function dslc_ajax_display_module_options( $atts ) {
 
 					echo $module_option_previous['postfix'];
 				}
-				?></div><?php
+				?></div>
+				<!-- .lc-option-group --><?php
 			}
 
 			$module_option_previous = $module_option;
@@ -837,7 +838,7 @@ function dslc_ajax_display_module_options( $atts ) {
 
 					esc_html_e( $module_option_previous['postfix'] );
 				}?>
-			</div>
+			</div><!-- .lc-option-group -->
 		<?php }
 
 		$output_fields = ob_get_contents();

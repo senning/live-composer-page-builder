@@ -28,11 +28,13 @@ jQuery(document).ready(function(){
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
+					// Opened
 					var commonValue = group.find('.group-margin-common input').val();
 					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
 					group.find('.group-margin-common input').val('').trigger('change');
 				} else {
 
+					// Closed
 					var commonValue = group.find('.group-margin-top input').val();
 
 					if ( jQuery(this).closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
@@ -73,11 +75,13 @@ jQuery(document).ready(function(){
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
+					// Opened
 					var commonValue = group.find('.group-padding-common input').val();
 					group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(commonValue).trigger('change');
 					group.find('.group-padding-common input').val('').trigger('change');
 				} else {
 
+					// Closed
 					var commonValue = group.find('.group-padding-top input').val();
 
 					if ( jQuery(this).closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
@@ -157,7 +161,7 @@ jQuery(document).ready(function(){
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
 					// Opened
-					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color').each(function(){
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color, .dslca-module-edit-option-checkbox').each(function(){
 
 						if ( this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'border-width' ) {
 
@@ -167,7 +171,7 @@ jQuery(document).ready(function(){
 				} else {
 
 					// Closed
-					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color, .dslca-module-edit-option-checkbox').each(function(){
 
 						if ( ! this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'border-width' ) {
 
@@ -217,6 +221,7 @@ jQuery(document).ready(function(){
 		}
 	};
 
+	// Fire all functions
 	for( var i in option_group_functions ) {
 
 		if ( typeof option_group_functions[i] == 'function' ) {
