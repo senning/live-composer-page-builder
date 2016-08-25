@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 
 		margin_group: function(){
 
-			// Toggle controls in margin group from collapsed to closed & visa-versa
+			// Toggle controls in margin group from opened to closed & visa-versa
 			jQuery(document).on('moduleChanged', function(e){
 
 				var data = e.message.details;
@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
 		},
 		padding_group: function(){
 
-			// Toggle controls in padding group from collapsed to closed & visa-versa
+			// Toggle controls in padding group from opened to closed & visa-versa
 			jQuery(document).on('moduleChanged', function(e){
 
 				var data = e.message.details;
@@ -103,7 +103,7 @@ jQuery(document).ready(function(){
 		},
 		background_group: function(){
 
-			// Toggle controls in background group from collapsed to closed & visa-versa
+			// Toggle controls in background group from opened to closed & visa-versa
 			jQuery(document).on('moduleChanged', function(e){
 
 				var data = e.message.details;
@@ -118,7 +118,7 @@ jQuery(document).ready(function(){
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
-					// Collapsed
+					// Opened
 					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
 
 						if ( this.classList.contains('dslca-option-off') ) {
@@ -141,7 +141,7 @@ jQuery(document).ready(function(){
 		},
 		border_group: function() {
 
-			// Toggle controls in border group from collapsed to closed & visa-versa
+			// Toggle controls in border group from opened to closed & visa-versa
 			jQuery(document).on('moduleChanged', function(e){
 
 				var data = e.message.details;
@@ -156,7 +156,7 @@ jQuery(document).ready(function(){
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
-					// Collapsed
+					// Opened
 					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color').each(function(){
 
 						if ( this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'border-width' ) {
@@ -179,7 +179,7 @@ jQuery(document).ready(function(){
 		},
 		text_group: function() {
 
-			// Toggle controls in text group from collapsed to closed & visa-versa
+			// Toggle controls in text group from opened to closed & visa-versa
 			jQuery(document).on('moduleChanged', function(e){
 
 				var data = e.message.details;
@@ -194,7 +194,7 @@ jQuery(document).ready(function(){
 
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
-					// Collapsed
+					// Opened
 					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color').each(function(){
 
 						if ( this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'font-size' ) {
