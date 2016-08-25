@@ -157,9 +157,9 @@ jQuery(document).ready(function(){
 				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
 
 					// Collapsed
-					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-colorpicker').each(function(){
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color').each(function(){
 
-						if ( this.classList.contains('dslca-option-off') && jQuery(this).data('affect-on-change-rule') != 'border-width' ) {
+						if ( this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'border-width' ) {
 
 							jQuery('.dslc-control-toggle', this).click();
 						}
@@ -169,7 +169,45 @@ jQuery(document).ready(function(){
 					// Closed
 					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
 
-						if ( ! this.classList.contains('dslca-option-off') && jQuery(this).data('affect-on-change-rule') != 'border-width' ) {
+						if ( ! this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'border-width' ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				}
+			});
+		},
+		text_group: function() {
+
+			// Toggle controls in text group from collapsed to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
+
+				var data = e.message.details;
+
+				if ( data.optionType != 'toggle_controls' ||
+					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
+					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_text').length == 0 )
+				 ) return false;
+
+				// Border group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_text');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
+
+					// Collapsed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-field-color').each(function(){
+
+						if ( this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'font-size' ) {
+
+							jQuery('.dslc-control-toggle', this).click();
+						}
+					});
+				} else {
+
+					// Closed
+					group.find('.dslca-module-edit-option').not('.dslca-module-edit-option-color').each(function(){
+
+						if ( ! this.classList.contains('dslca-option-off') && jQuery('.dslca-module-edit-field', this).data('affect-on-change-rule') != 'font-size' ) {
 
 							jQuery('.dslc-control-toggle', this).click();
 						}

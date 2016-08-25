@@ -439,7 +439,7 @@ class LC_Custom_Settings_Fields {
 				'fields' => array(
 					array(
 						'label' => __( 'Show extended back', 'live-composer-page-builder' ),
-						'id' => 'show_ext_backs',
+						'id' => 'show_ext_borders',
 						'std' => 'true',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
@@ -553,6 +553,143 @@ class LC_Custom_Settings_Fields {
 						'max' => 100,
 						'increment' => 1,
 						'ext' => 'px',
+					),
+				),
+				'icon' => 'cube',
+				'prefix' => '<div class="lc-option-group-margin-wrapper">',
+				'postfix' => '</div>',
+			),
+			'group_text' => array(
+				'fields' => array(
+					array(
+						'label' => __( 'Show extended text', 'live-composer-page-builder' ),
+						'id' => 'show_ext_text',
+						'std' => 'true',
+						'type' => 'toggle_controls',
+						'dependent_controls' => array(
+
+							'true' => 'font_weight, font_family, font_style, line_height, letter_spacing',
+						),
+						'refresh_on_change' => false,
+					),
+					array(
+						'label' => __( 'Color', 'live-composer-page-builder' ),
+						'id' => 'color',
+						'std' => '',
+						'type' => 'color',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'color',
+					),
+					array(
+						'label' => __( 'Font Size', 'live-composer-page-builder' ),
+						'id' => 'font_size',
+						'min' => 0,
+						'max' => 100,
+						'increment' => 1,
+						'std' => '13',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'font-size',
+						'ext' => 'px'
+					),
+					array(
+						'label' => __( 'Font Weight', 'live-composer-page-builder' ),
+						'id' => 'font_weight',
+						'std' => '400',
+						'type' => 'select',
+						'choices' => array(
+							array(
+								'label' => '100 - Thin',
+								'value' => '100',
+							),
+							array(
+								'label' => '200 - Extra Light',
+								'value' => '200',
+							),
+							array(
+								'label' => '300 - Light',
+								'value' => '300',
+							),
+							array(
+								'label' => '400 - Normal',
+								'value' => '400',
+							),
+							array(
+								'label' => '500 - Medium',
+								'value' => '500',
+							),
+							array(
+								'label' => '600 - Semi Bold',
+								'value' => '600',
+							),
+							array(
+								'label' => '700 - Bold',
+								'value' => '700',
+							),
+							array(
+								'label' => '800 - Extra Bold',
+								'value' => '800',
+							),
+							array(
+								'label' => '900 - Black',
+								'value' => '900',
+							),
+						),
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'font-weight',
+						'ext' => '',
+					),
+					array(
+						'label' => __( 'Font Family', 'live-composer-page-builder' ),
+						'id' => 'font_family',
+						'std' => 'Open Sans',
+						'type' => 'font',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'font-family',
+					),
+					array(
+						'label' => __( 'Font Style', 'live-composer-page-builder' ),
+						'id' => 'font_style',
+						'std' => 'normal',
+						'type' => 'select',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'font-style',
+						'choices' => array(
+							array(
+								'label' => __( 'Normal', 'live-composer-page-builder' ),
+								'value' => 'normal',
+							),
+							array(
+								'label' => __( 'Italic', 'live-composer-page-builder' ),
+								'value' => 'italic',
+							),
+						)
+					),
+					array(
+						'label' => __( 'Line Height', 'live-composer-page-builder' ),
+						'id' => 'line_height',
+						'min' => 0,
+						'max' => 120,
+						'increment' => 1,
+						'std' => '22',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'line-height',
+						'ext' => 'px'
+					),
+					array(
+						'label' => __( 'Letter Spacing', 'live-composer-page-builder' ),
+						'id' => 'letter_spacing',
+						'min' => 0,
+						'max' => 30,
+						'increment' => 1,
+						'std' => '0',
+						'type' => 'slider',
+						'refresh_on_change' => false,
+						'affect_on_change_rule' => 'letter-spacing',
+						'ext' => 'px',
+						'min' => -50,
+						'max' => 50
 					),
 				),
 				'icon' => 'cube',
