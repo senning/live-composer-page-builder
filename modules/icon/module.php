@@ -460,6 +460,14 @@ class DSLC_Icon extends DSLC_Module {
 				'section' => 'styling',
 				'affect_on_change_el' => '.dslc-micon-module',
 			),
+			array(
+				'label' => __( 'Lists', 'live-composer-page-builder' ),
+				'id' => 'group_lists',
+				'type' => 'group_lists',
+				'tab' => __( 'Some thing', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-micon-module',
+			),
 		);
 
 		$dslc_options = array_merge( $dslc_options, $this->presets_options() );
