@@ -168,6 +168,16 @@ jQuery(document).ready(function(){
 							jQuery('.dslc-control-toggle', this).click();
 						}
 					});
+
+
+					// Process border_trbl
+					group.find('.dslca-module-edit-option-checkbox .dslca-module-edit-field').each(function(){
+
+						var bckp = jQuery(this).data('val-bckp');
+
+						this.checked = bckp;
+						jQuery(this).trigger('change');
+					});
 				} else {
 
 					// Closed
@@ -177,6 +187,15 @@ jQuery(document).ready(function(){
 
 							jQuery('.dslc-control-toggle', this).click();
 						}
+					});
+
+					// Process border_trbl
+					group.find('.dslca-module-edit-option-checkbox .dslca-module-edit-field').each(function(){
+
+						jQuery(this).data('val-bckp', this.checked);
+
+						this.checked = true;
+						jQuery(this).trigger('change');
 					});
 				}
 			});
