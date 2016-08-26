@@ -768,10 +768,10 @@ function dslc_toogle_control ( control_id ) {
 
 				if ( this.checked ) {
 
-					control_value = borderStyle ? 'solid' : this.value;
+					control_value += borderStyle ? ' solid' : ' ' + this.value;
 				} else {
 
-					control_value = borderStyle ? 'none' : '';
+					control_value += borderStyle ? ' none' : '';
 				}
 			});
 		} else {
