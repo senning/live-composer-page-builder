@@ -121,7 +121,7 @@ class DSLC_Icon extends DSLC_Module {
 				'section' => 'styling',
 				'ext' => 'px',
 			),
-			array(
+			/*array(
 				'label' => __( 'Borders', 'live-composer-page-builder' ),
 				'id' => 'css_border_trbl',
 				'std' => 'top right bottom left',
@@ -148,7 +148,7 @@ class DSLC_Icon extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-micon-module',
 				'affect_on_change_rule' => 'border-style',
 				'section' => 'styling',
-			),
+			),*/
 			array(
 				'label' => __( 'Border Radius', 'live-composer-page-builder' ),
 				'id' => 'css_border_radius',

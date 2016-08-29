@@ -13,7 +13,6 @@ jQuery(document).ready(function($){
 	dslc_module_options_icon();
 	dslc_module_options_icon_returnid()
 	dslc_module_options_text_align();
-	dslc_module_options_checkbox();
 	dslc_module_options_box_shadow();
 	dslc_module_options_text_shadow();
 
@@ -356,7 +355,7 @@ jQuery(document).ready(function($){
 							jQuery(selector).hide().addClass('force-hide');
 						}
 
-						dslc_scroller_init()
+						dslc_scroller_init();
 					}
 
 					/**
@@ -1382,28 +1381,6 @@ function dslc_module_options_text_align() {
 		newOpt.addClass('dslca-active');
 
 		realOpt.val( newVal ).trigger('change');
-	});
-}
-
-/**
- * MODULES SETTINGS PANEL - Checkbox Option Type
- */
-function dslc_module_options_checkbox() {
-
-	jQuery(document).on( 'click', '.dslca-module-edit-option-checkbox-hook, .dslca-modules-section-edit-option-checkbox-hook', function(){
-
-		var checkFake = jQuery(this);
-		var checkReal = checkFake.siblings('input[type="checkbox"]');
-
-		if ( checkReal.prop('checked') ) {
-			checkReal.prop('checked', false);
-			checkFake.find('.dslca-icon').removeClass('dslc-icon-check').addClass('dslc-icon-check-empty');
-		} else {
-			checkReal.prop('checked', true);
-			checkFake.find('.dslca-icon').removeClass('dslc-icon-check-empty').addClass('dslc-icon-check');
-		}
-
-		checkReal.change();
 	});
 }
 

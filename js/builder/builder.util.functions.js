@@ -414,7 +414,7 @@ jQuery(document).ready(function($) {
 
 				dslcOptionChoices.each(function(){
 
-					if ( $(this).prop('checked') ) {
+					if ( this.checked ) {
 
 						dslcOptionValue = dslcOptionValue + jQuery(this).val() + ' ';
 					}
@@ -562,7 +562,7 @@ jQuery(document).ready(function($) {
 
 				dslcOptionChoices.each(function(){
 
-					if ( jQuery(this).prop('checked') ) {
+					if ( this.checked ) {
 
 						dslcOptionValue = dslcOptionValue + 'solid ';
 						dslcOptionValueOrig = dslcOptionValueOrig + $(this).val() + ' ';

@@ -600,10 +600,12 @@ function dslc_ajax_display_module_options( $atts ) {
 						?>
 
 						<div class="dslca-module-edit-option-checkbox-wrapper">
-							<?php foreach ( $module_option['choices'] as  $checkbox_option ) : ?>
+							<?php foreach ( $module_option['choices'] as  $checkbox_option ) :
+							$unique_id = substr( md5( esc_attr( $module_option['id'] ) . $checkbox_option['value'] ), 0, 7 );
+							?>
 								<div class="dslca-module-edit-option-checkbox-single">
-									<span class="dslca-module-edit-option-checkbox-hook"><span class="dslca-icon <?php if ( in_array( $checkbox_option['value'], $curr_value ) ) echo 'dslc-icon-check'; else echo 'dslc-icon-check-empty'; ?>"></span><?php echo $checkbox_option['label']; ?></span>
-									<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" value="<?php echo $checkbox_option['value']; ?>" <?php if ( in_array( $checkbox_option['value'], $curr_value ) ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
+									<input id="<?php echo $unique_id;?>" type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" value="<?php echo $checkbox_option['value']; ?>" <?php if ( in_array( $checkbox_option['value'], $curr_value ) ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
+									<label for="<?php echo $unique_id;?>" class="dslca-module-edit-option-checkbox-hook"><span class="dslca-icon dslc-icon-"></span><?php echo $checkbox_option['label']; ?></label>
 								</div><!-- .dslca-module-edit-option-checkbox-single -->
 							<?php endforeach; ?>
 						</div><!-- .dslca-module-edit-option-checkbox-wrapper -->

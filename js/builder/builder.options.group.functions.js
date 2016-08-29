@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
 
 				if ( this.value == '') return false;
 
-				var group = jQuery(this).closest('.lc-option-group-margin-wrapper');
+				var group = jQuery(this).closest('.lc-option-group-inner-wrapper');
 				group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(this.value).trigger('change');
 			});
 		},
@@ -101,7 +101,7 @@ jQuery(document).ready(function(){
 
 				if ( this.value == '') return false;
 
-				var group = jQuery(this).closest('.lc-group-type-group_padding');
+				var group = jQuery(this).closest('.lc-option-group-inner-wrapper');
 				group.find('.group-padding-left input, .group-padding-top input, .group-padding-bottom input, .group-padding-right input').val(this.value).trigger('change');
 			});
 		},
@@ -174,6 +174,8 @@ jQuery(document).ready(function(){
 					group.find('.dslca-module-edit-option-checkbox .dslca-module-edit-field').each(function(){
 
 						var bckp = jQuery(this).data('val-bckp');
+
+						if ( bckp == undefined ) return false;
 
 						this.checked = bckp;
 						jQuery(this).trigger('change');

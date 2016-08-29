@@ -773,6 +773,14 @@ body a:focus {
 					display: none;
 				}
 
+				.dslca-module-edit-option-checkbox input[type="checkbox"]:checked + .dslca-module-edit-option-checkbox-hook .dslca-icon:before {
+					content: "\f046";
+				}
+
+				.dslca-module-edit-option-checkbox input[type="checkbox"]:not(:checked) + .dslca-module-edit-option-checkbox-hook .dslca-icon:before {
+					content: "\f096";
+				}
+
 				.dslca-module-edit-option-checkbox-wrapper {
 					display: table-cell;
 					background: #3b6fbe;

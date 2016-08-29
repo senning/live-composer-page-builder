@@ -17,7 +17,6 @@
  * - dslc_module_options_icon ( Actions for icon font option type )
  * - dslc_module_options_icon_returnid (Fill icon option type with selected icon ID/name)
  * - dslc_module_options_text_align ( Actions for text align option type )
- * - dslc_module_options_checkbox ( Actions for checkbox option type )
  * - dslc_module_options_box_shadow ( Actions for box shadow option type )
  * - dslc_modules_options_box_shadow_color ( Initiate colorpicker for box shadow)
  * - dslc_module_options_text_shadow ( Actions for text shadow option type )
