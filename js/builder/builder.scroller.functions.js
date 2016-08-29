@@ -61,17 +61,11 @@
 
 							// Set previous item as the currently fully visible one
 							scroller.data( 'current', scrollerItem.prev('.dslca-scroller-item:visible').index() );
-
 						}
-
 					}
-
 				});
-
 			});
-
 		}
-
 	}
 
 	/**

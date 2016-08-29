@@ -354,8 +354,6 @@ jQuery(document).ready(function($){
 
 							jQuery(selector).hide().addClass('force-hide');
 						}
-
-						dslc_scroller_init();
 					}
 
 					/**

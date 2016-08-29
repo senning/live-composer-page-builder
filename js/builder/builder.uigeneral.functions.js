@@ -812,7 +812,7 @@ jQuery(document).ready(function($){
 	// Click on controls group enable/disable group
 	jQuery(document).on( 'click', '.lc-option-group .lc-option-group-icon', function(e){
 
-		jQuery('.lc-option-group .lc-group-header .dslc-control-toggle').trigger('click');
+		jQuery(this).closest('.lc-option-group').find('.lc-group-header .dslc-control-toggle').trigger('click');
 	});
 
 	// Toggle group toggles
