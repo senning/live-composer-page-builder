@@ -201,6 +201,51 @@ jQuery(document).ready(function(){
 					});
 				}
 			});
+
+			// Toggle controls in border radius group from opened to closed & visa-versa
+			jQuery(document).on('moduleChanged', function(e){
+
+				var data = e.message.details;
+				var closestFront = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.dslca-module-edit-option');
+
+				if ( ! closestFront.next().hasClass('group-border-radius-common') ) return false;
+
+				// Border radius group only here
+				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_border');
+				var separateOptions = group.find('.bradius-tr input, .bradius-br input, .bradius-bl input, .bradius-tl input');
+				var commonOption = group.find('.border-radius-common input');
+
+				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
+
+					// Opened
+					var commonValue = commonOption.val();
+					separateOptions.val(commonValue).trigger('change');
+					commonOption.val('').trigger('change');
+				} else {
+
+					// Closed
+					var commonValue = group.find('.bradius-tl input').val();
+
+					if ( jQuery(this).closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
+
+						var bckpVal = group.find('.bradius-tl input').data('val-bckp');
+						commonOption.data('val-bckp', bckpVal );
+						separateOptions.data('val-bckp', bckpVal);
+					}
+
+					commonOption.val(commonValue).trigger('change');
+					separateOptions.val(commonValue).trigger('change');
+				}
+			});
+
+			// Copy every setting to separate controls.
+			jQuery(document).on('change', '.group-border-radius-common input', function(){
+
+				if ( this.value == '') return false;
+
+				var group = jQuery(this).closest('.lc-option-group-inner-wrapper');
+				group.find('.bradius-tr input, .bradius-br input, .bradius-bl input, .bradius-tl input').val(this.value).trigger('change');
+			});
 		},
 		text_group: function() {
 
