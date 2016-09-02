@@ -312,9 +312,13 @@ jQuery(document).ready(function($){
 					var optElem = this;
 					var localDep = {};
 					var groupId = '';
+					var eventProps = {
+						optionControls: {},
+						currentDepState: {}
+					};
 
 					// Set dependecies data
-					if ( ! jQuery(optElem).hasClass('toggle_controls') && optElem.type == 'checkbox' && dep[ optElem.value ] != undefined ) {
+					if ( ! jQuery(optElem).hasClass('minify_controls') && ! jQuery(optElem).hasClass('toggle_controls') && optElem.type == 'checkbox' && dep[ optElem.value ] != undefined ) {
 
 						localDep[ optElem.value ] = dep[ optElem.value ];
 					} else {
@@ -345,14 +349,18 @@ jQuery(document).ready(function($){
 							return '.dslca-module-edit-option-' + item + groupId;
 						}).join(',');
 
+						eventProps.optionControls[ opt_val ] = selector; // What selectors to process
+
 						var optElemValue = getOptElemValue( optElem );
 
 						if ( opt_val == optElemValue ) {
 
 							jQuery(selector).show().removeClass('force-hide');
+							eventProps.currentDepState.show = opt_val;
 						} else {
 
 							jQuery(selector).hide().addClass('force-hide');
+							eventProps.currentDepState.hide = opt_val;
 						}
 					}
 
@@ -365,7 +373,7 @@ jQuery(document).ready(function($){
 					function getOptElemValue( input ) {
 
 						// If toggle controls value has no matter
-						if ( jQuery(optElem).hasClass('toggle_controls') ) {
+						if ( jQuery(optElem).hasClass('toggle_controls') || jQuery(optElem).hasClass('minify_controls') ) {
 
 							if( jQuery(optElem).data('value') != '' ) {
 
@@ -392,6 +400,16 @@ jQuery(document).ready(function($){
 
 						return jQuery(optElem).val();
 					}
+
+					// Fire an event, when options showed/hidden.
+					// To prevent simultaniously and aleatory activity
+					LiveComposer.Utils.publish( 'LC.optionDepsDone', {
+
+						optID: jQuery(optElem).data('id'),
+						optElem: optElem,
+						localDep: localDep,
+						eventProps: eventProps
+					});
 				}
 
 				$(document).on('change dslc-init-deps', '.dslca-module-edit-option *[data-id="' + $(this).data('id') + '"]', changeHandler);

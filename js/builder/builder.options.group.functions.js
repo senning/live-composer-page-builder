@@ -11,53 +11,6 @@ jQuery(document).ready(function(){
 
 	var option_group_functions = {
 
-		margin_group: function(){
-
-			// Toggle controls in margin group from opened to closed & visa-versa
-			jQuery(document).on('moduleChanged', function(e){
-
-				var data = e.message.details;
-
-				if ( data.optionType != 'toggle_controls' ||
-					( jQuery('.dslca-module-edit-option-' + data.optionID) != null &&
-					jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_margin').length == 0 )
-				 ) return false;
-
-				// Margin group only here
-				var group = jQuery('.dslca-module-edit-option-' + data.optionID).closest('.lc-group-type-group_margin');
-
-				if ( jQuery('.dslca-module-edit-option-' + data.optionID + ' input')[0].checked ) {
-
-					// Opened
-					var commonValue = group.find('.group-margin-common input').val();
-					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
-					group.find('.group-margin-common input').val('').trigger('change');
-				} else {
-
-					// Closed
-					var commonValue = group.find('.group-margin-top input').val();
-
-					if ( jQuery(this).closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
-
-						var bckpVal = group.find('.group-margin-top input').data('val-bckp');
-						group.find('.group-margin-common input').data('val-bckp', bckpVal );
-						group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').data('val-bckp', bckpVal);
-					}
-
-					group.find('.group-margin-common input').val(commonValue).trigger('change');
-					group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(commonValue).trigger('change');
-				}
-			});
-
-			// Copy every setting to separate controls.
-			jQuery(document).on('change', '.group-margin-common input', function(){
-
-				if ( this.value == '') return false;
-
-				var group = jQuery(this).closest('.lc-option-group-inner-wrapper');
-				group.find('.group-margin-left input, .group-margin-top input, .group-margin-bottom input, .group-margin-right input').val(this.value).trigger('change');
-			});
-		},
 		padding_group: function(){
 
 			// Toggle controls in padding group from opened to closed & visa-versa
@@ -288,11 +241,11 @@ jQuery(document).ready(function(){
 	};
 
 	// Fire all functions
-	for( var i in option_group_functions ) {
+	/*for( var i in option_group_functions ) {
 
 		if ( typeof option_group_functions[i] == 'function' ) {
 
 			option_group_functions[i]();
-		}
-	}
+		}*
+	}*/
 });

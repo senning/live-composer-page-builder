@@ -4190,31 +4190,43 @@ input.dslca-module-edit-field.pseudo-input {
 
 	display: none;
 }
-.lc-option-group .dslca-module-edit-option-toggle_controls{
+.lc-option-group .dslca-module-edit-option-toggle_controls,
+.lc-option-group .dslca-module-edit-option-minify_controls
+{
 	padding: 0px;
 	width: auto;
 }
-.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-wrapper{
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-wrapper,
+.dslca-module-edit-option-minify_controls .dslca-module-edit-option-checkbox-wrapper{
 
 	background: transparent;
 	border: 0;
 	padding: 0px;
 }
-.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-single {
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-option-checkbox-single,
+.dslca-module-edit-option-minify_controls .dslca-module-edit-option-checkbox-single
+ {
     width: 44px;
     display: block;
     text-align: center;
 }
-.dslca-module-edit-option-toggle_controls{
+.dslca-module-edit-option-toggle_controls,
+.dslca-module-edit-option-minify_controls
+{
 	vertical-align: middle;
 }
 
 .dslca-module-edit-option-toggle_controls .dslca-module-edit-label,
-.dslca-module-edit-option-toggle_controls .dslca-module-edit-field{
+.dslca-module-edit-option-toggle_controls .dslca-module-edit-field,
+.dslca-module-edit-option-minify_controls .dslca-module-edit-label,
+.dslca-module-edit-option-minify_controls .dslca-module-edit-field
+{
 	display: none;
 }
 
-.dslca-module-edit-option-toggle_controls .dslc-icon {
+.dslca-module-edit-option-toggle_controls .dslc-icon,
+.dslca-module-edit-option-minify_controls .dslc-icon
+{
     font-size: 21px;
 }
 

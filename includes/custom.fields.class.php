@@ -148,7 +148,7 @@ class LC_Custom_Settings_Fields {
 						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
 						'id' => 'show_ext_margins',
 						'std' => 'true',
-						'type' => 'toggle_controls',
+						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
 							'true' => 'margin_left, margin_bottom, margin_right, margin_top',
@@ -236,7 +236,7 @@ class LC_Custom_Settings_Fields {
 						'label' => __( 'Show extended paddings', 'live-composer-page-builder' ),
 						'id' => 'show_ext_paddings',
 						'std' => 'true',
-						'type' => 'toggle_controls',
+						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
 							'true' => 'padding_left, padding_bottom, padding_right, padding_top',
@@ -445,17 +445,6 @@ class LC_Custom_Settings_Fields {
 			'group_border' => array(
 				'fields' => array(
 					array(
-						'label' => __( 'Show extended back', 'live-composer-page-builder' ),
-						'id' => 'show_ext_borders',
-						'std' => 'true',
-						'type' => 'toggle_controls',
-						'dependent_controls' => array(
-
-							'true' => 'show_ext_borders_radius, border_trbl, border_radius, border_radius_top_left, border_radius_top_right, border_radius_bottom_left, border_radius_bottom_right',
-						),
-						'refresh_on_change' => false,
-					),
-					array(
 						'label' => __( 'Color', 'live-composer-page-builder' ),
 						'id' => 'border_color',
 						'std' => '',
@@ -505,7 +494,7 @@ class LC_Custom_Settings_Fields {
 						'label' => __( 'Show extended borders radius', 'live-composer-page-builder' ),
 						'id' => 'show_ext_borders_radius',
 						'std' => 'true',
-						'type' => 'toggle_controls',
+						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
 							'true' => 'border_radius_top_left, border_radius_top_right, border_radius_bottom_left, border_radius_bottom_right',

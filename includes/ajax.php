@@ -443,6 +443,7 @@ function dslc_ajax_display_module_options( $atts ) {
 			$control_types_without_toggle = array(
 
 				'toggle_controls',
+				'minify_controls',
 			);
 
 			$control_with_toggle = '';
@@ -581,6 +582,29 @@ function dslc_ajax_display_module_options( $atts ) {
 									<i class="dslc-icon dslc-icon-link"></i>
 								<?php } ?>
 								<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox toggle_controls" value='true' data-value="<?php echo ! $opened ? 'false' : 'true';?>" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" <?php if ( $opened ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
+							</div><!-- .dslca-module-edit-option-checkbox-single -->
+						</div><!-- .dslca-module-edit-option-checkbox-wrapper -->
+
+					<?php elseif ( $module_option['type'] == 'minify_controls' ) : ?>
+
+						<?php
+
+						// Current Value Array.
+						$curr_value = trim( $curr_value );
+						$opened = (bool)($curr_value == 'true');
+
+						?>
+
+						<div class="dslca-module-edit-option-checkbox-wrapper">
+							<div class="dslca-module-edit-option-checkbox-single">
+								<?php if ( $opened ) {?>
+
+									<i class="dslc-icon dslc-icon-unlink"></i>
+								<?php } else { ?>
+
+									<i class="dslc-icon dslc-icon-link"></i>
+								<?php } ?>
+								<input type="checkbox" class="dslca-module-edit-field dslca-module-edit-field-checkbox minify_controls" value='true' data-value="<?php echo ! $opened ? 'false' : 'true';?>" data-id="<?php echo esc_attr( $module_option['id'] ); ?>" name="<?php echo esc_attr( $module_option['id'] ); ?>" <?php if ( $opened ) echo 'checked="checked"'; ?> <?php echo $affect_on_change_append ?> />
 							</div><!-- .dslca-module-edit-option-checkbox-single -->
 						</div><!-- .dslca-module-edit-option-checkbox-wrapper -->
 
