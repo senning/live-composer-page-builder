@@ -938,6 +938,8 @@ class LC_Custom_Settings_Fields {
 
 			foreach ( $group['fields'] as $option ) {
 
+				$raw = $option;
+
 				if ( ! is_array( $option ) ) {
 
 					continue;
@@ -958,6 +960,11 @@ class LC_Custom_Settings_Fields {
 				$option['group_label'] = $group_def['label'];
 				$option['group_id'] = $group_def['id'];
 				$option['group_type'] = $group_def['type'];
+
+				if ( isset( $group_def['std'] ) && isset( $group_def['std'][ $raw['id'] ] ) ) {
+
+					$option['std'] = $group_def['std'][ $raw['id'] ];
+				}
 
 				// Handle regular selector.
 				if ( ! empty( $option['affect_on_change_el'] ) ) {

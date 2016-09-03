@@ -192,7 +192,6 @@ class DSLC_Button extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
