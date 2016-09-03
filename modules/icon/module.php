@@ -168,7 +168,6 @@ class DSLC_Icon extends DSLC_Module {
 				'ext' => 'px',
 			),
 
-			// Test border group
 			array(
 				'label' => __( 'Border group', 'live-composer-page-builder' ),
 				'id' => 'border_group',
@@ -253,7 +252,6 @@ class DSLC_Icon extends DSLC_Module {
 				'section' => 'styling',
 				'affect_on_change_el' => '.dslc-micon-module',
 				'values' => array(
-					'padding' => 'css_padding_vertical',
 					'padding_top' => 'css_padding_vertical',
 					'padding_bottom' => 'css_padding_vertical',
 					'padding_right' => 'css_padding_horizontal',
