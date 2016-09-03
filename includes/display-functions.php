@@ -448,12 +448,15 @@ function dslc_display_modules() {
 
 	// Get value of module listing order option.
 	$module_listing_order = dslc_get_option( 'lc_module_listing_order', 'dslc_plugin_options_other' );
+
 	if ( empty( $module_listing_order ) ) {
+
 		$module_listing_order = 'original';
 	}
 
 	// Order alphabetically if needed.
 	if ( 'alphabetic' === $module_listing_order ) {
+
 		usort( $dslc_modules, 'dslc_sort_alphabetically' );
 	}
 
@@ -470,10 +473,12 @@ function dslc_display_modules() {
 		foreach ( $dslc_modules as $dslc_module ) {
 
 			if ( empty( $dslc_module['icon'] ) ) {
+
 				$dslc_module['icon'] = 'circle';
 			}
 
 			if ( empty( $dslc_module['origin'] ) ) {
+
 				$dslc_module['origin'] = 'lc';
 			}
 

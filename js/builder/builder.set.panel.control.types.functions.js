@@ -77,30 +77,34 @@ jQuery(function(){
 
 				if ( ! jQuery(data.optElem).hasClass('minify_controls') ) return false; /// Not minify triggered
 
+
 				var optID = data.optID;
 				var common = jQuery(data.eventProps.optionControls.false).find('input');
 				var separated = jQuery(data.eventProps.optionControls.true).find('input');
 
-				if ( data.eventProps.currentDepState.show == 'false' ) {
+				if ( commonHandlerInitiated[optID] != undefined ) {
 
-					// Closed
-					if ( common.closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
+					if ( data.eventProps.currentDepState.show == 'false' ) {
 
-						var bckpVal = separated.eq(0).data('val-bckp');
-						common.data('val-bckp', bckpVal );
-						separated.data('val-bckp', bckpVal);
+						// Closed
+						if ( common.closest('.lc-option-group').find('.lc-group-header').hasClass('dslca-option-off') ) {
+
+							var bckpVal = separated.eq(0).data('val-bckp');
+							common.data('val-bckp', bckpVal );
+							separated.data('val-bckp', bckpVal);
+						} else {
+
+							var commonValue = separated.eq(0).val();
+							common.val(commonValue).trigger('change');
+							separated.val(commonValue).trigger('change');
+						}
 					} else {
 
-						var commonValue = separated.eq(0).val();
-						common.val(commonValue).trigger('change');
+						// Opened
+						var commonValue = common.val();
 						separated.val(commonValue).trigger('change');
+						common.val('').trigger('change');
 					}
-				} else {
-
-					// Opened
-					var commonValue = common.val();
-					separated.val(commonValue).trigger('change');
-					common.val('').trigger('change');
 				}
 
 				if ( commonHandlerInitiated[optID] == undefined ) {

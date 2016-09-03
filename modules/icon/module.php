@@ -88,25 +88,6 @@ class DSLC_Icon extends DSLC_Module {
 				'section' => 'styling',
 			),
 
-			// Test border group
-			array(
-				'label' => __( 'Border group', 'live-composer-page-builder' ),
-				'id' => 'border_group',
-				'type' => 'group_border',
-				'tab' => __( 'general', 'live-composer-page-builder' ),
-				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-micon-module',
-				'values' => array(
-					'border_color' => 'css_border_color',
-					'border_width' => 'css_border_width',
-					'border_trbl' => 'css_border_trbl',
-					'border_radius' => 'css_border_radius',
-					'border_radius_top_left' => 'css_border_radius',
-					'border_radius_top_right' => 'css_border_radius',
-					'border_radius_bottom_left' => 'css_border_radius',
-					'border_radius_bottom_right' => 'css_border_radius',
-				),
-			),
 			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_border_color',
@@ -186,6 +167,26 @@ class DSLC_Icon extends DSLC_Module {
 				'section' => 'styling',
 				'ext' => 'px',
 			),
+
+			// Test border group
+			array(
+				'label' => __( 'Border group', 'live-composer-page-builder' ),
+				'id' => 'border_group',
+				'type' => 'group_border',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-micon-module',
+				'values' => array(
+					'border_color' => 'css_border_color',
+					'border_width' => 'css_border_width',
+					'border_trbl' => 'css_border_trbl',
+					'border_radius' => 'css_border_radius',
+					'border_radius_top_left' => 'css_border_radius',
+					'border_radius_top_right' => 'css_border_radius',
+					'border_radius_bottom_left' => 'css_border_radius',
+					'border_radius_bottom_right' => 'css_border_radius',
+				),
+			),
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
 				'id' => 'css_margin_bottom',
@@ -216,21 +217,6 @@ class DSLC_Icon extends DSLC_Module {
 			),
 
 			array(
-				'label' => __( 'Group padding', 'live-composer-page-builder' ),
-				'id' => 'padding_group',
-				'type' => 'group_padding',
-				'tab' => __( 'general', 'live-composer-page-builder' ),
-				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-micon-module',
-				'values' => array(
-					'padding_top' => 'css_padding_vertical',
-					'padding_bottom' => 'css_padding_vertical',
-					'padding_right' => 'css_padding_horizontal',
-					'padding_left' => 'css_padding_horizontal',
-				),
-			),
-
-			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_padding_vertical',
 				'min' => 0,
@@ -257,6 +243,22 @@ class DSLC_Icon extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'styling',
 				'ext' => 'px',
+			),
+
+			array(
+				'label' => __( 'Group padding', 'live-composer-page-builder' ),
+				'id' => 'padding_group',
+				'type' => 'group_padding',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-micon-module',
+				'values' => array(
+					'padding' => 'css_padding_vertical',
+					'padding_top' => 'css_padding_vertical',
+					'padding_bottom' => 'css_padding_vertical',
+					'padding_right' => 'css_padding_horizontal',
+					'padding_left' => 'css_padding_horizontal',
+				),
 			),
 
 			/**

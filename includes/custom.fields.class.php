@@ -34,13 +34,22 @@ class LC_Custom_Settings_Fields {
 
 		if ( ! empty( self::$hide_options ) ) {
 
+			// Separation needs in case if multiple new.
+			// options needs one common old value
+
+			// Fill new values.
 			foreach ( self::$hide_options as $new_id => $old_id ) {
 
 				if ( ! empty( $options_values[ $old_id ] ) ) {
 
 					$options_values[ $new_id ] = $options_values[ $old_id ];
-					$options_values[ $old_id ] = '';
 				}
+			}
+
+			// Clear old values.
+			foreach ( self::$hide_options as $new_id => $old_id ) {
+
+				$options_values[ $old_id ] = '';
 			}
 		}
 
