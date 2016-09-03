@@ -19,7 +19,6 @@ class DSLC_Image extends DSLC_Module {
 		$this->module_title = __( 'Image', 'live-composer-page-builder' );
 		$this->module_icon = 'picture';
 		$this->module_category = 'General';
-
 	}
 
 	function options() {
@@ -180,6 +179,24 @@ class DSLC_Image extends DSLC_Module {
 				'section' => 'styling',
 			),
 			array(
+				'label' => __( 'Wrapper border', 'live-composer-page-builder' ),
+				'id' => 'wrapper_group',
+				'type' => 'group_border',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-image',
+				'values' => array(
+					'border_color' => 'css_border_color',
+					'border_width' => 'css_border_width',
+					'border_trbl' => 'css_border_trbl',
+					'border_radius' => 'css_border_radius',
+					'border_radius_top_left' => 'css_border_radius',
+					'border_radius_top_right' => 'css_border_radius',
+					'border_radius_bottom_left' => 'css_border_radius',
+					'border_radius_bottom_right' => 'css_border_radius',
+				),
+			),
+			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_border_color',
 				'std' => '',
@@ -310,6 +327,20 @@ class DSLC_Image extends DSLC_Module {
 				'increment' => 5
 			),
 			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'padding_group',
+				'type' => 'group_padding',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-image',
+				'values' => array(
+					'padding_top' => 'css_padding_vertical',
+					'padding_bottom' => 'css_padding_vertical',
+					'padding_right' => 'css_padding_horizontal',
+					'padding_left' => 'css_padding_horizontal',
+				),
+			),
+			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_padding_vertical',
 				'min' => 0,
@@ -383,6 +414,22 @@ class DSLC_Image extends DSLC_Module {
 				'affect_on_change_rule' => 'text-align',
 				'section' => 'styling',
 				'tab' => __( 'Custom text', 'live-composer-page-builder' ),
+			),
+
+			array(
+				'label' => __( 'Custom text typo', 'live-composer-page-builder' ),
+				'id' => 'ct_typo',
+				'type' => 'group_text',
+				'tab' => __( 'Custom text', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-image-caption',
+				'values' => array(
+					'color' => 'css_ct_color',
+					'font_size' => 'css_ct_font_size',
+					'font_weight' => 'css_ct_font_weight',
+					'font_family' => 'css_ct_font_family',
+					'line_height' => 'css_ct_line_height',
+				),
 			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -569,6 +616,20 @@ class DSLC_Image extends DSLC_Module {
 				'ext' => 'px',
 			),
 			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_p_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-image',
+				'values' => array(
+					'padding_top' => 'css_res_t_padding_vertical',
+					'padding_bottom' => 'css_res_t_padding_vertical',
+					'padding_left' => 'css_res_t_padding_horizontal',
+					'padding_right' => 'css_res_t_padding_horizontal',
+				),
+			),
+			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_res_t_padding_vertical',
 				'min' => 0,
@@ -694,7 +755,6 @@ class DSLC_Image extends DSLC_Module {
 				'max' => 1400,
 				'increment' => 5
 			),
-
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
 				'id' => 'css_res_p_margin_bottom',
@@ -709,6 +769,20 @@ class DSLC_Image extends DSLC_Module {
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
+			),
+			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_p_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Phone', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-image',
+				'values' => array(
+					'padding_top' => 'css_res_p_padding_vertical',
+					'padding_bottom' => 'css_res_p_padding_vertical',
+					'padding_left' => 'css_res_p_padding_horizontal',
+					'padding_right' => 'css_res_p_padding_horizontal',
+				),
 			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
