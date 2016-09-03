@@ -235,7 +235,7 @@ class LC_Custom_Settings_Fields {
 					array(
 						'label' => __( 'Hide extended paddings', 'live-composer-page-builder' ),
 						'id' => 'show_ext_paddings',
-						'std' => 'false',
+						'std' => 'true',
 						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
@@ -1001,12 +1001,26 @@ class LC_Custom_Settings_Fields {
 	}
 
 	/**
-	 * Update custom fields values with old ones
+	 * Move option values in given array
 	 *
-	 * @param $_POST
+	 * @param  array $group_def defines group.
+	 * @param  array $option  defines option array.
 	 */
-	public static function update_custom_fields() {
+	static public function move_values_array( $group_def, $option ) {
 
+		if ( (
+				! isset( $_POST[ $option['id'] . '_' . $group_def['id'] ] ) || (
+					isset( $group_def['values'] ) && isset( $group_def['values'][ $option['id'] ] ) &&
+					! empty( $_POST[ $group_def['values'][ $option['id'] ] ] )
+					)
+				) &&
+			isset( $group_def['values'] ) &&
+			! empty( $group_def['values'][ $option['id'] ] )
+		 )  {
+
+			$_POST[ $option['id'] . '_' . $group_def['id'] ] = $_POST[ $group_def['values'][ $option['id'] ] ];
+			$_POST[ $group_def['values'][ $option['id'] ] ] = '';
+		}
 	}
 }
 

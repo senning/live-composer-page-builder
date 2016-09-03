@@ -176,7 +176,7 @@ function dslc_ajax_add_module( $atts ) {
 
 		// Generate settings.
 		// Array $all_opts - has a structure of the module setting (not actual data).
-		$all_opts = $module_instance->options();
+		$all_opts = $module_instance->options( $_POST );
 
 		/**
 		 * Array $module_settings - has all the module settings (actual data).

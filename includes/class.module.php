@@ -2126,9 +2126,11 @@ class DSLC_Module {
 		 */
 
 		if ( isset( $this->handle_like ) ) {
-					$class_handle_like = 'dslc-module-handle-like-' . $this->handle_like;
+
+			$class_handle_like = 'dslc-module-handle-like-' . $this->handle_like;
 		} else {
-					$class_handle_like = 'dslc-module-handle-like-regular';
+
+			$class_handle_like = 'dslc-module-handle-like-regular';
 		}
 
 		/**
@@ -2155,6 +2157,7 @@ class DSLC_Module {
 		 */
 
 		if ( ! isset( $options['css_load_preset'] ) ) {
+
 			$options['css_load_preset'] = '';
 		}
 

@@ -37,12 +37,16 @@ function dslc_generate_custom_css( $module_structure, $module_settings, $restart
 	foreach ( $module_structure as $single_option ) {
 
 		if ( isset( $single_option['section'] ) && 'responsive' === $single_option['section'] ) {
+
 			if ( isset( $single_option['tab'] ) && 'Phone' === $single_option['tab'] ) {
+
 				$module_structure_resp_phone[] = $single_option;
 			} elseif ( 'Tablet' === $single_option['tab'] ) {
+
 				$module_structure_resp_tablet[] = $single_option;
 			}
 		} else {
+
 			$module_structure_resp_desktop[] = $single_option;
 		}
 	}
@@ -62,21 +66,23 @@ function dslc_generate_custom_css( $module_structure, $module_settings, $restart
 		if ( '' !== $device_css ) {
 
 			if ( 'tablet' === $device ) {
+
 				$css_output .= '@media only screen and (min-width : 768px) and (max-width : 1024px)  {';
 			} elseif ( 'phone' === $device ) {
+
 				$css_output .= '@media only screen and ( max-width: 767px ) {';
 			}
 
 			$css_output .= $device_css;
 
 			if ( 'desktop' !== $device ) {
+
 				$css_output .= '}';
 			}
 		}
 	}
 
 	$dslc_css_style .= $css_output;
-
 }
 
 /**

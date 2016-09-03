@@ -833,27 +833,26 @@ function dslc_editor_code() {
  *
  * @since 1.0
  */
-
 function dslc_module_front( $atts, $settings_raw = null ) {
 
 	$settings = maybe_unserialize( base64_decode( $settings_raw ) );
 
 	if ( is_array( $settings ) ) {
 
-		// The ID of the module
+		// The ID of the module.
 		$module_id = $settings['module_id'];
 
-		// Check if active
+		// Check if active.
 		if ( ! dslc_is_module_active( $module_id ) ) {
 					return;
 		}
 
-		// If class does not exists
+		// If class does not exists.
 		if ( ! class_exists( $module_id ) ) {
 					return;
 		}
 
-		// Apply new instance ID if needed
+		// Apply new instance ID if needed.
 		if ( isset( $atts['give_new_id'] ) ) {
 			$settings['module_instance_id'] = dslc_get_new_module_id();
 		}
@@ -864,41 +863,42 @@ function dslc_module_front( $atts, $settings_raw = null ) {
 			$settings['dslc_m_size_last'] = 'no';
 		}
 
-		// Instanciate the module class
+		// Instanciate the module class.
 		$module_instance = new $module_id();
 
 		// Append marker indicating that the module
 		// was displayed during the regular page rendering
-		// not as ajax repsonse on creation/editing
+		// not as ajax repsonse on creation/editing.
 		$settings['module_render_nonajax'] = true;
 
-
-		// Fixing the options array
+		// Fixing the options array.
 		global $dslc_var_image_option_bckp;
 		$dslc_var_image_option_bckp = array();
 		$all_opts = $module_instance->options();
 
 
-		// Start output fetching
+		// Start output fetching.
 		ob_start();
 
 		foreach ( $all_opts as $all_opt ) {
 
-			// Fix settings when a new option added after a module is used
+			// Fix settings when a new option added after a module is used.
 			if ( ! isset( $settings[$all_opt['id']] ) ) {
 
 				if ( isset( $all_opt['std'] ) && $all_opt['std'] !== '' ) {
+
 					$settings[$all_opt['id']] = $all_opt['std'];
 				} else {
+
 					$settings[$all_opt['id']] = false;
 				}
 			}
 		}
 
-		// Load preset options if preset supplied
+		// Load preset options if preset supplied.
 		$settings = apply_filters( 'dslc_filter_settings', $settings );
 
-		// Transform image ID to URL
+		// Transform image ID to URL.
 		foreach ( $all_opts as $all_opt ) {
 
 			if ( $all_opt['type'] == 'image' ) {
@@ -912,14 +912,14 @@ function dslc_module_front( $atts, $settings_raw = null ) {
 			}
 		}
 
-		// Module output
+		// Module output.
 		$module_instance->output( $settings );
 
-		// End output fetching
+		// End output fetching.
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		// Return the output
+		// Return the output.
 		return $output;
 
 	} else {
@@ -1056,7 +1056,7 @@ function dslc_modules_section_front( $atts, $content = null ) {
 		$a_append = '</div>';
 	}
 
-	// Columns spacing
+	// Columns spacing.
 	if ( $atts['columns_spacing'] == 'nospacing' ) {
 			$section_class .= 'dslc-no-columns-spacing ';
 	}
@@ -1065,11 +1065,11 @@ function dslc_modules_section_front( $atts, $content = null ) {
 	if ( $atts['custom_class'] != '' ) {
 
 		// Process all class definitions.
-  		$custom_class = preg_replace( '/,/', ' ', $atts['custom_class'] );
-  		$custom_class = preg_replace( '/\b\.\b/', ' ', $custom_class );
-  		$custom_class = preg_replace( '/\./', '', $custom_class );
-  		$custom_class = preg_replace( '/\s{2,}/', ' ', $custom_class );
-  		$custom_class = trim( $custom_class );
+		$custom_class = preg_replace( '/,/', ' ', $atts['custom_class'] );
+		$custom_class = preg_replace( '/\b\.\b/', ' ', $custom_class );
+		$custom_class = preg_replace( '/\./', '', $custom_class );
+		$custom_class = preg_replace( '/\s{2,}/', ' ', $custom_class );
+		$custom_class = trim( $custom_class );
 
 		$section_class .= $custom_class . ' ';
 	}
@@ -1106,7 +1106,7 @@ function dslc_modules_section_front( $atts, $content = null ) {
 			$section_id = $atts['custom_id'];
 	}
 
-	// Custom ID - Output
+	// Custom ID - Output.
 	$section_id_output = '';
 	if ( $section_id ) {
 			$section_id_output = 'id="' . $section_id . '"';
