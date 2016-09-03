@@ -79,6 +79,9 @@ class LC_Custom_Settings_Fields {
 	 */
 	static public function filter_options_list( $module_options, $module_id ) {
 
+		// Clear options to hide.
+		self::$hide_options = array();
+
 		$arr_out = array();
 
 		foreach ( $module_options as $key => $option ) {
@@ -106,9 +109,6 @@ class LC_Custom_Settings_Fields {
 	 * @return array
 	 */
 	static public function custom_groups_definition( $group_def ) {
-
-		// Clear options to hide.
-		self::$hide_options = array();
 
 		$groups_list = array(
 			/**
@@ -936,6 +936,7 @@ class LC_Custom_Settings_Fields {
 
 				// Change old & new values.
 				self::move_values_post( $group_def, $option );
+
 
 				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] ) ) {
 
