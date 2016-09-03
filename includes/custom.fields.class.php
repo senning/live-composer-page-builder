@@ -819,6 +819,7 @@ class LC_Custom_Settings_Fields {
 							),
 						),
 						'refresh_on_change' => false,
+						'affect_on_change_el' => '$ ul', // Regular expression selector.
 						'affect_on_change_rule' => 'list-style-type',
 					),
 					array(
@@ -905,6 +906,7 @@ class LC_Custom_Settings_Fields {
 							),
 						),
 						'refresh_on_change' => false,
+						'affect_on_change_el' => '$ ol', // Regular expression selector.
 						'affect_on_change_rule' => 'list-style-type',
 					),
 					array(

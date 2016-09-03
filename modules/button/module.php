@@ -860,7 +860,7 @@ class DSLC_Button extends DSLC_Module {
 				'increment' => 1,
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 
 			array(
