@@ -145,9 +145,9 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
+						'label' => __( 'Hide extended margins', 'live-composer-page-builder' ),
 						'id' => 'show_ext_margins',
-						'std' => 'true',
+						'std' => 'false',
 						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
@@ -233,9 +233,9 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Show extended paddings', 'live-composer-page-builder' ),
+						'label' => __( 'Hide extended paddings', 'live-composer-page-builder' ),
 						'id' => 'show_ext_paddings',
-						'std' => 'true',
+						'std' => 'false',
 						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
@@ -321,9 +321,9 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Show extended back', 'live-composer-page-builder' ),
+						'label' => __( 'Hide extended back', 'live-composer-page-builder' ),
 						'id' => 'show_ext_backs',
-						'std' => 'true',
+						'std' => 'false',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
 
@@ -456,7 +456,7 @@ class LC_Custom_Settings_Fields {
 						'label' => __( 'Width', 'live-composer-page-builder' ),
 						'id' => 'border_width',
 						'min' => 0,
-						'max' => 10,
+						'max' => 100,
 						'increment' => 1,
 						'std' => '0',
 						'type' => 'slider',
@@ -491,7 +491,7 @@ class LC_Custom_Settings_Fields {
 						'affect_on_change_rule' => 'border-style',
 					),
 					array(
-						'label' => __( 'Show extended borders radius', 'live-composer-page-builder' ),
+						'label' => __( 'Hide extended borders radius', 'live-composer-page-builder' ),
 						'id' => 'show_ext_borders_radius',
 						'std' => 'true',
 						'type' => 'minify_controls',
@@ -590,9 +590,9 @@ class LC_Custom_Settings_Fields {
 			'group_text' => array(
 				'fields' => array(
 					array(
-						'label' => __( 'Show extended text', 'live-composer-page-builder' ),
+						'label' => __( 'Hide extended text', 'live-composer-page-builder' ),
 						'id' => 'show_ext_text',
-						'std' => 'true',
+						'std' => 'false',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
 
