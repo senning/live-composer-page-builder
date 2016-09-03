@@ -191,6 +191,22 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'text-align',
 				'section' => 'styling',
 			),
+
+			array(
+				'label' => __( 'Infobox BG', 'live-composer-page-builder' ),
+				'id' => 'infobox_background',
+				'type' => 'group_background',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box',
+				'values' => array(
+					'bg_color' => 'css_bg_color',
+					'bg_img' => 'css_bg_img',
+					'bg_img_repeat' => 'css_bg_img_repeat',
+					'bg_img_attch' => 'css_bg_img_attch',
+					'bg_img_pos' => 'css_bg_img_pos',
+				),
+			),
 			array(
 				'label' => __( 'BG Color', 'live-composer-page-builder' ),
 				'id' => 'css_bg_color',
@@ -308,6 +324,26 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 			),
 			array(
+				'label' => __( 'Infobox border', 'live-composer-page-builder' ),
+				'id' => 'infobox_border',
+				'type' => 'group_border',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box',
+				'values' => array(
+					'border_color' => 'css_border_color',
+					'border_width' => 'css_border_width',
+					'border_trbl' => 'css_border_trbl',
+					'border_radius_top_left' => 'css_border_radius',
+					'border_radius_top_right' => 'css_border_radius',
+					'border_radius_bottom_left' => 'css_border_radius',
+					'border_radius_bottom_right' => 'css_border_radius',
+				),
+				'std' => array(
+					'border_color' => '#000',
+				),
+			),
+			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_border_color',
 				'std' => '#000000',
@@ -323,7 +359,6 @@ class DSLC_Info_Box extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'min' => 0,
@@ -406,6 +441,20 @@ class DSLC_Info_Box extends DSLC_Module {
 				'min' => 0,
 				'max' => 2000,
 				'increment' => 5,
+			),
+			array(
+				'label' => __( 'Infobox padding', 'live-composer-page-builder' ),
+				'id' => 'infobox_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box',
+				'values' => array(
+					'padding_top' => 'css_padding_vertical',
+					'padding_bottom' => 'css_padding_vertical',
+					'padding_left' => 'css_padding_horizontal',
+					'padding_right' => 'css_padding_horizontal',
+				),
 			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
@@ -612,7 +661,6 @@ class DSLC_Info_Box extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -745,7 +793,6 @@ class DSLC_Info_Box extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
