@@ -17,7 +17,7 @@ class DSLC_Info_Box extends DSLC_Module {
 
 		$this->module_id = 'DSLC_Info_Box';
 		$this->module_title = __( 'Info Box', 'live-composer-page-builder' );
-		$this->module_icon = 'mouse-pointer';//'info';
+		$this->module_icon = 'mouse-pointer';
 		$this->module_category = 'General';
 
 	}
@@ -34,15 +34,15 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Desktop', 'live-composer-page-builder' ),
-						'value' => 'desktop'
+						'value' => 'desktop',
 					),
 					array(
 						'label' => __( 'Tablet', 'live-composer-page-builder' ),
-						'value' => 'tablet'
+						'value' => 'tablet',
 					),
 					array(
 						'label' => __( 'Phone', 'live-composer-page-builder' ),
-						'value' => 'phone'
+						'value' => 'phone',
 					),
 				),
 			),
@@ -50,7 +50,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'label' => __( 'Title Link', 'live-composer-page-builder' ),
 				'id' => 'title_link',
 				'std' => '',
-				'type' => 'text'
+				'type' => 'text',
 			),
 			array(
 				'label' => __( 'Title Link - Open in', 'live-composer-page-builder' ),
@@ -66,13 +66,13 @@ class DSLC_Info_Box extends DSLC_Module {
 						'label' => __( 'New Tab', 'live-composer-page-builder' ),
 						'value' => '_blank',
 					),
-				)
+				),
 			),
 			array(
 				'label' => __( 'Icon Link', 'live-composer-page-builder' ),
 				'id' => 'icon_link',
 				'std' => '',
-				'type' => 'text'
+				'type' => 'text',
 			),
 			array(
 				'label' => __( 'Icon Link - Open in', 'live-composer-page-builder' ),
@@ -88,13 +88,13 @@ class DSLC_Info_Box extends DSLC_Module {
 						'label' => __( 'New Tab', 'live-composer-page-builder' ),
 						'value' => '_blank',
 					),
-				)
+				),
 			),
 			array(
 				'label' => __( 'Primary Button Link', 'live-composer-page-builder' ),
 				'id' => 'button_link',
 				'std' => '#',
-				'type' => 'text'
+				'type' => 'text',
 			),
 			array(
 				'label' => __( 'Primary Button - Open in', 'live-composer-page-builder' ),
@@ -110,13 +110,13 @@ class DSLC_Info_Box extends DSLC_Module {
 						'label' => __( 'New Tab', 'live-composer-page-builder' ),
 						'value' => '_blank',
 					),
-				)
+				),
 			),
 			array(
 				'label' => __( 'Secondary Button Link', 'live-composer-page-builder' ),
 				'id' => 'button_2_link',
 				'std' => '',
-				'type' => 'text'
+				'type' => 'text',
 			),
 			array(
 				'label' => __( 'Secondary Button - Open in', 'live-composer-page-builder' ),
@@ -132,7 +132,7 @@ class DSLC_Info_Box extends DSLC_Module {
 						'label' => __( 'New Tab', 'live-composer-page-builder' ),
 						'value' => '_blank',
 					),
-				)
+				),
 			),
 
 			array(
@@ -377,19 +377,19 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
@@ -412,7 +412,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'max' => 100,
 				'increment' => 1,
 				'section' => 'styling',
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
@@ -470,7 +470,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'max' => 500,
 				'increment' => 1,
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -484,7 +484,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box',
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'styling',
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Width', 'live-composer-page-builder' ),
@@ -495,7 +495,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-main-wrap',
 				'affect_on_change_rule' => 'max-width',
 				'section' => 'styling',
-				'ext' => '%'
+				'ext' => '%',
 			),
 			array(
 				'label' => __( 'Box Shadow', 'live-composer-page-builder' ),
@@ -518,10 +518,24 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 			),
 
-
 			/**
 			 * Wrapper
 			 */
+			array(
+				'label' => __( 'Wrapper BG', 'live-composer-page-builder' ),
+				'id' => 'wrapper_background',
+				'type' => 'group_background',
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-wrapper',
+				'values' => array(
+					'bg_color' => 'css_wrapper_bg_color',
+					'bg_img' => 'css_wrapper_bg_img',,
+					'bg_img_repeat' => 'css_wrapper_bg_img_repeat',
+					'bg_img_attch' => 'css_wrapper_bg_img_attch',
+					'bg_img_pos' => 'css_wrapper_bg_img_pos',
+				),
+			),
 
 			array(
 				'label' => __( 'BG Color', 'live-composer-page-builder' ),
@@ -532,7 +546,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'background-color',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image', 'live-composer-page-builder' ),
@@ -543,7 +557,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'background-image',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image Repeat', 'live-composer-page-builder' ),
@@ -572,7 +586,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'background-repeat',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image Attachment', 'live-composer-page-builder' ),
@@ -593,7 +607,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'background-attachment',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image Position', 'live-composer-page-builder' ),
@@ -644,6 +658,24 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
 			),
+
+			array(
+				'label' => __( 'Wrapper border', 'live-composer-page-builder' ),
+				'id' => 'wrapper_border',
+				'type' => 'group_border',
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-button',
+				'values' => array(
+					'border_color' => 'css_wrapper_border_color',
+					'border_width' => 'css_wrapper_border_width',
+					'border_trbl' => 'css_wrapper_border_trbl',
+					'border_radius_top_left' => 'css_wrapper_border_radius',
+					'border_radius_top_right' => 'css_wrapper_border_radius',
+					'border_radius_bottom_left' => 'css_wrapper_border_radius',
+					'border_radius_bottom_right' => 'css_wrapper_border_radius',
+				),
+			),
 			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_wrapper_border_color',
@@ -653,7 +685,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'border-color',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Border Width', 'live-composer-page-builder' ),
@@ -668,7 +700,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'border-width',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Borders', 'live-composer-page-builder' ),
@@ -716,6 +748,20 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'ext' => 'px',
 				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+			),
+			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-wrapper',
+				'values' => array(
+					'padding_top' => 'css_wrapper_padding_vertical',
+					'padding_bottom' => 'css_wrapper_padding_vertical',
+					'padding_left' => 'css_wrapper_padding_horizontal',
+					'padding_right' => 'css_wrapper_padding_horizontal',
+				),
 			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
@@ -777,6 +823,29 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 			),
 			array(
+				'label' => __( 'Icon border', 'live-composer-page-builder' ),
+				'id' => 'icon_border',
+				'type' => 'group_border',
+				'tab' => __( 'Icon', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-image-inner',
+				'values' => array(
+					'border_color' => 'css_icon_border_color',
+					'border_width' => 'css_icon_border_width',
+					'border_trbl' => 'css_icon_border_trbl',
+					'border_radius_top_left' => 'css_icon_border_radius',
+					'border_radius_top_right' => 'css_icon_border_radius',
+					'border_radius_bottom_left' => 'css_icon_border_radius',
+					'border_radius_bottom_right' => 'css_icon_border_radius',
+				),
+				'std' => array(
+					'border_radius_top_left' => 100,
+					'border_radius_top_right' => 100,
+					'border_radius_bottom_left' => 100,
+					'border_radius_bottom_left' => 100,
+				),
+			),
+			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_icon_border_color',
 				'std' => '',
@@ -810,19 +879,19 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
@@ -867,7 +936,20 @@ class DSLC_Info_Box extends DSLC_Module {
 				'type' => 'icon',
 				'section' => 'styling',
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
-				'include_in_preset' => false
+				'include_in_preset' => false,
+			),
+			array(
+				'label' => __( 'Icon margin', 'live-composer-page-builder' ),
+				'id' => 'icon_margin',
+				'type' => 'group_padding',
+				'tab' => __( 'Icon', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-image',
+				'values' => array(
+					'margin_top' => 'css_icon_margin_top',
+					'margin_bottom' => 'css_icon_margin_bottom',
+					'margin_right' => 'css_icon_margin_right',
+				),
 			),
 			array(
 				'label' => __( 'Margin Top', 'live-composer-page-builder' ),
@@ -884,7 +966,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => -100,
-				'max' => 50
+				'max' => 50,
 			),
 			array(
 				'label' => __( 'Margin Right', 'live-composer-page-builder' ),
@@ -898,7 +980,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 100
+				'max' => 100,
 			),
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
@@ -915,7 +997,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 100
+				'max' => 100,
 			),
 			array(
 				'label' => __( 'Position', 'live-composer-page-builder' ),
@@ -947,7 +1029,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 300
+				'max' => 300,
 			),
 			array(
 				'label' => __( 'Size ( Icon )', 'live-composer-page-builder' ),
@@ -959,7 +1041,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'styling',
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Box Shadow', 'live-composer-page-builder' ),
@@ -973,10 +1055,9 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Icon', 'live-composer-page-builder' ),
 			),
 
-      /**
+			/**
 			 * Image
 			 */
-
 			 array(
 				'label' => __( 'Image - File', 'live-composer-page-builder' ),
 				'id' => 'image_alt',
@@ -1004,6 +1085,24 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Image', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Image alt border', 'live-composer-page-builder' ),
+				'id' => 'border_group',
+				'type' => 'group_border',
+				'tab' => __( 'Image', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-image-alt-inner img',
+				'values' => array(
+					'border_color' => 'css_image_alt_border_color',
+					'border_width' => 'css_image_alt_border_width',
+					'border_trbl' => 'css_image_alt_border_trbl',
+					'border_radius_top_left' => 'css_image_alt_border_radius',
+					'border_radius_top_right' => 'css_image_alt_border_radius',
+					'border_radius_bottom_left' => 'css_image_alt_border_radius',
+					'border_radius_bottom_right' => 'css_image_alt_border_radius',
+				),
+			),
 			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
 				'id' => 'css_image_alt_border_color',
@@ -1021,7 +1120,6 @@ class DSLC_Info_Box extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -1039,19 +1137,19 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
@@ -1131,6 +1229,26 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Title', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Title typo', 'live-composer-page-builder' ),
+				'id' => 'title_typo',
+				'type' => 'group_text',
+				'tab' => __( 'Title', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-title h4',
+				'values' => array(
+					'color' => 'css_title_color',
+					'font_size' => 'css_title_font_size',
+					'font_weight' => 'css_title_font_weight',
+					'font_family' => 'css_title_font_family',
+					'letter_spacing' => 'css_title_letter_spacing',
+					'line_height' => 'css_title_line_height',
+				),
+				'std' => array(
+					'color' => '#3d3d3d',
+				),
+			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
 				'id' => 'css_title_color',
@@ -1155,7 +1273,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'styling',
 				'tab' => __( 'Title', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Font Weight', 'live-composer-page-builder' ),
@@ -1233,7 +1351,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Title', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => -50,
-				'max' => 50
+				'max' => 50,
 			),
 			array(
 				'label' => __( 'Line Height', 'live-composer-page-builder' ),
@@ -1248,7 +1366,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'styling',
 				'tab' => __( 'Title', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
@@ -1263,9 +1381,8 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'styling',
 				'tab' => __( 'Title', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
-
 
 			/**
 			 * Content
@@ -1281,6 +1398,27 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'text-align',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
+			),
+			array(
+				'label' => __( 'Button typo', 'live-composer-page-builder' ),
+				'id' => 'button_typo',
+				'type' => 'group_text',
+				'tab' => __( 'Content', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-content, .dslc-info-box-content p',
+				'values' => array(
+					'color' => 'css_content_color',
+					'font_size' => 'css_content_font_size',
+					'font_style' => 'css_button_font_style',
+					'font_weight' => 'css_content_font_weight',
+					'font_family' => 'css_content_font_family',
+					'line_height' => 'css_content_line_height',
+				),
+				'std' => array(
+					'font_family' => 'Lato',
+					'font_size' => 14,
+					'line_height' => 23,
+				),
 			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -1306,7 +1444,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px'б
 			),
 			array(
 				'label' => __( 'Font Weight', 'live-composer-page-builder' ),
@@ -1382,7 +1520,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Margin Bottom', 'live-composer-page-builder' ),
@@ -1397,7 +1535,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 
 			/**
@@ -1426,13 +1564,37 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Primary button border', 'live-composer-page-builder' ),
+				'id' => 'primary_button_border',
+				'type' => 'group_border',
+				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a',
+				'values' => array(
+					'border_color' => 'css_button_border_color',
+					'border_width' => 'css_button_border_width',
+					'border_trbl' => 'css_button_border_trbl',
+					'border_radius_top_left' => 'css_button_border_radius',
+					'border_radius_top_right' => 'css_button_border_radius',
+					'border_radius_bottom_left' => 'css_button_border_radius',
+					'border_radius_bottom_right' => 'css_button_border_radius',
+				),
+				'std' => array(
+					'border_color' => '#d8d8d8',
+					'border_radius_bottom_right' => 3,
+					'border_radius_top_right' => 3,
+					'border_radius_bottom_left' => 3,
+					'border_radius_top_left' => 3,
+				),
+			),
 			array(
 				'label' => __( 'Border Width', 'live-composer-page-builder' ),
 				'id' => 'css_button_border_width',
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -1440,7 +1602,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'border-width',
 				'section' => 'styling',
 				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Borders', 'live-composer-page-builder' ),
@@ -1450,19 +1612,19 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
@@ -1510,6 +1672,28 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
 				'ext' => 'px'
+			),
+
+			array(
+				'label' => __( 'Primary button typo', 'live-composer-page-builder' ),
+				'id' => 'primary_button_typo',
+				'type' => 'group_text',
+				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a',
+				'values' => array(
+					'color' => 'css_button_color',
+					'font_size' => 'css_button_font_size',
+					'font_style' => 'css_button_font_style',
+					'font_weight' => 'css_button_font_weight',
+					'font_family' => 'css_button_font_family',
+					'letter_spacing' => 'css_button_letter_spacing',
+				),
+				'std' => array(
+					'color' => '#fff',
+					'font_size' => 11,
+					'css_button_font_weight' => 800,
+				),
 			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -1671,6 +1855,27 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Primary button padding', 'live-composer-page-builder' ),
+				'id' => 'primary_button_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Primary Button', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a',
+				'values' => array(
+					'padding_top' => 'css_button_padding_vertical',
+					'padding_bottom' => 'css_button_padding_vertical',
+					'padding_left' => 'css_button_padding_horizontal',
+					'padding_right' => 'css_button_padding_horizontal',
+				),
+				'std' => array(
+					'padding_top' => 13,
+					'padding_bottom' => 13,
+					'padding_right' => 16,
+					'padding_left' => 16,
+				),
+			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_button_padding_vertical',
@@ -1795,13 +2000,38 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Secondary Button border', 'live-composer-page-builder' ),
+				'id' => 'sec_button_border',
+				'type' => 'group_border',
+				'tab' => __( 'general', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a.dslc-secondary',
+				'values' => array(
+					'border_color' => 'css_button_2_border_color',
+					'border_width' => 'css_button_2_border_width',
+					'border_trbl' => 'css_button_2_border_trbl',
+					'border_radius' => 'css_border_radius',
+					'border_radius_top_left' => 'css_button_2_border_radius',
+					'border_radius_top_right' => 'css_button_2_border_radius',
+					'border_radius_bottom_left' => 'css_button_2_border_radius',
+					'border_radius_bottom_right' => 'css_button_2_border_radius',
+				),
+				'std' => array(
+					'border_color' => '#d8d8d8',
+					'border_radius_top_left' => 3,
+					'border_radius_top_right' => 3,
+					'border_radius_bottom_left' => 3,
+					'border_radius_bottom_right' => 3,
+				),
+			),
 			array(
 				'label' => __( 'Border Width', 'live-composer-page-builder' ),
 				'id' => 'css_button_2_border_width',
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -1809,7 +2039,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'border-width',
 				'section' => 'styling',
 				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Borders', 'live-composer-page-builder' ),
@@ -1819,19 +2049,19 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
@@ -1878,7 +2108,28 @@ class DSLC_Info_Box extends DSLC_Module {
 				'increment' => 1,
 				'section' => 'styling',
 				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
+			),
+
+			array(
+				'label' => __( 'Secondary Button typo', 'live-composer-page-builder' ),
+				'id' => 'sec_button_typo',
+				'type' => 'group_text',
+				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a.dslc-secondary',
+				'values' => array(
+					'color' => 'css_button_2_color',
+					'font_size' => 'css_button_2_font_size',
+					'font_weight' => 'css_button_2_font_weight',
+					'font_family' => 'css_button_2_font_family',
+					'letter_spacing' => 'css_button_2_letter_spacing',
+				),
+				'std' => array(
+					'color' => '#fff',
+					'font_size' => 11,
+					'font_weight' => 800,
+				),
 			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -2019,6 +2270,27 @@ class DSLC_Info_Box extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
 			),
+
+			array(
+				'label' => __( 'Secondary Button padding', 'live-composer-page-builder' ),
+				'id' => 'sec_button_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Secondary Button', 'live-composer-page-builder' ),
+				'section' => 'styling',
+				'affect_on_change_el' => '.dslc-info-box-button a.dslc-secondary',
+				'values' => array(
+					'padding_top' => 'css_button_2_padding_vertical',
+					'padding_bottom' => 'css_button_2_padding_vertical',
+					'padding_left' => 'css_button_2_padding_horizontal',
+					'padding_right' => 'css_button_2_padding_horizontal',
+				),
+				'std' => array(
+					'padding_right' => 16,
+					'padding_left' => 16,
+					'padding_top' => 13,
+					'padding_bottom' => 13,
+				),
+			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_button_2_padding_vertical',
@@ -2127,7 +2399,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'std' => 'CLICK TO EDIT',
 				'type' => 'textarea',
 				'visibility' => 'hidden',
-				'section' => 'styling'
+				'section' => 'styling',
 			),
 			array(
 				'label' => __( 'Content', 'live-composer-page-builder' ),
@@ -2135,7 +2407,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'std' => 'This is just placeholder text. Hover over the module and click "Edit Content" to change it.',
 				'type' => 'textarea',
 				'visibility' => 'hidden',
-				'section' => 'styling'
+				'section' => 'styling',
 			),
 			array(
 				'label' => __( 'Button Title', 'live-composer-page-builder' ),
@@ -2143,7 +2415,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'std' => 'CLICK TO EDIT',
 				'type' => 'textarea',
 				'visibility' => 'hidden',
-				'section' => 'styling'
+				'section' => 'styling',
 			),
 			array(
 				'label' => __( 'Button Title', 'live-composer-page-builder' ),
@@ -2151,7 +2423,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'std' => 'CLICK TO EDIT',
 				'type' => 'textarea',
 				'visibility' => 'hidden',
-				'section' => 'styling'
+				'section' => 'styling',
 			),
 
 			/**
@@ -2166,11 +2438,11 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Disabled', 'live-composer-page-builder' ),
-						'value' => 'disabled'
+						'value' => 'disabled',
 					),
 					array(
 						'label' => __( 'Enabled', 'live-composer-page-builder' ),
-						'value' => 'enabled'
+						'value' => 'enabled',
 					),
 				),
 				'section' => 'responsive',
@@ -2192,6 +2464,20 @@ class DSLC_Info_Box extends DSLC_Module {
 				'ext' => 'px',
 			),
 			array(
+				'label' => __( 'Infobox padding', 'live-composer-page-builder' ),
+				'id' => 'infobox_t_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box',
+				'values' => array(
+					'padding_top' => 'css_res_t_padding_vertical',
+					'padding_bottom' => 'css_res_t_padding_vertical',
+					'padding_left' => 'css_res_t_padding_horizontal',
+					'padding_right' => 'css_res_t_padding_horizontal',
+				),
+			),
+			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_res_t_padding_vertical',
 				'min' => 0,
@@ -2206,7 +2492,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'max' => 500,
 				'increment' => 1,
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -2224,6 +2510,20 @@ class DSLC_Info_Box extends DSLC_Module {
 				'ext' => 'px'
 			),
 			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_t_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box-wrapper',
+				'values' => array(
+					'padding_top' => 'css_res_t_inner_padding_vertical',
+					'padding_bottom' => 'css_res_t_inner_padding_vertical',
+					'padding_left' => 'css_res_t_inner_padding_horizontal',
+					'padding_right' => 'css_res_t_inner_padding_horizontal',
+				),
+			),
+			array(
 				'label' => __( 'Wrapper - Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_res_t_inner_padding_vertical',
 				'min' => 0,
@@ -2238,7 +2538,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'max' => 500,
 				'increment' => 1,
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Wrapper - Padding Horizontal', 'live-composer-page-builder' ),
@@ -2253,7 +2553,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Width', 'live-composer-page-builder' ),
@@ -2265,7 +2565,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'max-width',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => '%'
+				'ext' => '%',
 			),
 			array(
 				'label' => __( 'Icon - Margin Top', 'live-composer-page-builder' ),
@@ -2282,7 +2582,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => -100,
-				'max' => 50
+				'max' => 50,
 			),
 			array(
 				'label' => __( 'Icon - Margin Right', 'live-composer-page-builder' ),
@@ -2296,7 +2596,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 100
+				'max' => 100,
 			),
 			array(
 				'label' => __( 'Icon - Size ( Wrapper )', 'live-composer-page-builder' ),
@@ -2310,7 +2610,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 300
+				'max' => 300,
 			),
 			array(
 				'label' => __( 'Icon - Size ( Icon )', 'live-composer-page-builder' ),
@@ -2322,7 +2622,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Font Size', 'live-composer-page-builder' ),
@@ -2337,7 +2637,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Line Height', 'live-composer-page-builder' ),
@@ -2352,7 +2652,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Margin Bottom', 'live-composer-page-builder' ),
@@ -2367,7 +2667,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Font Size', 'live-composer-page-builder' ),
@@ -2382,7 +2682,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Line Height', 'live-composer-page-builder' ),
@@ -2397,7 +2697,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Margin Bottom', 'live-composer-page-builder' ),
@@ -2412,7 +2712,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Button - Font Size', 'live-composer-page-builder' ),
@@ -2427,7 +2727,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Button - Margin Top', 'live-composer-page-builder' ),
@@ -2455,6 +2755,26 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'ext' => 'px',
+			),
+			array(
+				'label' => __( 'Primary Button padding', 'live-composer-page-builder' ),
+				'id' => 'prim_but_t_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box-button a',
+				'values' => array(
+					'padding_top' => 'css_res_t_button_padding_vertical',
+					'padding_bottom' => 'css_res_t_button_padding_vertical',
+					'padding_left' => 'css_res_t_button_padding_horizontal',
+					'padding_right' => 'css_res_t_button_padding_horizontal',
+				),
+				'std' => array(
+					'padding_top' => 13,
+					'padding_bottom' => 13,
+					'padding_right' => 16,
+					'padding_left' => 16,
+				),
 			),
 			array(
 				'label' => __( 'Button - Padding Vertical', 'live-composer-page-builder' ),
@@ -2538,11 +2858,11 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Disabled', 'live-composer-page-builder' ),
-						'value' => 'disabled'
+						'value' => 'disabled',
 					),
 					array(
 						'label' => __( 'Enabled', 'live-composer-page-builder' ),
-						'value' => 'enabled'
+						'value' => 'enabled',
 					),
 				),
 				'section' => 'responsive',
@@ -2563,6 +2883,21 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
 			),
+
+			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Phone', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box',
+				'values' => array(
+					'padding_top' => 'css_res_p_padding_vertical',
+					'padding_bottom' => 'css_res_p_padding_vertical',
+					'padding_left' => 'css_res_p_padding_horizontal',
+					'padding_right' => 'css_res_p_padding_horizontal',
+				),
+			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_res_p_padding_vertical',
@@ -2578,7 +2913,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'max' => 500,
 				'increment' => 1,
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -2593,7 +2928,22 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
+			),
+
+			array(
+				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
+				'id' => 'wrapper_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Phone', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box-wrapper',
+				'values' => array(
+					'padding_top' => 'css_res_p_inner_padding_vertical',
+					'padding_bottom' => 'css_res_p_inner_padding_vertical',
+					'padding_left' => 'css_res_p_inner_padding_horizontal',
+					'padding_right' => 'css_res_p_inner_padding_horizontal',
+				),
 			),
 			array(
 				'label' => __( 'Wrapper - Padding Vertical', 'live-composer-page-builder' ),
@@ -2610,7 +2960,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'max' => 500,
 				'increment' => 1,
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Wrapper - Padding Horizontal', 'live-composer-page-builder' ),
@@ -2625,7 +2975,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Width', 'live-composer-page-builder' ),
@@ -2637,7 +2987,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'max-width',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => '%'
+				'ext' => '%',
 			),
 			array(
 				'label' => __( 'Icon - Margin Top', 'live-composer-page-builder' ),
@@ -2654,7 +3004,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => -100,
-				'max' => 50
+				'max' => 50,
 			),
 			array(
 				'label' => __( 'Icon - Margin Right', 'live-composer-page-builder' ),
@@ -2682,7 +3032,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
 				'min' => 0,
-				'max' => 300
+				'max' => 300,
 			),
 			array(
 				'label' => __( 'Icon - Size ( Icon )', 'live-composer-page-builder' ),
@@ -2694,7 +3044,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Font Size', 'live-composer-page-builder' ),
@@ -2709,7 +3059,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Line Height', 'live-composer-page-builder' ),
@@ -2724,7 +3074,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Title - Margin Bottom', 'live-composer-page-builder' ),
@@ -2739,7 +3089,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Font Size', 'live-composer-page-builder' ),
@@ -2754,7 +3104,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Line Height', 'live-composer-page-builder' ),
@@ -2769,7 +3119,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Content - Margin Bottom', 'live-composer-page-builder' ),
@@ -2784,7 +3134,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Button - Font Size', 'live-composer-page-builder' ),
@@ -2799,7 +3149,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Button - Margin Top', 'live-composer-page-builder' ),
@@ -2827,6 +3177,26 @@ class DSLC_Info_Box extends DSLC_Module {
 				'section' => 'responsive',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 				'ext' => 'px',
+			),
+			array(
+				'label' => __( 'Primary Button padding', 'live-composer-page-builder' ),
+				'id' => 'prim_but_p_padding',
+				'type' => 'group_padding',
+				'tab' => __( 'Phone', 'live-composer-page-builder' ),
+				'section' => 'responsive',
+				'affect_on_change_el' => '.dslc-info-box-button a',
+				'values' => array(
+					'padding_top' => 'css_res_p_button_padding_vertical',
+					'padding_bottom' => 'css_res_p_button_padding_vertical',
+					'padding_left' => 'css_res_p_button_padding_horizontal',
+					'padding_right' => 'css_res_p_button_padding_horizontal',
+				),
+				'std' => array(
+					'padding_right' => 16,
+					'padding_left' => 16,
+					'padding_top' => 13,
+					'padding_bottom' => 13,
+				),
 			),
 			array(
 				'label' => __( 'Button - Padding Vertical', 'live-composer-page-builder' ),
@@ -2897,7 +3267,6 @@ class DSLC_Info_Box extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
 			),
-
 		);
 
 		$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array( 'hover_opts' => false ) ) );

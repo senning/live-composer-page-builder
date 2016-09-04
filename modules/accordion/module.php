@@ -339,7 +339,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'margin-bottom',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Header', 'live-composer-page-builder' )
+				'tab' => __( 'Header', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Header padding', 'live-composer-page-builder' ),
@@ -349,8 +349,8 @@ class DSLC_Accordion extends DSLC_Module {
 				'section' => 'styling',
 				'affect_on_change_el' => '.dslc-accordion-header',
 				'values' => array(
-					'padding_top' => 'css_header_padding_vertical'
-					'padding_bottom' => 'css_header_padding_vertical'
+					'padding_top' => 'css_header_padding_vertical',
+					'padding_bottom' => 'css_header_padding_vertical',
 					'padding_left' => 'css_header_padding_horizontal',
 					'padding_right' => 'css_header_padding_horizontal',
 				),
@@ -368,7 +368,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-top,padding-bottom',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Header', 'live-composer-page-builder' )
+				'tab' => __( 'Header', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -399,7 +399,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-accordion-title',
 				'affect_on_change_rule' => 'background-color',
 				'section' => 'styling',
-				'tab' => __( 'Title', 'live-composer-page-builder' )
+				'tab' => __( 'Title', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Title border', 'live-composer-page-builder' ),
@@ -746,11 +746,12 @@ class DSLC_Accordion extends DSLC_Module {
 					'font_size' => 'css_content_font_size',
 					'font_weight' => 'css_content_font_weight',
 					'font_family' => 'css_content_font_family',
-					'letter_spacing' => 'css_content_line_height',
+					'line_height' => 'css_content_line_height',
 				),
 				'std' => array(
-					'letter_spacing' => 22
-				)
+					'letter_spacing' => 22,
+					'font_size' => 12,
+				),
 			),
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -761,7 +762,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-accordion-content',
 				'affect_on_change_rule' => 'color',
 				'section' => 'styling',
-				'tab' => __( 'Content', 'live-composer-page-builder' )
+				'tab' => __( 'Content', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Font Size', 'live-composer-page-builder' ),
@@ -776,7 +777,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Font Weight', 'live-composer-page-builder' ),
@@ -852,7 +853,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'line-height',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 
 			array(
@@ -873,7 +874,7 @@ class DSLC_Accordion extends DSLC_Module {
 					'padding_bottom' => 25,
 					'padding_left' => 25,
 					'padding_right' => 25,
-				)
+				),
 			),
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
@@ -888,7 +889,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-top,padding-bottom',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Content', 'live-composer-page-builder' )
+				'tab' => __( 'Content', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -903,7 +904,7 @@ class DSLC_Accordion extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Content', 'live-composer-page-builder' )
+				'tab' => __( 'Content', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Text Align', 'live-composer-page-builder' ),
