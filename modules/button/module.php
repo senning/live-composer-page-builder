@@ -624,7 +624,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-button',
 				'values' => array(
 					'bg_color' => 'css_wrapper_bg_color',
-					'bg_img' => 'css_wrapper_bg_img',,
+					'bg_img' => 'css_wrapper_bg_img',
 					'bg_img_repeat' => 'css_wrapper_bg_img_repeat',
 					'bg_img_attch' => 'css_wrapper_bg_img_attch',
 					'bg_img_pos' => 'css_wrapper_bg_img_pos',

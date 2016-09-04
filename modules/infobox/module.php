@@ -530,7 +530,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'values' => array(
 					'bg_color' => 'css_wrapper_bg_color',
-					'bg_img' => 'css_wrapper_bg_img',,
+					'bg_img' => 'css_wrapper_bg_img',
 					'bg_img_repeat' => 'css_wrapper_bg_img_repeat',
 					'bg_img_attch' => 'css_wrapper_bg_img_attch',
 					'bg_img_pos' => 'css_wrapper_bg_img_pos',
@@ -1444,7 +1444,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'font-size',
 				'section' => 'styling',
 				'tab' => __( 'Content', 'live-composer-page-builder' ),
-				'ext' => 'px'б
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Font Weight', 'live-composer-page-builder' ),
