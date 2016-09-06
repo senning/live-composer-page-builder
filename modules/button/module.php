@@ -113,7 +113,7 @@ class DSLC_Button extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Nofollow', 'live-composer-page-builder' ),
-						'value' => 'nofollow'
+						'value' => 'nofollow',
 					),
 				),
 			),
@@ -433,7 +433,7 @@ class DSLC_Button extends DSLC_Module {
 						'label' => __( 'Italic', 'live-composer-page-builder' ),
 						'value' => 'italic',
 					),
-				)
+				),
 			),
 			array(
 				'label' => __( 'Font Weight', 'live-composer-page-builder' ),
@@ -680,7 +680,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-button',
 				'affect_on_change_rule' => 'background-repeat',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image Attachment', 'live-composer-page-builder' ),
@@ -701,7 +701,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-button',
 				'affect_on_change_rule' => 'background-attachment',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'BG Image Position', 'live-composer-page-builder' ),
@@ -750,7 +750,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_el' => '.dslc-button',
 				'affect_on_change_rule' => 'background-position',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 
 			array(
@@ -787,7 +787,6 @@ class DSLC_Button extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-				
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -795,7 +794,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_rule' => 'border-width',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Borders', 'live-composer-page-builder' ),
@@ -805,26 +804,26 @@ class DSLC_Button extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
 				'affect_on_change_el' => '.dslc-button',
 				'affect_on_change_rule' => 'border-style',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Border Radius - Top', 'live-composer-page-builder' ),
@@ -842,7 +841,7 @@ class DSLC_Button extends DSLC_Module {
 				'increment' => 1,
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Border Radius - Bottom', 'live-composer-page-builder' ),
@@ -877,7 +876,6 @@ class DSLC_Button extends DSLC_Module {
 					'padding_right' => 'css_wrapper_padding_horizontal',
 				),
 			),
-
 			array(
 				'label' => __( 'Padding Vertical', 'live-composer-page-builder' ),
 				'id' => 'css_wrapper_padding_vertical',
@@ -891,7 +889,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-top,padding-bottom',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -906,7 +904,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 
 			/**
@@ -951,7 +949,7 @@ class DSLC_Button extends DSLC_Module {
 				'id' => 'button_t_padding',
 				'type' => 'group_padding',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'section' => 'styling',
+				'section' => 'responsive',
 				'affect_on_change_el' => '.dslc-button a',
 				'values' => array(
 					'padding_top' => 'css_res_t_padding_vertical',
@@ -973,7 +971,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-top,padding-bottom',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -988,7 +986,7 @@ class DSLC_Button extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'responsive',
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
-				'ext' => 'px'
+				'ext' => 'px',
 			),
 			array(
 				'label' => __( 'Font Size', 'live-composer-page-builder' ),
@@ -1074,7 +1072,7 @@ class DSLC_Button extends DSLC_Module {
 				'id' => 'button_p_padding',
 				'type' => 'group_padding',
 				'tab' => __( 'Phone', 'live-composer-page-builder' ),
-				'section' => 'styling',
+				'section' => 'responsive',
 				'affect_on_change_el' => '.dslc-button a',
 				'values' => array(
 					'padding_top' => 'css_res_p_padding_vertical',
@@ -1156,7 +1154,7 @@ class DSLC_Button extends DSLC_Module {
 			),
 		);
 
-		$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array('hover_opts' => false) ) );
+		$dslc_options = array_merge( $dslc_options, $this->shared_options( 'animation_options', array( 'hover_opts' => false ) ) );
 		$dslc_options = array_merge( $dslc_options, $this->presets_options() );
 
 		return apply_filters( 'dslc_module_options', $dslc_options, $this->module_id );
