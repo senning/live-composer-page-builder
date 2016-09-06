@@ -251,7 +251,8 @@ function dslc_module_settings( $options, $module_id ) {
 			*/
 
 		} else {
-			// If value not set use default?
+
+			// If value not set use default.
 			$settings[ $option['id'] ] = $option['std'];
 		}
 	}

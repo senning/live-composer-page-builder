@@ -540,13 +540,13 @@ function dslc_module_options_tab_filter( dslcTab ) {
 		dslc_module_options_hideshow_tabs();
 
 		// If only one tab hide the tabs container
-		if ( jQuery('.dslca-module-edit-options-tab-hook:visible').length < 2 ) {
+		/*if ( jQuery('.dslca-module-edit-options-tab-hook:visible').length < 2 ) {
 
 			jQuery('.dslca-module-edit-options-tabs').hide();
 		} else {
 
 			jQuery('.dslca-module-edit-options-tabs').show();
-		}
+		}*/
 
 		/**
 		 * If responsive tab, change the width of the dslc-content div
@@ -924,7 +924,7 @@ function dslc_module_options_hideshow_tabs() {
 				jQuery('.dslca-module-edit-options-tabs').show();
 			} else {
 				jQuery('.dslca-module-edit-option[data-section="styling"]').css({ visibility : 'hidden' });
-				jQuery('.dslca-module-edit-options-tabs').hide();
+//				jQuery('.dslca-module-edit-options-tabs').hide();
 				dslcCustomCSS.css({ visibility : 'visible' });
 			}
 

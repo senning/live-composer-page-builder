@@ -710,26 +710,26 @@ class DSLC_Info_Box extends DSLC_Module {
 				'choices' => array(
 					array(
 						'label' => __( 'Top', 'live-composer-page-builder' ),
-						'value' => 'top'
+						'value' => 'top',
 					),
 					array(
 						'label' => __( 'Right', 'live-composer-page-builder' ),
-						'value' => 'right'
+						'value' => 'right',
 					),
 					array(
 						'label' => __( 'Bottom', 'live-composer-page-builder' ),
-						'value' => 'bottom'
+						'value' => 'bottom',
 					),
 					array(
 						'label' => __( 'Left', 'live-composer-page-builder' ),
-						'value' => 'left'
+						'value' => 'left',
 					),
 				),
 				'refresh_on_change' => false,
 				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'affect_on_change_rule' => 'border-style',
 				'section' => 'styling',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Border Radius', 'live-composer-page-builder' ),
@@ -747,7 +747,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'increment' => 1,
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Wrapper padding', 'live-composer-page-builder' ),
@@ -778,7 +778,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'max' => 500,
 				'increment' => 1,
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 			array(
 				'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -793,7 +793,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'affect_on_change_rule' => 'padding-left,padding-right',
 				'section' => 'styling',
 				'ext' => 'px',
-				'tab' => __( 'Wrapper', 'live-composer-page-builder' )
+				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 			),
 
 			/**

@@ -127,6 +127,7 @@ function dslc_ajax_add_module( $atts ) {
 		}
 
 		$post_id = intval( $_POST['dslc_post_id'] );
+
 		if ( isset( $_POST['dslc_preload_preset'] ) && 'enabled' === $_POST['dslc_preload_preset'] ) {
 
 			$preload_preset = 'enabled';
@@ -138,57 +139,40 @@ function dslc_ajax_add_module( $atts ) {
 		/**
 		 * The instance ID for this specific module
 		 */
-
-		// If it is not a new module ( already has ID )?
-		if ( isset( $_POST['dslc_module_instance_id'] ) ) {
-
-			$module_instance_id = esc_attr( $_POST['dslc_module_instance_id'] );
-
-		// If it is a new module ( no ID )?
-		} else {
-
-			// Get current count.
-			$module_id_count = get_option( 'dslc_module_id_count' );
-
-			// If not the first one?
-			if ( $module_id_count ) {
-
-				// Increment by one.
-				$module_instance_id = $module_id_count + 1;
-
-				// Update the count.
-				update_option( 'dslc_module_id_count', $module_instance_id );
-
-			// If it is the first one?
-			} else {
-
-				// Set 1 as the ID.
-				$module_instance_id = 1;
-
-				// Update the count.
-				update_option( 'dslc_module_id_count', $module_instance_id );
-
-			}
-		}
+		$module_instance_id = esc_attr( $_POST['dslc_module_instance_id'] );
 
 		// Instanciate the module class.
 		$module_instance = new $module_id();
 
+		ob_start();
 		// Generate settings.
 		// Array $all_opts - has a structure of the module setting (not actual data).
 		$all_opts = $module_instance->options();
+
+		$response['settings'] = $all_opts;
 
 		/**
 		 * Array $module_settings - has all the module settings (actual data).
 		 * Ex.: [css_bg_color] => rgb(184, 61, 61).
 		 *
-		 * Function dslc_module_settings form the module settings array
-		 * based on default settings + current settings.
+		 * Form the module settings array based on default settings + current settings.
 		 *
-		 * Function dslc_module_settings get current module settings
-		 * form $_POST[ $option['id'] ].
+		 * Get current module settings from $_POST[ $option['id'] ].
 		 */
-		$module_settings = dslc_module_settings( $all_opts, $module_id );
+
+		$module_settings = array();
+
+		foreach( $all_opts as $opt ) {
+
+			if ( isset( $_POST[ $opt['id'] ] ) ) {
+
+				$module_settings[ $opt['id'] ] = $_POST[ $opt['id'] ];
+			} else {
+
+				// If value not set use default.
+				$module_settings[ $opt['id'] ] = $opt['std'];
+			}
+		}
 
 		// Append ID to settings.
 		$module_settings['module_instance_id'] = $module_instance_id;
@@ -197,13 +181,13 @@ function dslc_ajax_add_module( $atts ) {
 		$module_settings['post_id'] = $post_id;
 
 		// Start output fetching.
-		ob_start();
 
 		// Load preset if there was no preset before.
 		if ( 'enabled' === $preload_preset ) {
 
 			$module_settings = apply_filters( 'dslc_filter_settings', $module_settings );
 		}
+
 
 		// Transform image ID to URL.
 		global $dslc_var_image_option_bckp;
@@ -231,6 +215,10 @@ function dslc_ajax_add_module( $atts ) {
 			$module_settings['dslc_m_size'] = '12';
 		}
 
+		$process_dump = ob_get_clean();
+
+		ob_start();
+
 		// Output.
 		$module_instance->output( $module_settings );
 
@@ -240,6 +228,7 @@ function dslc_ajax_add_module( $atts ) {
 
 		// Set the output.
 		$response['output'] = $output;
+		$response['process_dump'] = $process_dump;
 
 		// Encode response.
 		$response_json = wp_json_encode( $response );

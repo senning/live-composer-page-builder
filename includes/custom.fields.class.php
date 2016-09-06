@@ -154,9 +154,9 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Hide extended margins', 'live-composer-page-builder' ),
+						'label' => __( 'Show extended margins', 'live-composer-page-builder' ),
 						'id' => 'show_ext_margins',
-						'std' => 'false',
+						'std' => 'true',
 						'type' => 'minify_controls',
 						'dependent_controls' => array(
 
@@ -242,7 +242,7 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Hide extended paddings', 'live-composer-page-builder' ),
+						'label' => __( 'Show extended paddings', 'live-composer-page-builder' ),
 						'id' => 'show_ext_paddings',
 						'std' => 'true',
 						'type' => 'minify_controls',
@@ -330,9 +330,9 @@ class LC_Custom_Settings_Fields {
 					 * Hardcoded values - true & false.
 					 */
 					array(
-						'label' => __( 'Hide extended back', 'live-composer-page-builder' ),
+						'label' => __( 'Show extended back', 'live-composer-page-builder' ),
 						'id' => 'show_ext_backs',
-						'std' => 'false',
+						'std' => 'true',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
 
@@ -500,7 +500,7 @@ class LC_Custom_Settings_Fields {
 						'affect_on_change_rule' => 'border-style',
 					),
 					array(
-						'label' => __( 'Hide extended borders radius', 'live-composer-page-builder' ),
+						'label' => __( 'Show extended borders radius', 'live-composer-page-builder' ),
 						'id' => 'show_ext_borders_radius',
 						'std' => 'true',
 						'type' => 'minify_controls',
@@ -599,9 +599,9 @@ class LC_Custom_Settings_Fields {
 			'group_text' => array(
 				'fields' => array(
 					array(
-						'label' => __( 'Hide extended text', 'live-composer-page-builder' ),
+						'label' => __( 'Show extended text', 'live-composer-page-builder' ),
 						'id' => 'show_ext_text',
-						'std' => 'false',
+						'std' => 'true',
 						'type' => 'toggle_controls',
 						'dependent_controls' => array(
 
@@ -950,7 +950,6 @@ class LC_Custom_Settings_Fields {
 				// Change old & new values.
 				self::move_values_post( $group_def, $option );
 
-
 				if ( isset( $group_def['values'] ) && ! empty( $group_def['values'][ $option['id'] ] ) ) {
 
 					self::$hide_options[ $option['id'] . '_' . $group_def['id'] ] = $group_def['values'][ $option['id'] ];
@@ -963,6 +962,7 @@ class LC_Custom_Settings_Fields {
 				$option['group_id'] = $group_def['id'];
 				$option['group_type'] = $group_def['type'];
 
+
 				if ( isset( $group_def['std'] ) && isset( $group_def['std'][ $raw['id'] ] ) ) {
 
 					$option['std'] = $group_def['std'][ $raw['id'] ];
@@ -971,7 +971,9 @@ class LC_Custom_Settings_Fields {
 				// Handle regular selector.
 				if ( ! empty( $option['affect_on_change_el'] ) ) {
 
-					$selectors = explode( ',', $group_def['affect_on_change_el'] ); // Multiple selectors
+					$selectors = explode( ',', $group_def['affect_on_change_el'] );
+
+					// Multiple selectors.
 					$selector_out = array();
 
 					foreach ( $selectors as $selector ) {

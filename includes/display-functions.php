@@ -1485,11 +1485,13 @@ function dslc_module_gen_css( $atts, $settings_raw ) {
 
 		// Check if module exists
 		if ( ! dslc_is_module_active( $module_id ) ) {
+
 					return;
 		}
 
 		// If class does not exists
 		if ( ! class_exists( $module_id ) ) {
+
 					return;
 		}
 
@@ -1505,10 +1507,13 @@ function dslc_module_gen_css( $atts, $settings_raw ) {
 		// Transform image ID to URL
 		global $dslc_var_image_option_bckp;
 		$dslc_var_image_option_bckp = array();
+
 		foreach ( $options_arr as $option_arr ) {
 
 			if ( $option_arr['type'] == 'image' ) {
+
 				if ( isset( $settings[$option_arr['id']] ) && ! empty( $settings[$option_arr['id']] ) && is_numeric( $settings[$option_arr['id']] ) ) {
+
 					$dslc_var_image_option_bckp[$option_arr['id']] = $settings[$option_arr['id']];
 					$image_info = wp_get_attachment_image_src( $settings[$option_arr['id']], 'full' );
 					$settings[$option_arr['id']] = $image_info[0];
@@ -1517,6 +1522,7 @@ function dslc_module_gen_css( $atts, $settings_raw ) {
 
 			// Fix css_custom value ( issue when default changed programmatically )
 			if ( $option_arr['id'] == 'css_custom' && $module_id == 'DSLC_Text_Simple' && ! isset( $settings['css_custom'] ) ) {
+
 				$settings['css_custom'] = $option_arr['std'];
 			}
 		}
@@ -1528,11 +1534,14 @@ function dslc_module_gen_css( $atts, $settings_raw ) {
 		* Line above was breaking styling for DSLC_TP_Content modules when used in template
 		*/
 		if ( $module_id == 'DSLC_Html' && ! isset( $settings['css_custom'] ) ) {
-					$css_output = '';
+
+			$css_output = '';
 		} elseif ( isset( $settings['css_custom'] ) && $settings['css_custom'] == 'disabled' ) {
-					$css_output = '';
+
+			$css_output = '';
 		} else {
-					$css_output = dslc_generate_custom_css( $options_arr, $settings );
+
+			$css_output = dslc_generate_custom_css( $options_arr, $settings );
 		}
 	}
 

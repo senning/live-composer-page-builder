@@ -3703,6 +3703,7 @@ body.page .dslca-module.dslca-origin-single[data-id="DSLC_TP_Staff_Social"] {
 .dslca-module-edit-options-wrapper {
 	display: table-cell;
 	padding: 3px 3px 20px;
+    height: 139px;
 	border-spacing: 30px 0;
 }
 
@@ -4042,6 +4043,7 @@ input.dslca-module-edit-field.pseudo-input {
 
 /** OPTION GROUP */
 .lc-option-group {
+	vertical-align: top;
     display: table-cell;
     padding-top: 8px;
     border-spacing: 0;
@@ -4139,7 +4141,7 @@ input.dslca-module-edit-field.pseudo-input {
 	font-size: 30px;
 	width: 100%;
 	justify-content: center;
-	height: 88px;
+	height: 59px;
 	align-items: center;
 }
 
