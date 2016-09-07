@@ -665,7 +665,7 @@ class DSLC_Info_Box extends DSLC_Module {
 				'type' => 'group_border',
 				'tab' => __( 'Wrapper', 'live-composer-page-builder' ),
 				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-button',
+				'affect_on_change_el' => '.dslc-info-box-wrapper',
 				'values' => array(
 					'border_color' => 'css_wrapper_border_color',
 					'border_width' => 'css_wrapper_border_width',

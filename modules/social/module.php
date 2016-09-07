@@ -193,11 +193,17 @@ class DSLC_Social extends DSLC_Module {
 					'border_color' => 'css_border_color',
 					'border_width' => 'css_border_width',
 					'border_trbl' => 'css_border_trbl',
-					'border_radius' => 'css_border_radius',
 					'border_radius_top_left' => 'css_border_radius',
 					'border_radius_top_right' => 'css_border_radius',
 					'border_radius_bottom_left' => 'css_border_radius',
 					'border_radius_bottom_right' => 'css_border_radius',
+				),
+				'std' => array(
+					'border_color' => '#000000',
+					'border_radius_top_left' => 50,
+					'border_radius_top_right' => 50,
+					'border_radius_bottom_left' => 50,
+					'border_radius_bottom_right' => 50,
 				),
 			),
 			array(
@@ -485,6 +491,9 @@ class DSLC_Social extends DSLC_Module {
 					'font_weight' => 'css_label_font_weight',
 					'font_family' => 'css_label_font_family',
 					'letter_spacing' => 'css_label_letter_spacing',
+				),
+				'std' => array(
+					'line_height' => 30,
 				),
 			),
 

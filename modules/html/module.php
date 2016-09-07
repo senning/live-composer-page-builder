@@ -1660,17 +1660,11 @@ class DSLC_Html extends DSLC_Module {
 				'values' => array(
 					'color' => 'css_li_color',
 					'font_size' => 'css_li_font_size',
-					'font_style' => 'css_button_font_style',
 					'font_weight' => 'css_li_font_weight',
 					'font_family' => 'css_li_font_family',
-					'letter_spacing' => 'css_button_letter_spacing',
 					'line_height' => 'css_li_line_height',
 				),
-				'std' => array(
-					'font_size' => 13,
-				),
 			),
-
 			array(
 				'label' => __( 'Color', 'live-composer-page-builder' ),
 				'id' => 'css_li_color',
@@ -1806,7 +1800,7 @@ class DSLC_Html extends DSLC_Module {
 				'type' => 'group_lists',
 				'tab' => __( 'Lists', 'live-composer-page-builder' ),
 				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-button a',
+				'affect_on_change_el' => '.dslc-html-module-content',
 				'values' => array(
 					'ul_style' => 'css_ul_style',
 					'ol_style' => 'css_ol_style',
@@ -2028,7 +2022,6 @@ class DSLC_Html extends DSLC_Module {
 					'border_color' => 'css_li_border_color',
 					'border_width' => 'css_li_border_width',
 					'border_trbl' => 'css_li_border_trbl',
-					'border_radius' => 'css_border_radius',
 					'border_radius_top_left' => 'css_li_border_radius_top',
 					'border_radius_top_right' => 'css_li_border_radius_top',
 					'border_radius_bottom_left' => 'css_li_border_radius_bottom',
@@ -2126,7 +2119,6 @@ class DSLC_Html extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Lists', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Li padding', 'live-composer-page-builder' ),
 				'id' => 'li_padding',
@@ -2198,7 +2190,6 @@ class DSLC_Html extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Inputs', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Inputs border', 'live-composer-page-builder' ),
 				'id' => 'inputs_border',
@@ -2216,7 +2207,7 @@ class DSLC_Html extends DSLC_Module {
 					'border_radius_bottom_right' => 'css_inputs_border_radius',
 				),
 				'std' => array(
-					'border_color' => '$ddd',
+					'border_color' => '#ddd',
 					'border_width' => 1,
 				),
 			),
@@ -2237,7 +2228,6 @@ class DSLC_Html extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-
 				'std' => '1',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -2294,7 +2284,6 @@ class DSLC_Html extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Inputs', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Inputs typo', 'live-composer-page-builder' ),
 				'id' => 'inputs_typo',
@@ -2313,6 +2302,7 @@ class DSLC_Html extends DSLC_Module {
 					'color' => '#4d4d4d',
 					'font_size' => 13,
 					'font_weight' => 500,
+					'line_height' => 23,
 				),
 			),
 			array(
@@ -2432,7 +2422,6 @@ class DSLC_Html extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Inputs', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Inputs padding', 'live-composer-page-builder' ),
 				'id' => 'inputs_padding',
@@ -2760,7 +2749,6 @@ class DSLC_Html extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Blockquote', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Blockquote typo', 'live-composer-page-builder' ),
 				'id' => 'blockquote_typo',
@@ -2911,7 +2899,7 @@ class DSLC_Html extends DSLC_Module {
 				'type' => 'group_padding',
 				'tab' => __( 'Blockquote', 'live-composer-page-builder' ),
 				'section' => 'styling',
-				'affect_on_change_el' => 'blockquote, .dslc-html-module-content blockquote p',
+				'affect_on_change_el' => 'blockquote',
 				'values' => array(
 					'padding_top' => 'css_blockquote_padding_vertical',
 					'padding_bottom' => 'css_blockquote_padding_vertical',
@@ -3050,7 +3038,6 @@ class DSLC_Html extends DSLC_Module {
 				'min' => 0,
 				'max' => 10,
 				'increment' => 1,
-
 				'std' => '0',
 				'type' => 'slider',
 				'refresh_on_change' => false,
@@ -3126,6 +3113,7 @@ class DSLC_Html extends DSLC_Module {
 					'color' => '#fff',
 					'font_size' => 13,
 					'font_weight' => 500,
+					'line_height' => 13,
 				),
 			),
 			array(
@@ -3362,7 +3350,6 @@ class DSLC_Html extends DSLC_Module {
 				'tab' => __( 'Tablet', 'live-composer-page-builder' ),
 				'ext' => 'px',
 			),
-
 			array(
 				'label' => __( 'Content padding', 'live-composer-page-builder' ),
 				'id' => 'content_t_padding',
