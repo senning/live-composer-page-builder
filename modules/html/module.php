@@ -2498,6 +2498,7 @@ class DSLC_Html extends DSLC_Module {
 			/**
 			 * Blockquote
 			 */
+
 			array(
 				'label' => __( 'Blockquote BG', 'live-composer-page-builder' ),
 				'id' => 'blockquote_background',
@@ -2513,7 +2514,6 @@ class DSLC_Html extends DSLC_Module {
 					'bg_img_pos' => 'css_blockquote_bg_img_pos',
 				),
 			),
-
 			array(
 				'label' => __( 'BG Color', 'live-composer-page-builder' ),
 				'id' => 'css_blockquote_bg_color',
@@ -2651,7 +2651,6 @@ class DSLC_Html extends DSLC_Module {
 				'section' => 'styling',
 				'tab' => __( 'Blockquote', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Blockquote border', 'live-composer-page-builder' ),
 				'id' => 'blockquote_border',
@@ -3108,7 +3107,6 @@ class DSLC_Html extends DSLC_Module {
 				'ext' => 'px',
 				'tab' => __( 'Buttons', 'live-composer-page-builder' ),
 			),
-
 			array(
 				'label' => __( 'Submit typo', 'live-composer-page-builder' ),
 				'id' => 'button_typo',

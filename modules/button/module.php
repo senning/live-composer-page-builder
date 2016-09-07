@@ -165,6 +165,13 @@ class DSLC_Button extends DSLC_Module {
 					'border_radius_bottom_left' => 'css_border_radius',
 					'border_radius_bottom_right' => 'css_border_radius',
 				),
+				'std' => array(
+					'border_color' => '#000',
+					'border_radius_top_left' => 3,
+					'border_radius_top_right' => 3,
+					'border_radius_bottom_left' => 3,
+					'border_radius_bottom_right' => 3,
+				),
 			),
 			array(
 				'label' => __( 'Border Color', 'live-composer-page-builder' ),
@@ -315,6 +322,12 @@ class DSLC_Button extends DSLC_Module {
 					'padding_right' => 'css_padding_horizontal',
 					'padding_left' => 'css_padding_horizontal',
 				),
+				'std' => array(
+					'padding_top' => 12,
+					'padding_bottom' => 12,
+					'padding_right' => 12,
+					'padding_left' => 12,
+				),
 			),
 			array(
 				'label' => __( 'Width', 'live-composer-page-builder' ),
@@ -360,13 +373,14 @@ class DSLC_Button extends DSLC_Module {
 			/**
 			 * Typography
 			 */
+
 			array(
 				'label' => __( 'Button typo', 'live-composer-page-builder' ),
 				'id' => 'button_typo',
 				'type' => 'group_text',
 				'tab' => __( 'Typography', 'live-composer-page-builder' ),
 				'section' => 'styling',
-				'affect_on_change_el' => '.dslc-button',
+				'affect_on_change_el' => '.dslc-button a',
 				'values' => array(
 					'color' => 'css_button_color',
 					'font_size' => 'css_button_font_size',
@@ -374,6 +388,14 @@ class DSLC_Button extends DSLC_Module {
 					'font_weight' => 'css_button_font_weight',
 					'font_family' => 'css_button_font_family',
 					'letter_spacing' => 'css_button_letter_spacing',
+				),
+				'std' => array(
+					'color' => '#ffffff',
+					'font_size' => 11,
+					'font_style' => 'normal',
+					'font_weight' => 800,
+					'font_family' => 'Lato',
+					'letter_spacing' => 0,
 				),
 			),
 
