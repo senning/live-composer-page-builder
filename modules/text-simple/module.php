@@ -3415,7 +3415,6 @@ class DSLC_Text_Simple extends DSLC_Module {
 				),
 				'std' => array(
 					'color' => '#4d4d4d',
-					'font_size' => 13,
 					'font_weight' => 500,
 					'line_height' => 23,
 				),
@@ -3615,7 +3614,7 @@ class DSLC_Text_Simple extends DSLC_Module {
 					'border_radius_bottom_right' => 'css_inputs_border_radius',
 				),
 				'std' => array(
-					'border_color' => '$ddd',
+					'border_color' => '#ddd',
 					'border_width' => 1,
 				),
 			),
