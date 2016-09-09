@@ -21,155 +21,143 @@
 
 ;jQuery(document).on('editorFrameLoaded', function(){
 
-	function init_sortables() {
+	window.ModuleAreaFuncs = new (Backbone.View.extend({
 
-		var el = jQuery('.dslc-modules-area', LiveComposer.Builder.PreviewAreaDocument); // Groups that can hold modules
+		template: jQuery("#module-area-template").html(),
+		el: LiveComposer.Builder.PreviewAreaDocument,
+		events: {
 
-		jQuery(el).each(function (i,e) {
+			'click .dslca-copy-modules-area-hook': 					'copyModuleAreaHook',
+			'click .dslca-delete-modules-area-hook':				'deleteModuleAreaHook',
+			'click .dslca-change-width-modules-area-options span':	'setModuleAreaWidth',
+			'click .dslca-change-width-modules-area-hook': 			'showModuleAreaWidthControls',
+		},
+		// Fires right after init
+		initialize: function() {
 
-			new LiveComposer.Builder.Elements.CModuleArea(e);
-		});
-	}
+			var self = this;
 
+			/**
+			 * Action - Automatically Add a Row if Empty
+			 */
+			if ( ! jQuery( '#dslc-main .dslc-modules-section', this.el ).length &&
+				! jQuery( '#dslca-tut-page', this.el ).length
+			) {
 
-	var actionAvail = function() {
+				dslc_row_add().then(function(row){
 
-		if ( LiveComposer.Builder.Flags.panelOpened ) {
-
-			LiveComposer.Builder.UI.shakePanelConfirmButton();
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
-	 * Action - Automatically Add a Row if Empty
-	 */
-	if ( ! jQuery( '#dslc-main .dslc-modules-section', LiveComposer.Builder.PreviewAreaDocument).length && ! jQuery( '#dslca-tut-page', LiveComposer.Builder.PreviewAreaDocument).length ) {
-
-		dslc_row_add().then(function(row){
-
-			init_sortables();
-		});
-	} else {
-
-		init_sortables();
-	}
-
-	/**
-	 * Hook - Copy Module Area
-	 */
-	LiveComposer.Builder.PreviewAreaDocument.on( 'click', '.dslca-copy-modules-area-hook', function(e){
-
-		e.preventDefault();
-
-		// Check if action can be fired
-		if ( !actionAvail() ) return false;
-
-		if ( ! jQuery(this).hasClass('dslca-action-disabled') ) {
-
-			var modulesArea = jQuery(this).closest('.dslc-modules-area');
-			dslc_copy_modules_area( modulesArea );
-		}
-	});
-
-	/**
-	 * Hook - Delete Module Area
-	 */
-	LiveComposer.Builder.PreviewAreaDocument.on( 'click', '.dslca-delete-modules-area-hook', function(e){
-
-		e.preventDefault();
-
-		// Check if action can be fired
-		if ( !actionAvail() ) return false;
-
-		if ( ! jQuery(this).hasClass('dslca-action-disabled') ) {
-
-			// Check if current modules area is empty.
-			var modulesAreaEmpty = jQuery(this).closest('.dslc-modules-area').hasClass('dslc-modules-area-empty');
-
-			if ( ! modulesAreaEmpty ) {
-
-				var self = jQuery(this);
-
-				LiveComposer.Builder.UI.CModalWindow({
-
-					title: DSLCString.str_del_area_title,
-					content: DSLCString.str_del_area_descr,
-					confirm: function() {
-
-						var modulesArea = self.closest('.dslc-modules-area');
-						dslc_modules_area_delete( modulesArea );
-					}
+					self.init_sortables();
 				});
-
-				// Show confirmation modal only if the module area isn't empty.
-				/*dslc_js_confirm( 'delete_modules_area', '<span class="dslca-prompt-modal-title">' + DSLCString.str_del_area_title +
-					'</span><span class="dslca-prompt-modal-descr">' + DSLCString.str_del_area_descr + '</span>', jQuery(this) );*/
 			} else {
 
-				var modulesArea = jQuery(this).closest('.dslc-modules-area');
-				// Delete module area without asking anything.
-				dslc_delete_modules_area( modulesArea );
+				self.init_sortables();
 			}
-		}
-	});
+		},
+		copyModuleAreaHook: function(e) {
 
-	/**
-	 * Hook - Set Width of the Module Area
-	 */
-	LiveComposer.Builder.PreviewAreaDocument.on( 'click', '.dslca-change-width-modules-area-options span', function(){
+			e.preventDefault();
 
-		// Check if action can be fired
-		if ( !actionAvail() ) return false;
+			// Check if action can be fired
+			if ( !this.actionAvail() ) return false;
 
-		if ( ! jQuery(this).hasClass('dslca-action-disabled') ) {
-			dslc_modules_area_width_set( jQuery(this).closest('.dslc-modules-area'), jQuery(this).data('size') );
-		}
-	});
+			if ( ! jQuery(e.target).hasClass('dslca-action-disabled') ) {
 
-	/**
-	 * Action - Show/Hide Width Options for the Module Area
-	 */
-	LiveComposer.Builder.PreviewAreaDocument.on( 'click', '.dslca-change-width-modules-area-hook', function(e){
-
-		e.preventDefault();
-
-		// Check if action can be fired
-		if ( !actionAvail() ) return false;
-
-		if ( ! jQuery(this).hasClass('dslca-action-disabled') ) {
-
-			// Is visible
-			if ( jQuery('.dslca-change-width-modules-area-options:visible', this).length ) {
-
-				// Hide
-				jQuery('.dslca-change-width-modules-area-options', this).hide();
-
-			// Is hidden
-			} else {
-
-				// Show
-				jQuery('.dslca-change-width-modules-area-options', this).show();
+				var modulesArea = jQuery(e.target).closest('.dslc-modules-area');
+				dslc_copy_modules_area( modulesArea );
 			}
+		},
+		deleteModuleAreaHook: function(e) {
+
+			e.preventDefault();
+
+			// Check if action can be fired
+			if ( !this.actionAvail() ) return false;
+
+			if ( ! jQuery(e.target).hasClass('dslca-action-disabled') ) {
+
+				// Check if current modules area is empty.
+				var modulesAreaEmpty = jQuery(e.target).closest('.dslc-modules-area').hasClass('dslc-modules-area-empty');
+
+				if ( ! modulesAreaEmpty ) {
+
+					LiveComposer.Builder.UI.CModalWindow({
+
+						title: DSLCString.str_del_area_title,
+						content: DSLCString.str_del_area_descr,
+						confirm: function() {
+
+							var modulesArea = jQuery(e.target).closest('.dslc-modules-area');
+							dslc_modules_area_delete( modulesArea );
+						}
+					});
+
+					// Show confirmation modal only if the module area isn't empty.
+					/*dslc_js_confirm( 'delete_modules_area', '<span class="dslca-prompt-modal-title">' + DSLCString.str_del_area_title +
+						'</span><span class="dslca-prompt-modal-descr">' + DSLCString.str_del_area_descr + '</span>', jQuery(this) );*/
+				} else {
+
+					var modulesArea = jQuery(e.target).closest('.dslc-modules-area');
+					// Delete module area without asking anything.
+					dslc_delete_modules_area( modulesArea );
+				}
+			}
+		},
+		setModuleAreaWidth: function(e) {
+
+			// Check if action can be fired
+			if ( !this.actionAvail() ) return false;
+
+			if ( ! jQuery(e.target).hasClass('dslca-action-disabled') ) {
+
+				dslc_modules_area_width_set( jQuery(e.target).closest('.dslc-modules-area'), jQuery(e.target).data('size') );
+			}
+		},
+		showModuleAreaWidthControls: function(e) {
+
+			e.preventDefault();
+
+			// Check if action can be fired
+			if ( !this.actionAvail() ) return false;
+
+			if ( ! jQuery(e.target).hasClass('dslca-action-disabled') ) {
+
+				// Is visible
+				if ( jQuery(e.target).closest('.dslca-modules-area-manage-inner')
+						.find('.dslca-change-width-modules-area-options:visible').length ) {
+
+					// Hide
+					jQuery(e.target).closest('.dslca-modules-area-manage-inner')
+						.find('.dslca-change-width-modules-area-options').hide();
+
+				// Is hidden
+				} else {
+
+					// Show
+					jQuery(e.target).closest('.dslca-modules-area-manage-inner')
+						.find('.dslca-change-width-modules-area-options').show();
+				}
+			}
+		},
+		init_sortables: function() {
+
+			var el = jQuery('.dslc-modules-area', this.el); // Groups that can hold modules
+
+			jQuery(el).each(function (i,e) {
+
+				new LiveComposer.Builder.Elements.CModuleArea(e);
+			});
+		},
+		actionAvail: function() {
+
+			if ( LiveComposer.Builder.Flags.panelOpened ) {
+
+				LiveComposer.Builder.UI.shakePanelConfirmButton();
+				return false;
+			}
+
+			return true;
 		}
-	});
-
-	/**
-	 * Hook - Add Modules Area
-	 * TODO: Where we use it? Delete maybe?
-	 */
-	LiveComposer.Builder.PreviewAreaDocument.on( 'click', '.dslca-add-modules-area-hook', function(e){
-
-		e.preventDefault();
-
-		// Check if action can be fired
-		if ( !actionAvail() ) return false;
-
-		dslc_modules_area_add( jQuery(this).closest('.dslc-modules-section').find('.dslc-modules-section-inner') );
-	});
-
+	}));
 });
 
 /**
@@ -183,20 +171,7 @@ function dslc_modules_area_add( row ) {
 	// Add class to body so we know it's in progress
 	// jQuery('body', LiveComposer.Builder.PreviewAreaDocument).addClass('dslca-anim-in-progress');
 
-	var output = '<div class="dslc-modules-area dslc-col dslc-12-col dslc-modules-area-empty " data-size="12">'+
-	'<div class="dslca-modules-area-manage"> <div class="dslca-modules-area-manage-inner">'+
-	'<span class="dslca-manage-action dslca-copy-modules-area-hook" title="Duplicate" ><span class="dslca-icon dslc-icon-copy">'+
-	'</span></span> <span class="dslca-manage-action dslca-move-modules-area-hook" title="Drag to move" >'+
-	'<span class="dslca-icon dslc-icon-move"></span></span>'+
-	'<span class="dslca-manage-action dslca-change-width-modules-area-hook" title="Change width" >'+
-	'<span class="dslca-icon dslc-icon-columns"></span> <div class="dslca-change-width-modules-area-options">'+
-	'<span>Container Width</span><span data-size="1">1/12</span><span data-size="2">2/12</span>'+
-	'<span data-size="3">3/12</span><span data-size="4">4/12</span> <span data-size="5">5/12</span><span data-size="6">6/12</span>'+
-	'<span data-size="7">7/12</span><span data-size="8">8/12</span> <span data-size="9">9/12</span><span data-size="10">10/12</span>'+
-	'<span data-size="11">11/12</span><span data-size="12">12/12</span> </div> </span>'+
-	'<span class="dslca-manage-action dslca-delete-modules-area-hook" title="Delete" ><span class="dslca-icon dslc-icon-remove"></span></span> </div> </div>'+
-	'</div>';
-
+	var output = ModuleAreaFuncs.template;
 
 	// Append new area and animate
 	jQuery( output ).appendTo( row ).css({ height : 0 }).animate({
