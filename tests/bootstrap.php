@@ -19,6 +19,3 @@ require $_tests_dir . '/includes/bootstrap.php';
 
 activate_plugin( 'live-composer-page-builder/ds-live-composer.php' );
 
-$current_user = new WP_User( 1 );
-$current_user->set_role( 'administrator' );
-wp_update_user( array( 'ID' => 1, 'first_name' => 'Admin', 'last_name' => 'User' ) );
