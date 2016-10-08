@@ -309,7 +309,6 @@ function dslc_get_new_module_id() {
 
 		// Return new ID.
 		return $module_instance_id;
-
 	}
 }
 
