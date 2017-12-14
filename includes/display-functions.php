@@ -226,7 +226,7 @@ function dslc_display_composer() {
 						<div class="dslca-modal dslca-modal-templates-import">
 
 							<form class="dslca-template-import-form">
-								<textarea id="dslca-import-code" placeholder="<?php _e( 'Enter the exported code heree', 'live-composer-page-builder' ); ?>"></textarea>
+								<textarea id="dslca-import-code" placeholder="<?php _e( 'Enter the exported code here', 'live-composer-page-builder' ); ?>"></textarea>
 								<div class="dslca-submit">
 									<div class="dslca-modal-title"><?php _e( 'Import', 'live-composer-page-builder' ); ?></div>
 									<div class="dslca-loading followingBallsGWrap">
